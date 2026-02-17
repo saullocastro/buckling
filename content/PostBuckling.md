@@ -2,13 +2,37 @@
 
 ## Effective width
 
-The effective width method, originating in the 1930s, simplifies the complex,
-non-uniform stress distribution in a buckled panel. It replaces it with an
-equivalent, uniform stress acting over a reduced "effective width" of the skin
-adjacent to the stiffeners. The TEW method extends this concept to curved,
-anisotropic, laminated composite panels by reformulating an equivalent column
-model to account for the unique bending, torsional, and coupled instability
-modes of composite structures.
+The postbuckling behavior and stress/strain distribution
+of stiﬀened panels is complex and non-linear. Complicated
+non-linear numerical calculation methods that employ sig-
+nificant computational resources are laborious and are
+required to confidently predict the panels ultimate load
+capacity [@Pevzner2008]. To alleviate the calculations, a relatively simplified
+model, the ‘‘eﬀective width’’ approach, has been proposed
+by von K\'arman et al. [@vonKarman1932] and subsequently modified by
+Cox [@cox1933] and Sechler [@Sechler1937]. This
+approach has provided a good average approximation for
+calculation of the eﬀective width, $w_e$, i.e. the portion of
+the between adjacent stringers buckled skin, that together
+with the stringer constitute the integral skin-stringer combi-
+nation that participates in load carrying in postbuckling.
+Based on the average stress $s_{st}$ experienced by the stringers
+and the ‘‘first’’ critical skin stress, $s_{cr}$ between adjacent
+stringers of spacing b, the following relation has been pro-
+posed by Marguerre for determination of $w_e$:
+
+$$\frac{w_e}{b} = \frac{1}{2}\sqrt[3]{\frac{s_{cr}}{s_{st}}}$$
+
+The above eﬀective width concept is widely and eﬀectively applied as an adequate reliable tool for prediction
+of ultimate loads of metal flat stiﬀened panels. When
+appropriately modified and adapted it might lend itself as
+an appropriate approach for determination of ultimate
+load capacities of axially compressed laminated composite
+stringer-stiﬀened curved panels as well [@Pevzner2008].
+
+The effective width method simplifies the complex and 
+non-uniform stress distribution in a buckled panel, replacing it with an
+equivalent and uniform stress acting over a reduced "effective width" of the skin adjacent to the stiffeners. 
 
 The analytical process involves:
 1.  **First Buckling Calculation:** Determining the initial local buckling of the skin between stringers using semi-empirical or approximate analytical solutions.
@@ -22,12 +46,10 @@ The analytical process involves:
 
 The Technion Effective Width (TEW) method [@Pevzner2008] is an engineering
 approximation for analyzing the postbuckling behavior of curved, laminated
-composite structures.
+composite structures. The TEW method extends the effective width concept to curved, anisotropic, laminated composite panels by reformulating an equivalent column model to account for the unique bending, torsional, and coupled instability modes of composite structures.
 
 +++{"no-pdf":true}
-```
 An example of the TEW method is presented in the following notebook: {doc}`effective-width-composites-TEW`.
-```
 +++
 
 The TEW paper reveals that the predictive fidelity of the TEW method is closely linked to the panel's stiffness.
