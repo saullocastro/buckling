@@ -65,7 +65,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Output Files
-          path: exports/*.{pdf,docx}
+          path: |
+            exports/*.pdf
+            exports/*.docx
           compression-level: 0
 
       # To build the HTML site
