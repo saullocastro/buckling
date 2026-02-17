@@ -5,6 +5,8 @@ project:
     - file: content/Introduction.md
     - file: content/PostBuckling.md
       children:
+        - file: content/effective-width-composites-Kassapoglou-7.10.ipynb
+        - file: content/effective-width-composites-Kassapoglou-7.12.ipynb
         - file: content/effective-width-composites-TEW.ipynb
     - file: content/Results.ipynb
     - file: content/Conclusion.md

@@ -1,17 +1,4 @@
-# Title page
-
-::::{grid} 2
-:::{card} Quick start
-:link: ./Quickstart.md
-
-Some text
-:::
-
-:::{card} Example
-:link: https://luukfroling.github.io/BEP/
-
-some more
-:::
+# Buckling handbook
 
 :::{card} Cheatsheet
 :link: ./Cheatsheet.md

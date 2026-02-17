@@ -1,15 +1,13 @@
 version: 1
 project:
-  title: TU Delft's JB Starterkit
+  title: Buckling handbook
   # description:
-  keywords: [Jupyter Book, Open Science, TU Delft, Starterkit]
+  keywords: [Buckling, Post-Buckling, Jupyter Book, Open Science, TU Delft]
   authors: 
-    - name: Student name
-      affiliation: TU Delft
-    - name: Supervisor name
-      affiliation: TU Delft  
-  github: https://github.com/TUD-JB-OS/starterkit
-  date: 2026-01-31
+    - name: Saullo G. P. Castro
+      affiliation: Delft University of Technology
+  github: https://github.com/saullocastro/buckling
+  date: 2026-02-17
   
     # used to load /reuse materials from other repositories
   references:

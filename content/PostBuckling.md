@@ -34,19 +34,28 @@ The effective width method simplifies the complex and
 non-uniform stress distribution in a buckled panel, replacing it with an
 equivalent and uniform stress acting over a reduced "effective width" of the skin adjacent to the stiffeners. 
 
-The analytical process involves:
-1.  **First Buckling Calculation:** Determining the initial local buckling of the skin between stringers using semi-empirical or approximate analytical solutions.
-2.  **Iterative Convergence of Effective Width:** Once the load exceeds the initial buckling load, an iterative algorithm calculates the effective width of the skin contributing to the load-carrying capacity. This process continues until the stress redistribution between the buckled skin and the stiffener reaches equilibrium.
-3.  **Global Stability Analysis:** Evaluating the global column stability based on the flexural, torsional, and warping rigidities of the equivalent skin-stringer cross-section to determine the ultimate collapse load.
 
 
 ### Effective width for metallic structures
 
-### Effective width for composite structures
+### Effective width for composite plates
+
+
++++{"no-pdf":true}
+An example on how the effective width changes with the loading fraction and material properties can be found here: {doc}`effective-width-composites-Kassapoglou-7.10.ipynb`; based on Kassapoglou [@Kassapoglou2013].
++++
+
+### Effective width for composite shells
 
 The Technion Effective Width (TEW) method [@Pevzner2008] is an engineering
 approximation for analyzing the postbuckling behavior of curved, laminated
 composite structures. The TEW method extends the effective width concept to curved, anisotropic, laminated composite panels by reformulating an equivalent column model to account for the unique bending, torsional, and coupled instability modes of composite structures.
+
+The TEW analysis process is summarized as follows:
+1.  **First Buckling Calculation:** Determining the initial local buckling of the skin between stringers using semi-empirical or approximate analytical solutions.
+2.  **Iterative Convergence of Effective Width:** Once the load exceeds the initial buckling load, an iterative algorithm calculates the effective width of the skin contributing to the load-carrying capacity. This process continues until the stress redistribution between the buckled skin and the stiffener reaches equilibrium.
+3.  **Global Stability Analysis:** Evaluating the global column stability based on the flexural, torsional, and warping rigidities of the equivalent skin-stringer cross-section to determine the ultimate collapse load.
+
 
 +++{"no-pdf":true}
 An example of the TEW method is presented in the following notebook: {doc}`effective-width-composites-TEW`.
