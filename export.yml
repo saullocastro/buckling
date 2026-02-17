@@ -14,6 +14,13 @@ project:
     - format: docx
       output: exports/report.docx
       id: report_docx
+      chapters:
+        - content/Index.md
+        - content/Introduction.md
+        - content/PostBuckling.md
+        - content/Results.ipynb
+        - content/Conclusion.md
+        - content/Cheatsheet.md
 
 
   downloads:
