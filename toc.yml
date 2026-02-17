@@ -4,6 +4,7 @@ project:
     - file: content/Index.md
     - file: content/Quickstart.md
     - file: content/Introduction.md
+    - file: content/PostBuckling.md
     - file: content/Results.ipynb
     - file: content/Conclusion.md
     - title: Appendix
