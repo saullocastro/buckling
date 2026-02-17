@@ -9,10 +9,18 @@ abstract: |
 
 Analytical and semi-analytical methods for buckling and post-buckling analysis.
 
-This is a Jupyter Book built using the MyST engine [@Jupyter2025], which allows
-to export content in multiple output formats including HTML, PDF and docx. In
-this paper we present an overview of the possibilities and demonstrate its
-working.
+In aerospace engineering, maximizing structural efficiency while minimizing
+weight is paramount. This has led to the use of thin-walled, lightweight
+structures that are susceptible to buckling. While historically buckling was
+seen as failure, modern engineering recognizes the postbuckling reserve of
+stiffened panels. These panels can withstand loads significantly exceeding
+their initial buckling threshold by allowing local buckling of the skin while stiffeners maintain global integrity.
+
+This is a Jupyter Book built using the MyST engine [@Jupyter2025], which allows to export content in multiple output formats including HTML, PDF and docx.
+
+The full documentation for this project is available online at:
+[https://saullocastro.github.io/buckling/](https://saullocastro.github.io/buckling/)
+
 
 ## Background
 Some background information about Jupyter Book and its features, like exporting to multiple formats as indicated in {numref}`fig-diagram`.
