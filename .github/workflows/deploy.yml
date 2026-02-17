@@ -42,7 +42,7 @@ jobs:
       - name: Setup Typst
         uses: typst-community/setup-typst@v4
 
-      - name: Install LaTeX tooling
+      - name: Install LaTeX tooling and Pandoc
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -50,17 +50,22 @@ jobs:
             texlive-xetex \
             texlive-latex-extra \
             texlive-fonts-recommended \
-            fonts-lmodern
+            fonts-lmodern \
+            pandoc
 
       - name: Build PDF
         run: |
           myst build --typst --pdf
 
-      - name: Upload Output PDF as Artifact
+      - name: Build DOCX
+        run: |
+          myst build --docx
+
+      - name: Upload Output Files as Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Output PDF
-          path: exports/*.pdf
+          name: Output Files
+          path: exports/*.{pdf,docx}
           compression-level: 0
 
       # To build the HTML site

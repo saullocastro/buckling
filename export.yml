@@ -10,6 +10,10 @@ project:
       template: https://github.com/TUD-JB-OS/typst_template.git
       output: exports/report_typst.pdf
       id: report_typst
+    
+    - format: docx
+      output: exports/report.docx
+      id: report_docx
 
 
   downloads:
@@ -17,3 +21,5 @@ project:
       title: PDF (LaTeX)
     - id: report_typst
       title: PDF (Typst)
+    - id: report_docx
+      title: DOCX (Microsoft Word)

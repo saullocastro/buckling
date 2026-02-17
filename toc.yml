@@ -5,6 +5,8 @@ project:
     - file: content/Quickstart.md
     - file: content/Introduction.md
     - file: content/PostBuckling.md
+      children:
+        - file: content/effective-width-composites-TEW.ipynb
     - file: content/Results.ipynb
     - file: content/Conclusion.md
     - title: Appendix
