@@ -11,4 +11,10 @@ Go to the cheatsheet
 
 Link to the manual
 :::
-::::
+
+:::{card} GitHub Repository
+:link: https://github.com/saullocastro/buckling
+
+View the source on GitHub
+:::
+
