@@ -1,0 +1,11 @@
+version: 1
+project:
+  title: DOCX Export Template
+  chapters:
+    - ../content/Index.md
+    - ../content/Introduction.md
+    - ../content/PostBuckling.md
+    - ../content/effective-width-composites-TEW.ipynb
+    - ../content/Results.ipynb
+    - ../content/Conclusion.md
+    - ../content/Cheatsheet.md

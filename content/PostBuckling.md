@@ -25,7 +25,9 @@ approximation for analyzing the postbuckling behavior of curved, laminated
 composite structures.
 
 +++{"no-pdf":true}
+```
 An example of the TEW method is presented in the following notebook: {doc}`effective-width-composites-TEW`.
+```
 +++
 
 The TEW paper reveals that the predictive fidelity of the TEW method is closely linked to the panel's stiffness.
