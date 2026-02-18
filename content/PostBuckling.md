@@ -1,5 +1,7 @@
 # Post-buckling methods
 
+While historically buckling was seen as failure, modern engineering recognizes the postbuckling reserve of stiffened panels. These panels can withstand loads significantly exceeding their initial buckling threshold by allowing local buckling of the skin while stiffeners maintain global integrity.
+
 ## Effective width
 
 The postbuckling behavior and stress/strain distribution
@@ -8,7 +10,7 @@ non-linear numerical calculation methods that employ sig-
 nificant computational resources are laborious and are
 required to confidently predict the panels ultimate load
 capacity [@Pevzner2008]. To alleviate the calculations, a relatively simplified
-model, the ‘‘eﬀective width’’ approach, has been proposed
+model, the so called "eﬀective width" approach, has been proposed
 by von K\'arman et al. [@vonKarman1932] and subsequently modified by
 Cox [@cox1933] and Sechler [@Sechler1937]. This
 approach has provided a good average approximation for
@@ -16,8 +18,9 @@ calculation of the eﬀective width, $w_e$, i.e. the portion of
 the between adjacent stringers buckled skin, that together
 with the stringer constitute the integral skin-stringer combi-
 nation that participates in load carrying in postbuckling.
+The method works adequately for the case of uniaxial compression, and it is not recommended when there is biaxial loading or compression combined with shear [@Kassapoglou2013].
 Based on the average stress $s_{st}$ experienced by the stringers
-and the ‘‘first’’ critical skin stress, $s_{cr}$ between adjacent
+and the first critical skin stress, $s_{cr}$ between adjacent
 stringers of spacing b, the following relation has been pro-
 posed by Marguerre for determination of $w_e$:
 
@@ -35,14 +38,13 @@ non-uniform stress distribution in a buckled panel, replacing it with an
 equivalent and uniform stress acting over a reduced "effective width" of the skin adjacent to the stiffeners. 
 
 
-
 ### Effective width for metallic structures
+
 
 ### Effective width for composite plates
 
-
 +++{"no-pdf":true}
-An example on how the effective width changes with the loading fraction and material properties can be found here: {doc}`effective-width-composites-Kassapoglou-7.10.ipynb`; based on Kassapoglou [@Kassapoglou2013].
+An example on how the effective width changes with the loading fraction and material properties can be found here: {doc}`effective-width-composites-Kassapoglou-7.10.ipynb`; based on Kassapoglou [@Kassapoglou2013]. An illustration on how the internal load changes over the skin width can be found here: {doc}`effective-width-composites-Kassapoglou-7.12.ipynb`; also based on Kassapoglou [@Kassapoglou2013].
 +++
 
 ### Effective width for composite shells
