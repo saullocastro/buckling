@@ -3,6 +3,7 @@ project:
   toc:
     - file: content/Index.md
     - file: content/Introduction.md
+    - file: content/BucklingPlates.md
     - file: content/PostBuckling.md
       children:
         - file: content/effective-width-composites-Kassapoglou-7.10.ipynb

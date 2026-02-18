@@ -8,6 +8,9 @@ title: DOCX Export
 :::{include} ../content/Introduction.md
 :::
 
+:::{include} ../content/BucklingPlate.md
+:::
+
 :::{include} ../content/PostBuckling.md
 :::
 
