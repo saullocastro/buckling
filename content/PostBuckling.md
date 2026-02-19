@@ -44,7 +44,7 @@ equivalent and uniform stress acting over a reduced "effective width" of the ski
 ### Effective width for composite plates
 
 +++{"no-pdf":true}
-An example on how the effective width changes with the loading fraction and material properties can be found here: {doc}`effective-width-composites-Kassapoglou-7.10.ipynb`; based on Kassapoglou [@Kassapoglou2013]. An illustration on how the internal load changes over the skin width can be found here: {doc}`effective-width-composites-Kassapoglou-7.12.ipynb`; also based on Kassapoglou [@Kassapoglou2013].
+An example on how the effective width changes with the loading fraction and material properties can be found here: [](effective-width-composites-Kassapoglou-7.10.ipynb); based on Kassapoglou [@Kassapoglou2013]. An illustration on how the internal load changes over the skin width can be found here: [](effective-width-composites-Kassapoglou-7.12.ipynb); also based on Kassapoglou [@Kassapoglou2013].
 +++
 
 ### Effective width for composite shells
@@ -60,7 +60,7 @@ The TEW analysis process is summarized as follows:
 
 
 +++{"no-pdf":true}
-An example of the TEW method is presented in the following notebook: {doc}`effective-width-composites-TEW`.
+An example of the TEW method is presented in the following notebook: [](effective-width-composites-TEW.ipynb).
 +++
 
 The TEW paper reveals that the predictive fidelity of the TEW method is closely linked to the panel's stiffness.
