@@ -1,6 +1,6 @@
 # Introduction to semi-analytical modelling
 
-The simplest buckling case consists of the classical solution for the deflection $w$ of a plate with length $a$, width $b$ and thickness $h$, under in-plane distributed loads ($N_x$, $N_y$, $N_{xy}$). Even for this simple case, the presence of the bending-twisting coupling terms ($D_{16}$ and $D_{26}$); or the laminate being not symmetric $\pmb{B} \neq 0$; or boundary conditions combining, clamped, simply-supported and free edges; or if the distributed in-plane loads $N_x$, $N_y$ or $N_{xy}$ are non-constant; the buckled mode shape will skew such that the exact closed-form solutions, for instance using orthogonal Fourier series, will become intractable, requiring semi-analytical methods or finite element discretizations. The governing equation for this problem is given below
+The simplest buckling case consists of the classical solution for the deflection $w$ of a plate with length $a$, width $b$ and thickness $h$, under in-plane distributed loads ($N_x$, $N_y$, $N_{xy}$). Even for this simple case, the presence of the bending-twisting coupling terms ($D_{16}$ and $D_{26}$); or the laminate being not symmetric $\boldsymbol{B} \neq 0$; or boundary conditions combining, clamped, simply-supported and free edges; or if the distributed in-plane loads $N_x$, $N_y$ or $N_{xy}$ are non-constant; the buckled mode shape will skew such that the exact closed-form solutions, for instance using orthogonal Fourier series, will become intractable, requiring semi-analytical methods or finite element discretizations. The governing equation for this problem is given below
 [@Kassapoglou2013]:
 
 $$\label{eq:diffeqplate} D_{11}\frac{\partial^4 w}{\partial x^4} + 4D_{16}\frac{\partial^4 w}{\partial x^3 \partial y} + 2(D_{12} + 2D_{66})\frac{\partial^4 w}{\partial x^2 \partial y^2} + 4D_{26}\frac{\partial^4 w}{\partial x \partial y^3} + D_{22}\frac{\partial^4 w}{\partial y^4} = N_x\frac{\partial^2 w}{\partial x^2} + N_y\frac{\partial^2 w}{\partial y^2} + 2N_{xy}\frac{\partial^2 w}{\partial x \partial y}$$
@@ -17,12 +17,12 @@ $$\delta V = \delta U - \delta W_{ext} = 0$$
 
 ## Strain Energy 
 
-The general expression for the strain energy when $pmb{\sigma}$ increases linearly with $pmb{epsilon}$ is:
+The general expression for the strain energy when $boldsymbol{\sigma}$ increases linearly with $boldsymbol{epsilon}$ is:
 
-$$U = \frac{1}{2} \int_{\Omega} \pmb{\sigma}^\top \pmb{\varepsilon} \, d\Omega$$
+$$U = \frac{1}{2} \int_{\Omega} \boldsymbol{\sigma}^\top \boldsymbol{\varepsilon} \, d\Omega$$
 
-The variation of this expression, valid also for the case of $\pmb{\sigma}$ being a non-linear function of $\pmb{\varepsilon}$, renders:
-$$\delta U = \int_{\Omega} \pmb{\sigma}^\top \delta \pmb{\varepsilon} \, d\Omega$$
+The variation of this expression, valid also for the case of $\boldsymbol{\sigma}$ being a non-linear function of $\boldsymbol{\varepsilon}$, renders:
+$$\delta U = \int_{\Omega} \boldsymbol{\sigma}^\top \delta \boldsymbol{\varepsilon} \, d\Omega$$
 
 To calculate the strain energy in semi-analytical formulations of plates and shells, it is convenient to represent the second-order tensors of strain and stress are represented as vectors, according to Voigt's notation [@Voigt1910]. 
 ```{figure} Introduction-stress-3D.jpg
@@ -37,7 +37,7 @@ Given the 3D stress state of a material point illustrated in [](#fig:stress-3D),
 
 ```{math}
 :label:eq:voigt
-\pmb{\sigma} = \left\{\begin{matrix}
+\boldsymbol{\sigma} = \left\{\begin{matrix}
 \sigma_{11}\\
 \sigma_{22}\\
 \sigma_{33}\\
@@ -58,116 +58,116 @@ where:
 
 A general constitutive relation for semi-analytical models, which show stresses relate to strains, can be written based on Voigt's notation:
 
-$$\pmb{\sigma} = \pmb{C}\pmb{\varepsilon}$$
+$$\boldsymbol{\sigma} = \boldsymbol{C}\boldsymbol{\varepsilon}$$
 
-where $\pmb{C}$ is the constitutive matrix.
+where $\boldsymbol{C}$ is the constitutive matrix.
 
 Not all stress components shown in Eq. []($eq:voigt) are relevant when calculating thin-walled structures. For plane stress using the Classical Laminated Plate Theory (CLPT):
 $$\varepsilon_{xx}, \varepsilon_{yy}, \gamma_{xy}, \sigma_{xx}, \sigma_{yy}, \tau_{xy}$$
-$$\pmb{\varepsilon}^\top = \{ \varepsilon_{xx} \quad \varepsilon_{yy} \quad \gamma_{xy} \} \qquad \pmb{\sigma}^\top = \{ \sigma_{xx} \quad \sigma_{yy} \quad \tau_{xy} \}$$
+$$\boldsymbol{\varepsilon}^\top = \{ \varepsilon_{xx} \quad \varepsilon_{yy} \quad \gamma_{xy} \} \qquad \boldsymbol{\sigma}^\top = \{ \sigma_{xx} \quad \sigma_{yy} \quad \tau_{xy} \}$$
 
 For plane stress using the First- or Third-order Shear Deformation Theory (FSDT or TSDT):
 
 $$\varepsilon_{xx}, \varepsilon_{yy}, \gamma_{xy}, \gamma_{yz}, \gamma_{xz}$$
 $$\sigma_{xx}, \sigma_{yy}, \tau_{xy}, \tau_{yz}, \tau_{xz}$$
-$$\pmb{\varepsilon}^\top = \{ \varepsilon_{xx} \quad \varepsilon_{yy} \quad \gamma_{xy} \quad \gamma_{yz} \quad \gamma_{xz} \} \qquad \pmb{\sigma}^\top = \{ \sigma_{xx} \quad \sigma_{yy} \quad \tau_{xy} \quad \tau_{yz} \quad \tau_{xz} \}$$
+$$\boldsymbol{\varepsilon}^\top = \{ \varepsilon_{xx} \quad \varepsilon_{yy} \quad \gamma_{xy} \quad \gamma_{yz} \quad \gamma_{xz} \} \qquad \boldsymbol{\sigma}^\top = \{ \sigma_{xx} \quad \sigma_{yy} \quad \tau_{xy} \quad \tau_{yz} \quad \tau_{xz} \}$$
 
 The strains are usually expressed in terms of displacements in the so called kinematic equations, which can be generally written using Voigt's notation as:
 
-$$\pmb{\varepsilon} = \pmb{B}\pmb{u}$$
+$$\boldsymbol{\varepsilon} = \boldsymbol{B}\boldsymbol{u}$$
 
-where $\pmb{B} \equiv$ differentiation operator matrix, $\pmb{u}(x,y,z) \equiv$ continuous displacement field.
+where $\boldsymbol{B} \equiv$ differentiation operator matrix, $\boldsymbol{u}(x,y,z) \equiv$ continuous displacement field.
 
 ### Finite elements
 In finite elemets, interpolation functions are used to approximate the displacement field within each finite element, which can be generally written as:
 
-$$\pmb{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \pmb{S}(x,y,z) \, \pmb{\bar{u}}$$
+$$\boldsymbol{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \boldsymbol{S}(x,y,z) \, \boldsymbol{\bar{u}}$$
 
-where $\pmb{\bar{u}} \equiv$ nodal displacements and $\pmb{S}(x,y,z) \equiv$ interpolation (shape) functions valid only within the domain of one finite element.
+where $\boldsymbol{\bar{u}} \equiv$ nodal displacements and $\boldsymbol{S}(x,y,z) \equiv$ interpolation (shape) functions valid only within the domain of one finite element.
 
 Example for quadrilateral elements:
-$$\pmb{u} = \pmb{S}_1 \pmb{\bar{u}}_1 + \pmb{S}_2 \pmb{\bar{u}}_2 + \pmb{S}_3 \pmb{\bar{u}}_3 + \pmb{S}_4 \pmb{\bar{u}}_4$$
+$$\boldsymbol{u} = \boldsymbol{S}_1 \boldsymbol{\bar{u}}_1 + \boldsymbol{S}_2 \boldsymbol{\bar{u}}_2 + \boldsymbol{S}_3 \boldsymbol{\bar{u}}_3 + \boldsymbol{S}_4 \boldsymbol{\bar{u}}_4$$
 
-From the kinematic equations: $\pmb{\varepsilon} = \pmb{B}\pmb{u}$, the differentiation operator $\pmb{B}$ will contain the proper derivatives of the interpolation functions corresponding to a given finite element.
+From the kinematic equations: $\boldsymbol{\varepsilon} = \boldsymbol{B}\boldsymbol{u}$, the differentiation operator $\boldsymbol{B}$ will contain the proper derivatives of the interpolation functions corresponding to a given finite element.
 
-The stress strain relation $\pmb{\sigma} = \pmb{C}\pmb{\varepsilon}$ will highly depend on each case. For trusses and beam (uniaxial stress), it can be simply $\sigma_{xx} = E\varepsilon_{xx}$, for plates this becomes more complicated, as covered later.
+The stress strain relation $\boldsymbol{\sigma} = \boldsymbol{C}\boldsymbol{\varepsilon}$ will highly depend on each case. For trusses and beam (uniaxial stress), it can be simply $\sigma_{xx} = E\varepsilon_{xx}$, for plates this becomes more complicated, as covered later.
 
 In finite elements, the strain energy can be thus expressed as:
 
-$$\delta U = \int_{\Omega} \pmb{\sigma}^\top \delta \pmb{\varepsilon} \, d\Omega$$
+$$\delta U = \int_{\Omega} \boldsymbol{\sigma}^\top \delta \boldsymbol{\varepsilon} \, d\Omega$$
 
-Replacing $\pmb{\sigma} = \pmb{C}\pmb{\varepsilon}$, for $\pmb{C} = \pmb{C}^\top$:
+Replacing $\boldsymbol{\sigma} = \boldsymbol{C}\boldsymbol{\varepsilon}$, for $\boldsymbol{C} = \boldsymbol{C}^\top$:
 
-$$\delta U = \int_{\Omega} \pmb{\varepsilon}^\top \pmb{C} \, \delta \pmb{\varepsilon} \, d\Omega$$
+$$\delta U = \int_{\Omega} \boldsymbol{\varepsilon}^\top \boldsymbol{C} \, \delta \boldsymbol{\varepsilon} \, d\Omega$$
 
-Replacing and $\pmb{\varepsilon} = \pmb{B}\pmb{\bar{u}}$:
+Replacing and $\boldsymbol{\varepsilon} = \boldsymbol{B}\boldsymbol{\bar{u}}$:
 
-$$\delta U = \pmb{\bar{u}}^\top \int_{\Omega} \pmb{B}^\top \pmb{C} \, \pmb{B} \, d\Omega \, \delta \pmb{\bar{u}}$$
+$$\delta U = \boldsymbol{\bar{u}}^\top \int_{\Omega} \boldsymbol{B}^\top \boldsymbol{C} \, \boldsymbol{B} \, d\Omega \, \delta \boldsymbol{\bar{u}}$$
 
-$$\delta U = \pmb{\bar{u}}^\top \pmb{K} \, \delta \pmb{\bar{u}}$$
+$$\delta U = \boldsymbol{\bar{u}}^\top \boldsymbol{K} \, \delta \boldsymbol{\bar{u}}$$
 
-where $\pmb{K}$ is the constitutive stiffness matrix, usually referred to as simply the stiffness matrix:
+where $\boldsymbol{K}$ is the constitutive stiffness matrix, usually referred to as simply the stiffness matrix:
 
-$$\pmb{K} = \int_{\Omega} \pmb{B}^\top \pmb{C} \, \pmb{B} \, d\Omega$$
+$$\boldsymbol{K} = \int_{\Omega} \boldsymbol{B}^\top \boldsymbol{C} \, \boldsymbol{B} \, d\Omega$$
 
-For finite elements, the rows and columns of $\pmb{K}$ correspond to the degrees-of-freedom built by the assembly of all finite elements. The integration over the 3-dimensional domain $\Omega$ is performed in a piece-wise manner within the domain of each finite element $\Omega_e$.
+For finite elements, the rows and columns of $\boldsymbol{K}$ correspond to the degrees-of-freedom built by the assembly of all finite elements. The integration over the 3-dimensional domain $\Omega$ is performed in a piece-wise manner within the domain of each finite element $\Omega_e$.
 
-$$\pmb{K} = \sum_{e=1}^{n_e} \pmb{K}_e$$
+$$\boldsymbol{K} = \sum_{e=1}^{n_e} \boldsymbol{K}_e$$
 
-$$\pmb{K}_e = \int_{\Omega_e} \pmb{B}^\top \pmb{C}_e \, \pmb{B} \, d\Omega_e$$
+$$\boldsymbol{K}_e = \int_{\Omega_e} \boldsymbol{B}^\top \boldsymbol{C}_e \, \boldsymbol{B} \, d\Omega_e$$
 
-The integration of $\pmb{K}_e$ can be efficiently done numerically due to the local support of the integration points (only affect the stiffness of the corresponding element).
+The integration of $\boldsymbol{K}_e$ can be efficiently done numerically due to the local support of the integration points (only affect the stiffness of the corresponding element).
 
 ### Energy-based semi-analytical methods
 
 In energy-based methods, such as the well-known Ritz method, the shape functions are expressed in terms of continuous functions instead of nodal degrees-of-freedom:
 
-$$\pmb{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \pmb{S}(x,y,z) \, \pmb{\bar{c}}$$
+$$\boldsymbol{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \boldsymbol{S}(x,y,z) \, \boldsymbol{\bar{c}}$$
 
-where $\pmb{\bar{c}} \equiv$ amplitude of each term of the shape functions, $\pmb{S}(x,y,z) \equiv$ shape functions valid within the entire domain of the semi-analytical model, which can be an entire plate, an entire shell, or parts of a structure in the case of multi-domain semi-analytical models.
+where $\boldsymbol{\bar{c}} \equiv$ amplitude of each term of the shape functions, $\boldsymbol{S}(x,y,z) \equiv$ shape functions valid within the entire domain of the semi-analytical model, which can be an entire plate, an entire shell, or parts of a structure in the case of multi-domain semi-analytical models.
 
 Example for deflection of simply supported plate $\xi = x/a$, $\eta = y/b$:
 
 $$w(x,y) = \sum_{i=1}^{m} \sum_{j=1}^{n} c_{ij} \sin i\pi\xi \sin j\pi\eta = [\sin i\pi\xi \sin \pi\eta \quad \sin i\pi\xi \sin 2\pi\eta \quad \cdots] \begin{Bmatrix} c_{11} \\ c_{12} \\ \vdots \end{Bmatrix}$$
 
-$$\pmb{\bar{c}} = \begin{Bmatrix} c_{11} \\ c_{12} \\ \vdots \end{Bmatrix}$$
+$$\boldsymbol{\bar{c}} = \begin{Bmatrix} c_{11} \\ c_{12} \\ \vdots \end{Bmatrix}$$
 
-From the kinematic equations: $\pmb{\varepsilon} = \pmb{B}\pmb{u}$, the differentiation operator $\pmb{B}$ will contain the proper derivatives of the shape functions.
+From the kinematic equations: $\boldsymbol{\varepsilon} = \boldsymbol{B}\boldsymbol{u}$, the differentiation operator $\boldsymbol{B}$ will contain the proper derivatives of the shape functions.
 
 The strain energy for the Ritz method can thus be expressed as:
 
-$$\delta U = \int_{\Omega} \pmb{\sigma}^\top \delta \pmb{\varepsilon} \, d\Omega$$
+$$\delta U = \int_{\Omega} \boldsymbol{\sigma}^\top \delta \boldsymbol{\varepsilon} \, d\Omega$$
 
-Replacing $\pmb{\sigma} = \pmb{C}\pmb{\varepsilon}$, for $\pmb{C} = \pmb{C}^\top$:
+Replacing $\boldsymbol{\sigma} = \boldsymbol{C}\boldsymbol{\varepsilon}$, for $\boldsymbol{C} = \boldsymbol{C}^\top$:
 
-$$\delta U = \int_{\Omega} \pmb{\varepsilon}^\top \pmb{C} \, \delta \pmb{\varepsilon} \, d\Omega$$
+$$\delta U = \int_{\Omega} \boldsymbol{\varepsilon}^\top \boldsymbol{C} \, \delta \boldsymbol{\varepsilon} \, d\Omega$$
 
-Replacing and $\pmb{\varepsilon} = \pmb{B}\pmb{c}$:
+Replacing and $\boldsymbol{\varepsilon} = \boldsymbol{B}\boldsymbol{c}$:
 
-$$\delta U = \pmb{c}^\top \int_{\Omega} \pmb{B}^\top \pmb{C} \, \pmb{B} \, d\Omega \, \delta \pmb{c}$$
+$$\delta U = \boldsymbol{c}^\top \int_{\Omega} \boldsymbol{B}^\top \boldsymbol{C} \, \boldsymbol{B} \, d\Omega \, \delta \boldsymbol{c}$$
 
-$$\delta U = \pmb{c}^\top \pmb{K} \, \delta \pmb{c}$$
+$$\delta U = \boldsymbol{c}^\top \boldsymbol{K} \, \delta \boldsymbol{c}$$
 
 with the constitutive stiffness matrix defined as:
-$$\pmb{K} = \int_{\Omega} \pmb{B}^\top \pmb{C} \, \pmb{B} \, d\Omega$$
+$$\boldsymbol{K} = \int_{\Omega} \boldsymbol{B}^\top \boldsymbol{C} \, \boldsymbol{B} \, d\Omega$$
 
 
-In the Ritz Method, the rows and columns of $\pmb{K}$ correspond to the degrees-of-freedom that depend on the number of function terms used in the displacement approximation. In single-domain semi-analytical models, there is only one integration domain $\Omega$, and the integration is usually performed analytically leading to very efficient methods that can analytically calculate the stiffness matrix, even for complex problems such as described by Castro et al. addressing the buckling of conical shells under combined load cases [@Castro2014]. However, when numerical integration is needed, for instance due to variable stiffness or in non-linear analyses [@Castro2015imperfect], the non-local support of the integration can create a large disadvantage of the Ritz method when compared to the finite element. The non-local support comes from the fact that the approximation functions represent the whole domain, and each integration point requires the evaluation of the entire stiffness matrix because all degress-of-freedom are components of continuous functions that affect that integration point. 
+In the Ritz Method, the rows and columns of $\boldsymbol{K}$ correspond to the degrees-of-freedom that depend on the number of function terms used in the displacement approximation. In single-domain semi-analytical models, there is only one integration domain $\Omega$, and the integration is usually performed analytically leading to very efficient methods that can analytically calculate the stiffness matrix, even for complex problems such as described by Castro et al. addressing the buckling of conical shells under combined load cases [@Castro2014]. However, when numerical integration is needed, for instance due to variable stiffness or in non-linear analyses [@Castro2015imperfect], the non-local support of the integration can create a large disadvantage of the Ritz method when compared to the finite element. The non-local support comes from the fact that the approximation functions represent the whole domain, and each integration point requires the evaluation of the entire stiffness matrix because all degress-of-freedom are components of continuous functions that affect that integration point. 
 
 Therefore, one must be careful while implementing semi-analytical methods for cases of variable stiffness or non-linear analyses. The use of hierarchical polynomials as approximation functions enable such efficient implementations, because they allow the use of Gauss quadrature rules to efficiently perform the numerical integration. When trigonometric approximation functions are used the stiffness matrix can be integrated using the trapezoidal (piece-wise linear) or Simpson's rule (piece-wise quadratic) [@Castro2015]
  
 
 ## Work due to external forces
 
-When considering tranction stresses $\pmb{\bar{\sigma}}$ acting on the boundaries of the domain $\delta\Omega$, and body forces $\pmb{b}$ acting on the entire volume of the domain $\Omega$, the following general expression for the work of external forces can be used:
+When considering tranction stresses $\boldsymbol{\bar{\sigma}}$ acting on the boundaries of the domain $\delta\Omega$, and body forces $\boldsymbol{b}$ acting on the entire volume of the domain $\Omega$, the following general expression for the work of external forces can be used:
 
-$$W_{ext} = \int_{\Omega} \pmb{b}^\top \pmb{u} \, d\Omega + \int_{\delta \Omega} (\pmb{\bar{\sigma}}^\top \pmb{u}) d(\delta \Omega)$$
+$$W_{ext} = \int_{\Omega} \boldsymbol{b}^\top \boldsymbol{u} \, d\Omega + \int_{\delta \Omega} (\boldsymbol{\bar{\sigma}}^\top \boldsymbol{u}) d(\delta \Omega)$$
 
 The first variation of work due to external forces becomes:
 
-$$\delta W_{ext} = \int_{\Omega} \pmb{b}^\top \delta \pmb{u} \, d\Omega + \int_{\delta \Omega} (\pmb{\bar{\sigma}}^\top \delta \pmb{u}) d(\delta \Omega)= \pmb{F}^\top \delta \pmb{u}$$
+$$\delta W_{ext} = \int_{\Omega} \boldsymbol{b}^\top \delta \boldsymbol{u} \, d\Omega + \int_{\delta \Omega} (\boldsymbol{\bar{\sigma}}^\top \delta \boldsymbol{u}) d(\delta \Omega)= \boldsymbol{F}^\top \delta \boldsymbol{u}$$
 
-where $\pmb{F} \equiv$ external force vector, including body ($\pmb{b}$) and boundary forces ($\pmb{\bar{\sigma}}$).
+where $\boldsymbol{F} \equiv$ external force vector, including body ($\boldsymbol{b}$) and boundary forces ($\boldsymbol{\bar{\sigma}}$).
 
 
 ## Semi-analytical static solution
@@ -176,15 +176,15 @@ Back to the stationary total potential energy functional:
 
 $$\delta V = \delta U - \delta W_{ext} = 0$$
 
-The state of $V$ depends on a nodal displacement vector $\pmb{\bar{u}}$ in the case of displacement-based finite elements. In the Ritz method, we can make $\pmb{\bar{c}} = \pmb{\bar{u}}$ such that $\pmb{\bar{u}}$ represents the Ritz coefficients $\pmb{\bar{c}}$ that contain the amplitude of each term of the shape functions.
+The state of $V$ depends on a nodal displacement vector $\boldsymbol{\bar{u}}$ in the case of displacement-based finite elements. In the Ritz method, we can make $\boldsymbol{\bar{c}} = \boldsymbol{\bar{u}}$ such that $\boldsymbol{\bar{u}}$ represents the Ritz coefficients $\boldsymbol{\bar{c}}$ that contain the amplitude of each term of the shape functions.
 
 We can represent $\delta V$ using Fréchet’s derivatives. In the case of linear analyses:
 
-$$\delta V = {V'}^\top \delta \pmb{\bar{u}} = 0$$
+$$\delta V = {V'}^\top \delta \boldsymbol{\bar{u}} = 0$$
 
-Thus, $V' = \pmb{R}$, or a residual force vector, with $V'$ being the first Fréchet’s derivative of $V$. Using the definition for the total potential energy, the first variation becomes:
+Thus, $V' = \boldsymbol{R}$, or a residual force vector, with $V'$ being the first Fréchet’s derivative of $V$. Using the definition for the total potential energy, the first variation becomes:
 
-$${V'}^\top \delta \pmb{\bar{u}} = \int_{\Omega} \pmb{\sigma}^\top \delta \pmb{\varepsilon} \, d\Omega - \int_{\Omega} (\pmb{b}^\top \delta \pmb{u}) d\Omega - \int_{\delta \Omega} (\pmb{\bar{\sigma}}^\top \delta \pmb{u}) d(\delta \Omega) = 0$$
+$${V'}^\top \delta \boldsymbol{\bar{u}} = \int_{\Omega} \boldsymbol{\sigma}^\top \delta \boldsymbol{\varepsilon} \, d\Omega - \int_{\Omega} (\boldsymbol{b}^\top \delta \boldsymbol{u}) d\Omega - \int_{\delta \Omega} (\boldsymbol{\bar{\sigma}}^\top \delta \boldsymbol{u}) d(\delta \Omega) = 0$$
 
 ## Approximation functions
 
