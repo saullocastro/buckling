@@ -2,6 +2,14 @@
 
 ## Deflection of a plate using 3D elasticity
 
+
+```{image} StaticAnalysis-plate-point-load.svg
+:label:fig:plate-point-load
+:width: 40%
+
+Plate with a point load at the centre.
+```
+
 Using three-dimensional (3D) elasticity, the strain-displacement equations including van Kármán nonlinear terms can be written as:
 
 $$\varepsilon_{xx} = u_{,x} + \frac{1}{2}w_{,x}^2$$
@@ -45,21 +53,21 @@ $$\boldsymbol{\varepsilon} = \boldsymbol{B} \bar{\boldsymbol{u}}$$
 An example of the 3D deflection of a plate can be seen in the following notebook: [](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
 +++
 
-+++{"no-html":true}
+```{only} pdf
 An example of the 3D deflection of a plate can be seen in the following notebook: [](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
-+++
+```
 
 
 
 ## Deflection of a plate using CLPT
 
-Slide 68: Deflection of a plate, CLPT
-See: ex/deflection_plate_CLPT.ipynb
-Strain-displacement equations (CLPT with nonlinear terms):
+The kinematic (strain-displacement) equations using the clasical laminated plate theory (CLPT), including van Kármán nonlinear are:
+
 $$\varepsilon_{xx} = u_{,x} - z w_{,xx} + \frac{1}{2}w_{,x}^2$$
 $$\varepsilon_{yy} = v_{,y} - z w_{,yy} + \frac{1}{2}w_{,y}^2$$
 $$\gamma_{xy} = u_{,y} + v_{,x} - 2z w_{,xy} + w_{,x} w_{,y}$$
-Displacement field approximation (CLPT kinematics):
+
+In the CLPT, the rotation of the plate is assumed constant through the thickness and  field approximation (CLPT kinematics):
 $$u(x,y,z) = u_0(x,y) - z w_{,x}(x,y)$$
 $$v(x,y,z) = v_0(x,y) - z w_{,y}(x,y)$$
 $$w(x,y,z) = w_0(x,y)$$
