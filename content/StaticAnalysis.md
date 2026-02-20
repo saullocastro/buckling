@@ -53,10 +53,6 @@ An example of the 3D deflection of a plate can be seen in [this notebook](https:
 +++{"no-pdf":true}
 This example is also available [through this documentation](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
 
-
-
-
-
 ## Deflection of a plate using CLPT
 
 The kinematic (strain-displacement) equations using the clasical laminated plate theory (CLPT), including van Kármán nonlinear are:
@@ -90,5 +86,8 @@ $$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\begin{matrix}x=a/2 \\ y=b/2\
 Solution for unknown coefficients:
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
  
-Would you like to examine the Python implementation of the Ritz method for either the 3D elasticity model or the CLPT model referenced in these slides?
+An example of the deflection of a plate using the CLPT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-CLPT.ipynb).
++++{"no-pdf":true}
+This example is also available [through this documentation](StaticAnalysis-deflection-plate-CLPT.ipynb).
+
 

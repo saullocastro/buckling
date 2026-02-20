@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "wheel", "numpy"]
+requires = ["setuptools", "wheel"]
 
 [project]
 authors = [
@@ -40,7 +40,7 @@ Documentation = "https://saullocastro.github.io/buckling"
 Repository = "https://github.com/saullocastro/buckling"
 
 [tool.setuptools.packages.find]
-where = ["buckling"]
+include = ["buckling"]
 
 [project.optional-dependencies]
 test = [
