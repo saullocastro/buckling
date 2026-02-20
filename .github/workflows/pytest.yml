@@ -1,0 +1,46 @@
+name: pytest
+
+on: [push]
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
+    runs-on: ${{ matrix.runs-on }}
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+
+    - name: Install module
+      run: |
+        python3 -m pip install .
+        python3 -m pip install ".[test]"
+
+    - name: Test with pytest
+      run: |
+        pytest buckling/tests
+
+    - name: Coverage report
+      if: matrix.runs-on == 'ubuntu-latest' && matrix.python-version == '3.13'
+      run: |
+        coverage run -m pytest
+        coverage report
+    - name: Upload coverage to Codecov
+      if: matrix.runs-on == 'ubuntu-latest' && matrix.python-version == '3.13'
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_UPLOAD_TOKEN }} 
+        fail_ci_if_error: true
+        verbose: true

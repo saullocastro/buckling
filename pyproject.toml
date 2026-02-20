@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools", "wheel", "numpy"]
+
+[project]
+authors = [
+    {name = "Saullo G. P. Castro", email = "S.G.P.Castro@tudelft.nl"},
+]
+maintainers = [
+    {name = "Saullo G. P. Castro", email = "S.G.P.Castro@tudelft.nl"},
+]
+name = "buckling"
+version = "2026.0"
+description = "Supporting code for the Buckling jupyter book"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    ]
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 4 - Beta",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/saullocastro/buckling"
+Documentation = "https://saullocastro.github.io/buckling"
+Repository = "https://github.com/saullocastro/buckling"
+
+[tool.setuptools.packages.find]
+where = ["buckling"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "coverage",
+]
