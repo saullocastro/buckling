@@ -9,7 +9,7 @@ maintainers = [
     {name = "Saullo G. P. Castro", email = "S.G.P.Castro@tudelft.nl"},
 ]
 name = "buckling"
-version = "2026.beta2"
+version = "2026.beta3"
 description = "Supporting code for the Buckling jupyter book"
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.9"
