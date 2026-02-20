@@ -41,7 +41,7 @@ $$\boldsymbol{K} = \iiint_{x,y,z} \boldsymbol{B}^T \boldsymbol{C} \boldsymbol{B}
 
 The external force vector in this example includes only a point load $P$ at the center top surface of the plate:
 
-$$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\substack{x=a/2 \\ y=b/2 \\ z=+h/2}}$$
+$$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\begin{matrix}x=a/2 \\ y=b/2 \\ z=+h/2\end{matrix}}$$
 
 Solution for the unknown Ritz coefficients:
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
@@ -49,17 +49,11 @@ $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
 And the strain recovery becomes:
 $$\boldsymbol{\varepsilon} = \boldsymbol{B} \bar{\boldsymbol{u}}$$
 
+An example of the 3D deflection of a plate can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
 +++{"no-pdf":true}
-An example of the 3D deflection of a plate can be seen in the following notebook: [](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
-+++
+This example is also available [through this documentation](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
 
-```{raw} typst
-An example of the 3D deflection of a plate can be seen in the following notebook: #link("https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb")[Colab Notebook].
-```
 
-```{raw} latex
-An example of the 3D deflection of a plate can be seen in the following notebook: \url{https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb}.
-```
 
 
 
@@ -92,7 +86,7 @@ See: ex/deflection_plate_CLPT.ipynb
 The stiffness matrix becomes, using the laminate constitutive matrices $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{D}$:
 $$\boldsymbol{K} = \iint_{x,y} \left( \boldsymbol{B}_m^T \boldsymbol{A} \boldsymbol{B}_m \right) + \left( \boldsymbol{B}_b^T \boldsymbol{D} \boldsymbol{B}_b \right) + \left( \boldsymbol{B}_m^T \boldsymbol{B} \boldsymbol{B}_b \right) + \left( \boldsymbol{B}_b^T \boldsymbol{B} \boldsymbol{B}_m \right) dx dy$$
 External force vector (point load $P$ at the midplane):
-$$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\substack{x=a/2 \\ y=b/2}}$$
+$$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\begin{matrix}x=a/2 \\ y=b/2\end{matrix}}$$
 Solution for unknown coefficients:
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
  
