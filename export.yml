@@ -16,7 +16,6 @@ project:
       output: exports/report.docx
       id: report_docx
 
-
   downloads:
     - id: report_tex
       title: PDF (LaTeX)

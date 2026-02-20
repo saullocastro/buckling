@@ -3,12 +3,18 @@ project:
   toc:
     - file: content/Index.md
     - file: content/Introduction.md
+    - file: content/StaticAnalysis.md
+      children:
+        - file: content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb
+        - file: content/StaticAnalysis-deflection-plate-CLPT.ipynb
+        - file: content/StaticAnalysis-deflection-plate-FSDT.ipynb
+        - file: content/StaticAnalysis-deflection-plate-TSDT.ipynb
     - file: content/BucklingPlates.md
     - file: content/PostBuckling.md
       children:
-        - file: content/effective-width-composites-Kassapoglou-7.10.ipynb
-        - file: content/effective-width-composites-Kassapoglou-7.12.ipynb
-        - file: content/effective-width-composites-TEW.ipynb
+        - file: content/PostBuckling-be-composites-Kassapoglou-7.10.ipynb
+        - file: content/PostBuckling-be-composites-Kassapoglou-7.12.ipynb
+        - file: content/PostBuckling-be-composites-TEW.ipynb
     - file: content/Results.ipynb
     - file: content/Conclusion.md
     - title: Appendix

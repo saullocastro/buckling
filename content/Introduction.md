@@ -3,7 +3,14 @@
 The simplest buckling case consists of the classical solution for the deflection $w$ of a plate with length $a$, width $b$ and thickness $h$, under in-plane distributed loads ($N_x$, $N_y$, $N_{xy}$). Even for this simple case, the presence of the bending-twisting coupling terms ($D_{16}$ and $D_{26}$); or the laminate being not symmetric $\boldsymbol{B} \neq 0$; or boundary conditions combining, clamped, simply-supported and free edges; or if the distributed in-plane loads $N_x$, $N_y$ or $N_{xy}$ are non-constant; the buckled mode shape will skew such that the exact closed-form solutions, for instance using orthogonal Fourier series, will become intractable, requiring semi-analytical methods or finite element discretizations. The governing equation for this problem is given below
 [@Kassapoglou2013]:
 
-$$\label{eq:diffeqplate} D_{11}\frac{\partial^4 w}{\partial x^4} + 4D_{16}\frac{\partial^4 w}{\partial x^3 \partial y} + 2(D_{12} + 2D_{66})\frac{\partial^4 w}{\partial x^2 \partial y^2} + 4D_{26}\frac{\partial^4 w}{\partial x \partial y^3} + D_{22}\frac{\partial^4 w}{\partial y^4} = N_x\frac{\partial^2 w}{\partial x^2} + N_y\frac{\partial^2 w}{\partial y^2} + 2N_{xy}\frac{\partial^2 w}{\partial x \partial y}$$
+```{math}
+\label{eq:diffeqplate}
+
+D_{11}\frac{\partial^4 w}{\partial x^4} + 4D_{16}\frac{\partial^4 w}{\partial x^3 \partial y} \\
++ 2(D_{12} + 2D_{66})\frac{\partial^4 w}{\partial x^2 \partial y^2} \\
++ 4D_{26}\frac{\partial^4 w}{\partial x \partial y^3} + D_{22}\frac{\partial^4 w}{\partial y^4} \\
+= N_x\frac{\partial^2 w}{\partial x^2} + N_y\frac{\partial^2 w}{\partial y^2} + 2N_{xy}\frac{\partial^2 w}{\partial x \partial y}
+```
 
 
 # Principle of minimum potential energy
@@ -27,10 +34,9 @@ $$\delta U = \int_{\Omega} \boldsymbol{\sigma}^\top \delta \boldsymbol{\varepsil
 To calculate the strain energy in semi-analytical formulations of plates and shells, it is convenient to represent the second-order tensors of strain and stress are represented as vectors, according to Voigt's notation [@Voigt1910]. 
 ```{figure} Introduction-stress-3D.jpg
 :label: fig:stress-3D
-:alt: Complete stress state of a material point
-:width: 80%
+:width: 50%
 
-Complete stress state of a material point
+Complete stress state of a material point.
 ```
 
 Given the 3D stress state of a material point illustrated in [](#fig:stress-3D), the components of the stress tensor $\sigma_{ij}$ can be aligned in a vector as in Eq. [](#eq:voigt).
@@ -200,29 +206,23 @@ $$P_3(\chi) = \left( \frac{1}{2} + \frac{3}{4}\chi - \frac{1}{4}\chi^3 \right) \
 $$P_4(\chi) = \left( -\frac{1}{8} - \frac{1}{8}\chi + \frac{1}{8}\chi^2 + \frac{1}{8}\chi^3 \right) \delta_{r2}$$
 with $\chi \in \{\xi, \eta, \zeta\}$, and for any $i > 4$:
 $$P_i(\chi) = \sum_{p=0}^{i/2} \frac{(-1)^p (2i - 2p - 7)!!}{2^p p! (i - 2p - 1)!} \chi^{i-2p-1}$$
-where $q!! = q(q - 2) \dots (2 \text{ or } 1)$ such that $0!! = 1$, and $(i/2)$ in the summation is an integer division. The binary flags $\delta_{t1}$, $\delta_{r1}$, $\delta_{t2}$ and $\delta_{r2}$ are equal to $0$ or $1$, and used in the first four terms of Rodrigues polynomials to enable or disable the translation and rotation of each domain boundary. Flag $\delta_{t1}$ is used to control the translation at boundary ($\chi = -1$), which is possible because using Rodrigues polynomials this is the only term among all terms in the approximation function that produces $P_i(\chi = -1) = 1$. Similarly, $\delta_{t2}$ is used to control the translation at boundary 2 ($\chi = +1$). The rotation at $\chi = -1$ and $\chi = +1$ is respectively controlled using $\delta_{r1}$ and $\delta_{r2}$, since they are the only terms that produce a non-null rotation $\partial P / \partial \chi$ at each respective domain boundary. The use of rotation is specially important in FSDT or TSDT formulations.
+where $q!! = q(q - 2) \dots (2 \text{ or } 1)$ such that $0!! = 1$, and $(i/2)$ in the summation is an integer division. The binary flags $\delta_{t1}$, $\delta_{r1}$, $\delta_{t2}$ and $\delta_{r2}$ are equal to $0$ or $1$, and used in the first four terms of Rodrigues polynomials to enable or disable the translation and rotation of each domain boundary, as illustrated in [](#fig:legendre-bc). From the fifth term onwards, the translation and rotation at the boundaries are always zero, such that they are use to increase the interpolation order in the inner part of the domain, as illustrated in [](#fig:legendre-inner). Flag $\delta_{t1}$ is used to control the translation at boundary ($\chi = -1$), which is possible because using Rodrigues polynomials this is the only term among all terms in the approximation function that produces $P_i(\chi = -1) = 1$. Similarly, $\delta_{t2}$ is used to control the translation at boundary 2 ($\chi = +1$). The rotation at $\chi = -1$ and $\chi = +1$ is respectively controlled using $\delta_{r1}$ and $\delta_{r2}$, since they are the only terms that produce a non-null rotation $\partial P / \partial \chi$ at each respective domain boundary. The use of rotation is specially important in FSDT or TSDT formulations. Vescovini et al. [@Vescovini2018shapefunctions] investigated the sparsity of the systems produced by different shape functions, positively supporting the use of these Legendre hierarchical polynomials.
 
 ```{figure} Introduction-Legendre-BC.jpg
-:alt: Legendre polynomial boundary functions
+:label:fig:legendre-bc
 :width: 80%
 
-Legendre polynomial boundary functions
+Legendre polynomial boundary functions.
 ```
 
 ```{figure} Introduction-Legendre-inner.jpg
-:alt: Legendre inner functions
+:label:fig:legendre-inner
 :width: 80%
 
-Legendre polynomial inner functions
+Legendre polynomial inner functions.
 ```
 
-Vescovini et al. [@Vescovini2018shapefunctions] investigated the sparsity of the systems produced by different shape functions, positively supporting the use of Legendre hierarchical polynomials.
-
-
-Slide 63: Legendre Polynomials
-Shape functions: how displacement field is approximated
-
-A general expression for the 3D displacement field is:
+Take the plate-like domain shown in [](#fig:plate-domain). A general expression for the 3D displacement field is:
 
 $$\boldsymbol{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \boldsymbol{S}(x,y,z)\bar{\boldsymbol{c}} = \begin{Bmatrix} \boldsymbol{S}^u(x,y,z) \\ \boldsymbol{S}^v(x,y,z) \\ \boldsymbol{S}^w(x,y,z) \end{Bmatrix} \bar{\boldsymbol{c}}$$
 
@@ -232,18 +232,20 @@ $$u(x,y,z) = c_{ijk}^u P_i(\xi) P_j(\eta) P_k(\zeta)$$
 $$v(x,y,z) = c_{ijk}^v P_i(\xi) P_j(\eta) P_k(\zeta)$$
 $$w(x,y,z) = c_{ijk}^w P_i(\xi) P_j(\eta) P_k(\zeta)$$
 
-with, for a rectangular plate:
+with, for a plate:
+
 $$\xi = \frac{2x}{a} - 1$$
 $$\eta = \frac{2y}{b} - 1$$
 $$\zeta = \frac{2z}{h} - 1$$
 
-The slide includes a diagram of a rectangular plate with dimensions $a, b, h$, defining the local coordinate system $x, y, z$ and corresponding displacement components $u, v, w$.
+```{figure} Introduction-plate-domain.jpg
+:label:fig:plate-domain
+:width: 40%
+
+Three-dimensional plate domain.
+```
+
+
+
 
  
-
-References:
-•	[1c] Castro S.G.P., Donadon, M.V., "Assembly of Semi-Analytical models to Address Linear Buckling and Vibration of Stiffened Composite Panels with Debonding Defect". Composite Structures, 2017. 10.1016/j.compstruct.2016.10.026
-•	[1d] Bardell N.S., "Free vibration analysis of a flat plate using the hierarchical finite element method". Journal of Sound and Vibration, 1991. https://doi.org/10.1016/0022-460X(91)90855-E
- 
-Would you like me to process any further slides in this deck?
-
