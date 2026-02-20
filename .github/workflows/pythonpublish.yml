@@ -21,21 +21,20 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python3 -m pip install --upgrade pip
-        python3 -m pip install --upgrade setuptools wheel twine
-        python3 -m pip install -r ci_requirements.txt
+        python3 -m pip install --upgrade pip build twine cibuildwheel==2.23.3
     - name: Upload source code
       if: matrix.runs-on == 'ubuntu-latest' && matrix.python-version == '3.13'
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       run: |
-        python3 setup.py sdist
+        python3 -m build --sdist
         python3 -m twine upload dist/*.tar.gz
     - name: Build Windows or MAC-OS Python wheels
       if: matrix.runs-on == 'windows-latest' || matrix.runs-on == 'macos-latest'
       run: |
-        python3 setup.py sdist bdist_wheel
+        python3 -m build --sdist 
+        python3 -m build --wheel
     - name: Publish Windows or MAC-OS Python wheels
       if: matrix.runs-on == 'windows-latest' || matrix.runs-on == 'macos-latest'
       env:
@@ -43,10 +42,6 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       run: |
         python3 -m twine upload dist/*.whl
-    - name: Build Linux Python wheels, install cibuildwheel
-      if: matrix.runs-on == 'ubuntu-latest'
-      run: |
-        python3 -m pip install cibuildwheel==2.23.3
     - name: Build Linux Python wheels
       if: matrix.runs-on == 'ubuntu-latest' && matrix.python-version == '3.9'
       env:
