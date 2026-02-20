@@ -3,7 +3,7 @@
 ## Deflection of a plate using 3D elasticity
 
 
-```{image} StaticAnalysis-plate-point-load.svg
+```{image} StaticAnalysis-plate-point-load.*
 :label:fig:plate-point-load
 :width: 40%
 
@@ -53,8 +53,12 @@ $$\boldsymbol{\varepsilon} = \boldsymbol{B} \bar{\boldsymbol{u}}$$
 An example of the 3D deflection of a plate can be seen in the following notebook: [](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
 +++
 
-```{only} pdf
-An example of the 3D deflection of a plate can be seen in the following notebook: [](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
+```{raw} typst
+An example of the 3D deflection of a plate can be seen in the following notebook: #link("https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb")[Colab Notebook].
+```
+
+```{raw} latex
+An example of the 3D deflection of a plate can be seen in the following notebook: \url{https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb}.
 ```
 
 

@@ -32,7 +32,7 @@ The variation of this expression, valid also for the case of $\boldsymbol{\sigma
 $$\delta U = \int_{\Omega} \boldsymbol{\sigma}^\top \delta \boldsymbol{\varepsilon} \, d\Omega$$
 
 To calculate the strain energy in semi-analytical formulations of plates and shells, it is convenient to represent the second-order tensors of strain and stress are represented as vectors, according to Voigt's notation [@Voigt1910]. 
-```{figure} Introduction-stress-3D.jpg
+```{figure} Introduction-stress-3D.*
 :label: fig:stress-3D
 :width: 50%
 
@@ -208,14 +208,14 @@ with $\chi \in \{\xi, \eta, \zeta\}$, and for any $i > 4$:
 $$P_i(\chi) = \sum_{p=0}^{i/2} \frac{(-1)^p (2i - 2p - 7)!!}{2^p p! (i - 2p - 1)!} \chi^{i-2p-1}$$
 where $q!! = q(q - 2) \dots (2 \text{ or } 1)$ such that $0!! = 1$, and $(i/2)$ in the summation is an integer division. The binary flags $\delta_{t1}$, $\delta_{r1}$, $\delta_{t2}$ and $\delta_{r2}$ are equal to $0$ or $1$, and used in the first four terms of Rodrigues polynomials to enable or disable the translation and rotation of each domain boundary, as illustrated in [](#fig:legendre-bc). From the fifth term onwards, the translation and rotation at the boundaries are always zero, such that they are use to increase the interpolation order in the inner part of the domain, as illustrated in [](#fig:legendre-inner). Flag $\delta_{t1}$ is used to control the translation at boundary ($\chi = -1$), which is possible because using Rodrigues polynomials this is the only term among all terms in the approximation function that produces $P_i(\chi = -1) = 1$. Similarly, $\delta_{t2}$ is used to control the translation at boundary 2 ($\chi = +1$). The rotation at $\chi = -1$ and $\chi = +1$ is respectively controlled using $\delta_{r1}$ and $\delta_{r2}$, since they are the only terms that produce a non-null rotation $\partial P / \partial \chi$ at each respective domain boundary. The use of rotation is specially important in FSDT or TSDT formulations. Vescovini et al. [@Vescovini2018shapefunctions] investigated the sparsity of the systems produced by different shape functions, positively supporting the use of these Legendre hierarchical polynomials.
 
-```{figure} Introduction-Legendre-BC.jpg
+```{figure} Introduction-Legendre-BC.*
 :label:fig:legendre-bc
 :width: 80%
 
 Legendre polynomial boundary functions.
 ```
 
-```{figure} Introduction-Legendre-inner.jpg
+```{figure} Introduction-Legendre-inner.*
 :label:fig:legendre-inner
 :width: 80%
 
@@ -238,7 +238,7 @@ $$\xi = \frac{2x}{a} - 1$$
 $$\eta = \frac{2y}{b} - 1$$
 $$\zeta = \frac{2z}{h} - 1$$
 
-```{figure} Introduction-plate-domain.jpg
+```{figure} Introduction-plate-domain.*
 :label:fig:plate-domain
 :width: 40%
 

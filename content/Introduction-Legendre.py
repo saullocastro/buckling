@@ -60,7 +60,8 @@ plt.axvline(0, color='black', linewidth=0.5)
 plt.xlim([-1, 1])
 
 # Save or Show
-plt.savefig('BucklingPlates-Legendre-BC.jpg', bbox_inches='tight')
+plt.savefig('BucklingPlates-Legendre-BC.svg', bbox_inches='tight')
+plt.savefig('BucklingPlates-Legendre-BC.pdf', bbox_inches='tight')
 #plt.show()
 
 
@@ -95,5 +96,6 @@ plt.axvline(0, color='black', linewidth=0.5)
 plt.xlim([-1, 1])
 
 # Save or Show
-plt.savefig('BucklingPlates-Legendre-inner.jpg', bbox_inches='tight')
+plt.savefig('BucklingPlates-Legendre-inner.svg', bbox_inches='tight')
+plt.savefig('BucklingPlates-Legendre-inner.pdf', bbox_inches='tight')
 #plt.show()
