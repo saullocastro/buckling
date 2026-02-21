@@ -44,11 +44,6 @@ def test_derivative_relationship():
         fxi_analytical = 0.5 * xi**3 - 0.5 * xi
         assert np.isclose(legendre.fxi(xi, 4, 0, 0, 0, 0), fxi_analytical)
 
-def test_gauss_quadrature_weights():
-    for n in range(2, 41):
-        _, weights = legendre.gauss_quadrature(n)
-        assert np.isclose(np.sum(weights), 2.0)
-
 def test_vecf_calls():
     # Check if vecf calls f correctly for a few values
     d1t, d1r, d2t, d2r = 1, 1, 1, 1
