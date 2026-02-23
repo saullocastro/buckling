@@ -68,7 +68,7 @@ $$\boldsymbol{\sigma} = \boldsymbol{C}\boldsymbol{\varepsilon}$$
 
 where $\boldsymbol{C}$ is the constitutive matrix.
 
-Not all stress components shown in Eq. []($eq:voigt) are relevant when calculating thin-walled structures. For plane stress using the Classical Laminated Plate Theory (CLPT):
+Not all stress components shown in Eq. ($eq:voigt) are relevant when calculating thin-walled structures. For plane stress using the Classical Laminated Plate Theory (CLPT):
 $$\varepsilon_{xx}, \varepsilon_{yy}, \gamma_{xy}, \sigma_{xx}, \sigma_{yy}, \tau_{xy}$$
 $$\boldsymbol{\varepsilon}^\top = \{ \varepsilon_{xx} \quad \varepsilon_{yy} \quad \gamma_{xy} \} \qquad \boldsymbol{\sigma}^\top = \{ \sigma_{xx} \quad \sigma_{yy} \quad \tau_{xy} \}$$
 

@@ -5,6 +5,11 @@ project:
       template: https://github.com/TUD-JB-OS/latex_template.git
       output: exports/report_tex.pdf
       id: report_tex
+      articles:
+        - content/Index.md
+        - content/Introduction.md
+        - content/StaticAnalysis.md
+        - content/PostBuckling.md
     
     - format: typst
       template: https://github.com/TUD-JB-OS/typst_template.git

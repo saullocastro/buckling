@@ -37,7 +37,7 @@ $$\boldsymbol{\varepsilon} = \boldsymbol{B} \bar{\boldsymbol{u}}$$
  
 The stiffness matrix becomes, using the 3D constitutive matrix $\boldsymbol{C}$:
 
-$$\boldsymbol{K} = \iiint_{x,y,z} \boldsymbol{B}^T \boldsymbol{C} \boldsymbol{B} dx dy dz$$
+$$\boldsymbol{K} = \iiint_{x,y,z} \boldsymbol{B}^\top \boldsymbol{C} \boldsymbol{B} dx dy dz$$
 
 The external force vector in this example includes only a point load $P$ at the center top surface of the plate:
 
@@ -50,8 +50,10 @@ And the strain recovery becomes:
 $$\boldsymbol{\varepsilon} = \boldsymbol{B} \bar{\boldsymbol{u}}$$
 
 An example of the 3D deflection of a plate can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
+
 +++{"no-pdf":true}
 This example is also available [through this documentation](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
++++
 
 ## Deflection of a plate using CLPT
 
@@ -83,7 +85,7 @@ $$\boldsymbol{\varepsilon} = \begin{Bmatrix} \varepsilon_{xx} \\ \varepsilon_{yy
 $$\boldsymbol{\varepsilon} = (\boldsymbol{B}_m + z\boldsymbol{B}_b)\bar{\boldsymbol{u}}$$
  
 The stiffness matrix becomes, using the laminate constitutive matrices $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{D}$:
-$$\boldsymbol{K} = \iint_{x,y} \left( \boldsymbol{B}_m^T \boldsymbol{A} \boldsymbol{B}_m \right) + \left( \boldsymbol{B}_b^T \boldsymbol{D} \boldsymbol{B}_b \right) + \left( \boldsymbol{B}_m^T \boldsymbol{B} \boldsymbol{B}_b \right) + \left( \boldsymbol{B}_b^T \boldsymbol{B} \boldsymbol{B}_m \right) dx dy$$
+$$\boldsymbol{K} = \iint_{x,y} \left( \boldsymbol{B}_m^\top \boldsymbol{A} \boldsymbol{B}_m \right) + \left( \boldsymbol{B}_b^\top \boldsymbol{D} \boldsymbol{B}_b \right) + \left( \boldsymbol{B}_m^\top \boldsymbol{B} \boldsymbol{B}_b \right) + \left( \boldsymbol{B}_b^\top \boldsymbol{B} \boldsymbol{B}_m \right) dx dy$$
 External force vector (point load $P$ at the midplane):
 $$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\begin{matrix}x=a/2 \\ y=b/2\end{matrix}}$$
 Solution for unknown coefficients:
@@ -92,6 +94,7 @@ $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
 An example of the deflection of a plate using the CLPT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-CLPT.ipynb).
 +++{"no-pdf":true}
 This example is also available [through this documentation](StaticAnalysis-deflection-plate-CLPT.ipynb).
++++
 
 ## Deflection of a plate using FSDT
 
@@ -131,10 +134,10 @@ $$\boldsymbol{B}^Q = \boldsymbol{A} \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^
 
 For the FSDT, the variation of the strain energy is:
 
-$$\delta U = \iint_{xy} \left( \boldsymbol{N}^T \begin{Bmatrix} \delta \varepsilon_{xx}^{(0)} \\ \delta \varepsilon_{yy}^{(0)} \\ \delta \gamma_{xy}^{(0)} \end{Bmatrix} + \boldsymbol{M}^T \begin{Bmatrix} \delta \varepsilon_{xx}^{(1)} \\ \delta \varepsilon_{yy}^{(1)} \\ \delta \gamma_{xy}^{(1)} \end{Bmatrix} + \boldsymbol{Q}^T \begin{Bmatrix} \delta \gamma_{yz}^{(0)} \\ \delta \gamma_{xz}^{(0)} \end{Bmatrix} \right) dx dy$$
+$$\delta U = \iint_{xy} \left( \boldsymbol{N}^\top \begin{Bmatrix} \delta \varepsilon_{xx}^{(0)} \\ \delta \varepsilon_{yy}^{(0)} \\ \delta \gamma_{xy}^{(0)} \end{Bmatrix} + \boldsymbol{M}^\top \begin{Bmatrix} \delta \varepsilon_{xx}^{(1)} \\ \delta \varepsilon_{yy}^{(1)} \\ \delta \gamma_{xy}^{(1)} \end{Bmatrix} + \boldsymbol{Q}^\top \begin{Bmatrix} \delta \gamma_{yz}^{(0)} \\ \delta \gamma_{xz}^{(0)} \end{Bmatrix} \right) dx dy$$
 
 Such that the stiffness matrix becomes, using the laminate constitutive matrices $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{D}$:
-$$\boldsymbol{K} = \iint_{xy} \left( {\boldsymbol{B}^N}^T \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(0)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(0)}} \end{Bmatrix} + {\boldsymbol{B}^M}^T \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(1)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(1)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(1)}} \end{Bmatrix} + {\boldsymbol{B}^Q}^T \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(0)}} \end{Bmatrix} \right) dx dy$$
+$$\boldsymbol{K} = \iint_{xy} \left( {\boldsymbol{B}^N}^\top \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(0)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(0)}} \end{Bmatrix} + {\boldsymbol{B}^M}^\top \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(1)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(1)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(1)}} \end{Bmatrix} + {\boldsymbol{B}^Q}^\top \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(0)}} \end{Bmatrix} \right) dx dy$$
 
 The external force vector is then defined as:
 $$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\begin{matrix}x=a/2 \\ y=b/2\end{matrix}}$$
@@ -146,6 +149,7 @@ $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
 An example of the deflection of a plate using the FSDT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-FSDT.ipynb).
 +++{"no-pdf":true}
 This example is also available [through this documentation](StaticAnalysis-deflection-plate-FSDT.ipynb).
++++
 
 ## Deflection of a plate using the TSDT
 
@@ -185,10 +189,10 @@ $$\boldsymbol{B}^Q = \boldsymbol{A} \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^
 $$\boldsymbol{B}^R = \boldsymbol{D} \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(0)}} \end{Bmatrix} + \boldsymbol{F} \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(2)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(2)}} \end{Bmatrix}$$
 
 For the TSDT, the variation of the strain energy is:
-$$\delta U = \iint_{xy} \left( \boldsymbol{N}^T \begin{Bmatrix} \delta\varepsilon_{xx}^{(0)} \\ \delta\varepsilon_{yy}^{(0)} \\ \delta\gamma_{xy}^{(0)} \end{Bmatrix} + \boldsymbol{M}^T \begin{Bmatrix} \delta\varepsilon_{xx}^{(1)} \\ \delta\varepsilon_{yy}^{(1)} \\ \delta\gamma_{xy}^{(1)} \end{Bmatrix} + \boldsymbol{P}^T \begin{Bmatrix} \delta\varepsilon_{xx}^{(3)} \\ \delta\varepsilon_{yy}^{(3)} \\ \delta\gamma_{xy}^{(3)} \end{Bmatrix} + \boldsymbol{Q}^T \begin{Bmatrix} \delta\gamma_{yz}^{(0)} \\ \delta\gamma_{xz}^{(0)} \end{Bmatrix} + \boldsymbol{R}^T \begin{Bmatrix} \delta\gamma_{yz}^{(2)} \\ \delta\gamma_{xz}^{(2)} \end{Bmatrix} \right) dx dy$$
+$$\delta U = \iint_{xy} \left( \boldsymbol{N}^\top \begin{Bmatrix} \delta\varepsilon_{xx}^{(0)} \\ \delta\varepsilon_{yy}^{(0)} \\ \delta\gamma_{xy}^{(0)} \end{Bmatrix} + \boldsymbol{M}^\top \begin{Bmatrix} \delta\varepsilon_{xx}^{(1)} \\ \delta\varepsilon_{yy}^{(1)} \\ \delta\gamma_{xy}^{(1)} \end{Bmatrix} + \boldsymbol{P}^\top \begin{Bmatrix} \delta\varepsilon_{xx}^{(3)} \\ \delta\varepsilon_{yy}^{(3)} \\ \delta\gamma_{xy}^{(3)} \end{Bmatrix} + \boldsymbol{Q}^\top \begin{Bmatrix} \delta\gamma_{yz}^{(0)} \\ \delta\gamma_{xz}^{(0)} \end{Bmatrix} + \boldsymbol{R}^\top \begin{Bmatrix} \delta\gamma_{yz}^{(2)} \\ \delta\gamma_{xz}^{(2)} \end{Bmatrix} \right) dx dy$$
 
 Such that the stiffness matrix becomes, using the laminate constitutive matrices $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{D}, \boldsymbol{E}, \boldsymbol{F}, \boldsymbol{G}$:
-$$\boldsymbol{K} = \iint_{xy} \left( {\boldsymbol{B}^N}^T \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(0)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(0)}} \end{Bmatrix} + {\boldsymbol{B}^M}^T \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(1)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(1)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(1)}} \end{Bmatrix} + {\boldsymbol{B}^P}^T \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(3)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(3)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(3)}} \end{Bmatrix} + {\boldsymbol{B}^Q}^T \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(0)}} \end{Bmatrix} + {\boldsymbol{B}^R}^T \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(2)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(2)}} \end{Bmatrix} \right) dx dy$$
+$$\boldsymbol{K} = \iint_{xy} \left( {\boldsymbol{B}^N}^\top \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(0)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(0)}} \end{Bmatrix} + {\boldsymbol{B}^M}^\top \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(1)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(1)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(1)}} \end{Bmatrix} + {\boldsymbol{B}^P}^\top \begin{Bmatrix} \boldsymbol{B}^{\varepsilon_{xx}^{(3)}} \\ \boldsymbol{B}^{\varepsilon_{yy}^{(3)}} \\ \boldsymbol{B}^{\gamma_{xy}^{(3)}} \end{Bmatrix} + {\boldsymbol{B}^Q}^\top \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(0)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(0)}} \end{Bmatrix} + {\boldsymbol{B}^R}^\top \begin{Bmatrix} \boldsymbol{B}^{\gamma_{yz}^{(2)}} \\ \boldsymbol{B}^{\gamma_{xz}^{(2)}} \end{Bmatrix} \right) dx dy$$
 
 External force vector:
 $$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\substack{x=a/2 \\ y=b/2}}$$
@@ -196,6 +200,7 @@ $$\boldsymbol{F}_{ext} = P \boldsymbol{S}^w \Big|_{\substack{x=a/2 \\ y=b/2}}$$
 Which can be solved for the Ritz coefficients:
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext}$$
 
-An example of the deflection of a plate using the CLPT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-TSDT.ipynb).
+An example of the deflection of a plate using the TSDT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-TSDT.ipynb).
 +++{"no-pdf":true}
 This example is also available [through this documentation](StaticAnalysis-deflection-plate-TSDT.ipynb).
++++
