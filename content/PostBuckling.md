@@ -43,8 +43,9 @@ equivalent and uniform stress acting over a reduced "effective width" of the ski
 
 ### Effective width for composite plates
 
+An example on how the effective width changes with the loading fraction and material properties can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/PostBuckling-be-composites-Kassapoglou-7.10.ipynb). An illustration on how the internal load changes over the skin width can be found in [this other notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/PostBuckling-be-composites-Kassapoglou-7.12.ipynb)
 +++{"no-pdf":true}
-An example on how the effective width changes with the loading fraction and material properties can be found here: [](PostBuckling-be-composites-Kassapoglou-7.10.ipynb); based on Kassapoglou [@Kassapoglou2013]. An illustration on how the internal load changes over the skin width can be found here: [](PostBuckling-be-composites-Kassapoglou-7.12.ipynb); also based on Kassapoglou [@Kassapoglou2013].
+These are also available in this web version of the documentation, see: [Kassapoglou, Fig. 7.10](PostBuckling-be-composites-Kassapoglou-7.10.ipynb) and [Kassapoglou, Fig. 7.12](PostBuckling-be-composites-Kassapoglou-7.12.ipynb).
 +++
 
 ### Effective width for composite shells
@@ -58,9 +59,9 @@ The TEW analysis process is summarized as follows:
 2.  **Iterative Convergence of Effective Width:** Once the load exceeds the initial buckling load, an iterative algorithm calculates the effective width of the skin contributing to the load-carrying capacity. This process continues until the stress redistribution between the buckled skin and the stiffener reaches equilibrium.
 3.  **Global Stability Analysis:** Evaluating the global column stability based on the flexural, torsional, and warping rigidities of the equivalent skin-stringer cross-section to determine the ultimate collapse load.
 
-
+An example of the TEW method is presented in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/PostBuckling-be-composites-TEW.ipynb).
 +++{"no-pdf":true}
-An example of the TEW method is presented in the following notebook: [](PostBuckling-be-composites-TEW.ipynb).
+Which is part of this web version of the documentation, see: [TEW method](PostBuckling-be-composites-TEW.ipynb).
 +++
 
 The TEW paper reveals that the predictive fidelity of the TEW method is closely linked to the panel's stiffness.

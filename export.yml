@@ -9,6 +9,7 @@ project:
         - content/Index.md
         - content/Introduction.md
         - content/StaticAnalysis.md
+        - content/BucklingPlates.md
         - content/PostBuckling.md
     
     - format: typst

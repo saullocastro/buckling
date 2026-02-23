@@ -8,15 +8,20 @@ project:
       affiliation: Delft University of Technology
   github: https://github.com/saullocastro/buckling
   date: 2026-02-17
-  
-    # used to load /reuse materials from other repositories
+
+  numbering:
+    code: false
+    equations: false
+    headings: true
+
+  # used to load /reuse materials from other repositories
   references:
     myst-guide: https://mystmd.org/guide
     JB-workshop: https://jupyter-book.github.io/workshop-template/
     
   bibliography:
     - references.bib
-  
+
   jupyter:
     binder:
       repo: https://github.com/executablebooks/thebe-binder-base
