@@ -10,6 +10,9 @@ project:
         - file: content/StaticAnalysis-deflection-plate-FSDT.ipynb
         - file: content/StaticAnalysis-deflection-plate-TSDT.ipynb
     - file: content/BucklingPlates.md
+    - file: content/BucklingShells.md
+      children:
+        - file: content/BucklingShells-Galerkin-Airy.ipynb
     - file: content/PostBuckling.md
       children:
         - file: content/PostBuckling-be-composites-Kassapoglou-7.10.ipynb

@@ -10,6 +10,7 @@ project:
         - content/Introduction.md
         - content/StaticAnalysis.md
         - content/BucklingPlates.md
+        - content/BucklingShells.md
         - content/PostBuckling.md
     
     - format: typst
