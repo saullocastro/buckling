@@ -2,6 +2,88 @@
 
 While historically buckling was seen as failure, modern engineering recognizes the postbuckling reserve of stiffened panels. These panels can withstand loads significantly exceeding their initial buckling threshold by allowing local buckling of the skin while stiffeners maintain global integrity.
 
+## Differential quadrature
+
+The Differential Quadrature Method (DQM) is a global numerical technique used to solve partial differential equations (PDEs). Unlike the Finite Element Method (FEM) which relies on localized piecewise interpolation, DQM approximates the derivative of a function at a specific grid point as a weighted linear sum of the function values at all discrete points in the domain.
+
+For a 1D function $f(x)$ discretized over $N$ points, the $n$-th order derivative at point $x_i$ is given by:
+
+$$\left. \frac{d^n f}{dx^n} \right|_{x=x_i} = \sum_{j=1}^{N} W_{ij}^{(n)} f(x_j) \quad \text{for } i = 1, 2, \dots, N \nonumber$$
+
+where $W_{ij}^{(n)}$ are the weighting coefficients. To suppress Runge's phenomenon at higher polynomial orders, the grid points are not distributed uniformly, but rather follow the roots of orthogonal polynomials, such as Chebyshev-Gauss-Lobatto or Gauss-Legendre grids. While traditional DQM solves the strong form of the governing PDEs directly at the collocation points, this approach is mathematically brittle for 2D plate boundaries (specifically corners) due to linearly dependent constraints. 
+
+### The Ritz-DQ Method
+
+To bypass corner singularities and maintain the exponential convergence of spectral methods, it's possible to transition to the **weak form** via the Ritz-DQ method, which hybridises the classical Ritz variational method with DQM's numerical integration rules. Instead of directly evaluating the PDEs, the Ritz-DQ method minimizes the Total Potential Energy ($\Pi$) of the system. The continuous displacement fields $(u, v, w)$ are expanded using a spectral basis (Legendre polynomials). The DQM machinery is then leveraged to evaluate the continuous energy integrals using exact Gauss-Legendre quadrature.
+
+#### Approximation functions
+The transverse deflection $w(x,y)$ and in-plane displacements $u(x,y)$, $v(x,y)$ are approximated by expanding unknown Ritz coefficients $\mathbf{C}$ over 1D Legendre polynomials. To explicitly satisfy the simply supported (SSSS) kinematic boundary conditions ($w=0$ at edges), the following modified Legendre basis can be constructued:
+
+$$\phi_m(\xi) = P_{m+2}(\xi) - P_m(\xi) \nonumber$$
+
+Because standard Legendre polynomials $P_m(\pm 1) = (\pm 1)^m$, the difference exactly vanishes at the domain edges. The transverse field is thus:
+
+$$w(\xi, \eta) = \sum_{i=0}^{N_c} \sum_{j=0}^{N_c} C^w_{ij} \phi_i(\xi) \phi_j(\eta) \nonumber$$
+
+#### Strain energy
+
+To capture post-buckling behavior, the strain-displacement relations must account for geometric nonlinearity. The von Karman mid-plane strains isolate the dominant transverse stiffening effects:
+
+\begin{equation*}
+\begin{aligned}
+\varepsilon_{xx} &= u_{,x} + \frac{1}{2}w_{,x}^2
+\\
+\varepsilon_{yy} &= v_{,y} + \frac{1}{2}w_{,y}^2
+\\
+\gamma_{xy} &= u_{,y} + v_{,x} + w_{,x}w_{,y}
+\end{aligned}
+\end{equation*}
+
+The Total Potential Energy ($\Pi$) is the sum of the membrane ($U_m$) and bending ($U_b$) strain energies. Defining extensional stiffness $C_{ext} = \frac{Eh}{1-\nu^2}$ and bending stiffness $D = \frac{Eh^3}{12(1-\nu^2)}$:
+
+$$
+U_m = \frac{C_{ext}}{2} \int_A \left( \varepsilon_{xx}^2 + \varepsilon_{yy}^2 + 2\nu\varepsilon_{xx}\varepsilon_{yy} + \frac{1-\nu}{2}\gamma_{xy}^2 \right) dA
+\nonumber $$
+
+$$
+U_b = \frac{D}{2} \int_A \left( w_{,xx}^2 + w_{,yy}^2 + 2\nu w_{,xx}w_{,yy} + 2(1-\nu)w_{,xy}^2 \right) dA
+\nonumber $$
+
+In the Ritz-DQM, the continuous integral $\int_A (\dots) dA$ is replaced by the 2D Gauss-Legendre quadrature summation $\sum \sum (\dots) W_{ij}$.
+
+An example of the Ritz-DQ method can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/PostBuckling-Ritz-DQ.ipynb).
+
++++{"no-pdf":true}
+### Practice, Ritz-DQ Methodomputational Workflow
+In [the Ritz-DQ practice](PostBuckling-Ritz-DQ.ipynb), the following algorithm is proposed:
+
+1. **Initialization:** Generate the Gauss-Legendre quadrature roots $(\xi_i, \eta_j)$ and weights $W_{ij}$ for polynomial degree $N_c$.
+2. **Precomputation:** Evaluate the 1D basis polynomials and their spatial derivatives at the grid points. Form the tensor products.
+3. **Displacement Mapping:** Define a loop over incremental edge shortenings $\Delta u$. 
+4. **Energy Minimization:** At each load step, project the current coefficient guess $\mathbf{C}$ through the precomputed tensors to obtain physical strains. Calculate $\Pi$ using DQM quadrature. Use an optimizer (e.g., BFGS or SLSQP) to find the coefficient array that minimizes $\Pi$.
+5. **Symmetry Breaking:** If the plate is unbuckled ($w \approx 0$), inject an artificial perturbation (e.g., $C^w_{00} = 10^{-3}$) prior to minimization to push the gradient off the unstable saddle point.
+6. **Force Recovery:** Post-multiply the converged displacement gradients to extract the boundary membrane stress $N_{xx}$, integrating it via 1D quadrature to output the applied macroscopic load $P$.
+
+
+#### Boundary Condition Variations: Yamaki I vs. Yamaki III
+
+The post-buckling stiffness of a plate is highly sensitive to the in-plane boundary conditions along the unloaded edges ($y = \pm b/2$). We analyze two foundational cases defined by Yamaki [@Yamaki1959].
+
+##### Yamaki Condition III: Stress-Free (Warping) Edges
+* **Physics:** The unloaded edges are completely unrestrained in the $y$-direction. As the plate buckles and deflects in $z$, the edges are physically pulled inward. Because they are unrestrained, they warp and wave, locally relieving membrane tension. 
+* **Implementation:** This is a natural boundary condition. The optimizer minimizes the energy unconstrained, inherently finding the stress-free warped state. This results in lower geometric stiffness.
+
+##### Yamaki Condition I: Straight Edges
+* **Physics:** The unloaded edges are supported by stiffeners that allow them to slide inward macroscopically (zero average stress, $\int N_{yy} dx = 0$), but force them to remain perfectly straight. This forces the entire edge to displace by the same amount, generating massive transverse membrane tension in the center of the plate.
+* **Implementation:** This requires an explicit kinematic equality constraint. The variance of the $v$-displacement along the edges must be zero:
+  
+  $$
+  v(x, \pm b/2) - \bar{v}_{\pm b/2} = 0
+  $$
+  
+In this example this is enforced either via a severe energy penalty factor.
++++
+
 ## Effective width
 
 The postbuckling behavior and stress/strain distribution

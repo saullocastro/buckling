@@ -55,7 +55,7 @@ Tracking the post-buckling equilibrium path requires advanced numerical strategi
 
 ### Non-dimensionalisation scheme
 
-To generalize the computational model across varying geometries, Lu et al. [@Lu2025ShellPostBucklingu] proposed a normalisation of the PDEs. The physical domain is mapped into a dimensionless space using the circumferential wavenumber $N$.
+To generalize the computational model across varying geometries, Lu et al. [@Lu2025ShellPostBuckling] proposed a normalisation of the PDEs. The physical domain is mapped into a dimensionless space using the circumferential wavenumber $N$.
 
 Spatial coordinates and field variables:
 

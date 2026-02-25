@@ -15,6 +15,7 @@ project:
         - file: content/BucklingShells-Galerkin-Airy.ipynb
     - file: content/PostBuckling.md
       children:
+        - file: content/PostBuckling-Ritz-DQ.ipynb
         - file: content/PostBuckling-be-composites-Kassapoglou-7.10.ipynb
         - file: content/PostBuckling-be-composites-Kassapoglou-7.12.ipynb
         - file: content/PostBuckling-be-composites-TEW.ipynb
