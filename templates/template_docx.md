@@ -8,7 +8,7 @@ title: DOCX Export
 :::{include} ../content/Introduction.md
 :::
 
-:::{include} ../content/StaticAnalysis.md
+:::{include} ../content/Static.md
 :::
 
 :::{include} ../content/BucklingPlates.md
