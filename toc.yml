@@ -3,22 +3,26 @@ project:
   toc:
     - file: content/Index.md
     - file: content/Introduction.md
-    - file: content/StaticAnalysis.md
+    - file: content/Static.md
       children:
-        - file: content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb
-        - file: content/StaticAnalysis-deflection-plate-CLPT.ipynb
-        - file: content/StaticAnalysis-deflection-plate-FSDT.ipynb
-        - file: content/StaticAnalysis-deflection-plate-TSDT.ipynb
+        - file: content/Static-deflection-plate-3D-elasticity.ipynb
+        - file: content/Static-deflection-plate-CLPT.ipynb
+        - file: content/Static-deflection-plate-FSDT.ipynb
+        - file: content/Static-deflection-plate-TSDT.ipynb
     - file: content/BucklingPlates.md
     - file: content/BucklingShells.md
-      children:
-        - file: content/BucklingShells-Galerkin-Airy.ipynb
+#      children:
+#        - file: 
     - file: content/PostBuckling.md
       children:
+        - file: content/PostBuckling-DQM-Analytical-Airy.ipynb
         - file: content/PostBuckling-Ritz-DQ.ipynb
         - file: content/PostBuckling-be-composites-Kassapoglou-7.10.ipynb
         - file: content/PostBuckling-be-composites-Kassapoglou-7.12.ipynb
         - file: content/PostBuckling-be-composites-TEW.ipynb
+    - file: content/PostBucklingShells.md    
+      children:        
+        - file: content/PostBucklingShells-Galerkin-Airy.ipynb
     - file: content/Results.ipynb
     - file: content/Conclusion.md
     - title: Appendix

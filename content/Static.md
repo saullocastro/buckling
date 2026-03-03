@@ -1,9 +1,9 @@
-# Static analysis
+# Static analysis of plates
 
 ## Deflection of a plate using 3D elasticity
 
 
-```{figure} StaticAnalysis-plate-point-load.*
+```{figure} Static-plate-point-load.*
 :label:fig:plate-point-load
 :width: 40%
 
@@ -72,10 +72,10 @@ $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext} \nonumber$$
 And the strain recovery becomes:
 $$\boldsymbol{\varepsilon} = \boldsymbol{B} \bar{\boldsymbol{u}} \nonumber$$
 
-An example of the 3D deflection of a plate can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
+An example of the 3D deflection of a plate can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/Static-deflection-plate-3D-elasticity.ipynb).
 
 +++{"no-pdf":true}
-This example is also available [through this documentation](StaticAnalysis-deflection-plate-3D-elasticity.ipynb).
+This example is also available [through this documentation](Static-deflection-plate-3D-elasticity.ipynb).
 +++
 
 ## Deflection of a plate using CLPT
@@ -138,9 +138,9 @@ Solution for unknown coefficients:
 
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext} \nonumber$$
  
-An example of the deflection of a plate using the CLPT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-CLPT.ipynb).
+An example of the deflection of a plate using the CLPT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/Static-deflection-plate-CLPT.ipynb).
 +++{"no-pdf":true}
-This example is also available [through this documentation](StaticAnalysis-deflection-plate-CLPT.ipynb).
+This example is also available [through this documentation](Static-deflection-plate-CLPT.ipynb).
 +++
 
 ## Deflection of a plate using FSDT
@@ -215,9 +215,9 @@ Which can be solved for the Ritz coefficients with:
 
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext} \nonumber$$
 
-An example of the deflection of a plate using the FSDT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-FSDT.ipynb).
+An example of the deflection of a plate using the FSDT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/Static-deflection-plate-FSDT.ipynb).
 +++{"no-pdf":true}
-This example is also available [through this documentation](StaticAnalysis-deflection-plate-FSDT.ipynb).
+This example is also available [through this documentation](Static-deflection-plate-FSDT.ipynb).
 +++
 
 ## Deflection of a plate using the TSDT
@@ -298,7 +298,7 @@ Which can be solved for the Ritz coefficients:
 
 $$\bar{\boldsymbol{u}} = \boldsymbol{K}^{-1} \boldsymbol{F}_{ext} \nonumber$$
 
-An example of the deflection of a plate using the TSDT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/StaticAnalysis-deflection-plate-TSDT.ipynb).
+An example of the deflection of a plate using the TSDT can be seen in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/Static-deflection-plate-TSDT.ipynb).
 +++{"no-pdf":true}
-This example is also available [through this documentation](StaticAnalysis-deflection-plate-TSDT.ipynb).
+This example is also available [through this documentation](Static-deflection-plate-TSDT.ipynb).
 +++

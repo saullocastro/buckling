@@ -1,8 +1,47 @@
-# Post-buckling methods
+# Post-buckling of plates
 
 While historically buckling was seen as failure, modern engineering recognizes the postbuckling reserve of stiffened panels. These panels can withstand loads significantly exceeding their initial buckling threshold by allowing local buckling of the skin while stiffeners maintain global integrity.
 
 ## Differential quadrature
+
+
+Methodological Comparison: DQM, iDQM, and MiDQM
+
+When solving high-order boundary value problems such as the coupled Föppl–von Kármán (FvK) equations, the choice of spatial discretization dictates the numerical stability of the solver. We can categorize the Differential Quadrature (DQ) family into three distinct approaches.
+
+### Pure direct Differential Quadrature Method (DQM)
+
+**TODO highlight the strong form**
+
+Pure DQM directly approximates the derivatives of a function at a set of grid points using a weighted linear sum of the function values at all other points. Higher-order derivative matrices are computed by simple matrix multiplication of the first-order weighting matrix ($D^{(m)} = D^{(1)} \dots D^{(1)}$).
+
+Characteristics: Extremely simple to implement.
+
+Drawback: As noted by Raju et al. (2013) [@Raju2013], Pure DQM is notorious for numerical instability in highly nonlinear post-buckling problems. The condition number of $D^{(m)}$ scales exponentially with $m$ and the number of grid points $N$.
+
+### Pure inverse Differential Quadrature Method (iDQM)
+
+Proposed by Ojo et al. (2021) [@Ojo2021], the Pure iDQM inverts the mathematical logic of DQM. Instead of approximating the function and differentiating, it directly approximates the highest-order derivative (e.g., $W_{,xxxx}$) using standard DQ. The lower-order derivatives and the function itself are recovered via integration weighting matrices ($H^{(m)}$), utilizing boundary conditions as constants of integration.
+
+Characteristics: Requires the formulation of inverse boundary value problems to define the integration constants analytically.
+
+Advantage: Integration is inherently a smoothing operation, meaning the condition number of the resulting algebraic system is significantly reduced.
+
+Let's critically evaluate the motivation of Ojo et al. (2021) [@Ojo2021]. Ojo et al. proposed the iDQM fundamentally to bypass the extreme ill-conditioning and round-off error amplification caused by high-order differentiation matrices ($D^{(4)}$) in Pure DQM. When the condition number hits $\mathcal{O}(10^8)$, standard numerical solvers fail to converge. While Ojo's mathematical diagnosis of the matrix condition number is correct, their conclusion that one must switch to integral matrices to achieve stability in high-order PDEs is a misdiagnosis of where the failure actually occurs in nonlinear structural solvers.
+
+Take an analytical Airy stress-based DQM, such as the one implemented in [this practice](PostBuckling-DQM-Analytical-Airy.ipynb), where Ojo's motivation is fundamentally bypassed. The instability in standard Pure DQM for FvK equations is rarely caused by a static matrix-vector multiplication $D^{(4)}W$. The failure actually occurs inside the Newton-Raphson solver during the finite-difference approximation of the Jacobian. When a standard optimizer perturbs the state vector by $\epsilon = 10^{-7}$, the $\mathcal{O}(10^8)$ condition number of $D^{(4)}$ amplifies this perturbation into massive $\mathcal{O}(0.1)$ numeric noise, destroying the descent direction. By deriving the exact analytical Jacobian using Kronecker tensor products, rhe finite-difference noise is entirely eliminated. Consequently, the Pure DQM achieves machine-precision convergence instantly, rendering the heavy machinery of integral $H$-matrices (iDQM) unnecessary.
+
+When using the Ritz-DQM, Ojo's motivation also becomes invalid. Ojo's premise relies on the instability of $4^{\text{th}}$-order derivatives in the strong form. The Ritz method, however, operates on the Total Potential Energy ($\Pi$), which is the weak form.  Furthermore, a lower derivative order is achieved with integration by parts when compared to the strong from, reducing the highest spatial derivative to $m=2$ (the bending curvatures $\kappa_{x,y}$), fundamentally reducing the numerical instability. Finally, the Ritz-DQM does not use dense, global differentiation matrices $D^{(m)}$. Instead, in the practice herein proposed, an analytical, hierarchical Legendre basis functions are proposed, which allow exact analytical derivatives to be calculated at Gauss-Legendre integration points. Because Ritz-DQM relies on exact polynomial derivatives and exact numerical quadrature, it entirely circumvents the round-off amplification issues that Ojo et al. aimed to solve with the inverse quadrature method.
+
+### Mixed iDQM (MiDQM)
+
+**TODO find more about this**
+
+MiDQM is a hybrid approach discussed in contemporary literature (including extensions of Ojo et al.). It uses direct differentiation matrices ($D^{(m)}$) for lower-order derivative terms and integration matrices ($H^{(m)}$) for the highest-order terms.
+
+Characteristics: Balances the smoothing benefits of integral operators with the straightforward boundary condition enforcement of standard differentiation.
+
+## Differential quadrature (OLD)
 
 The Differential Quadrature Method (DQM) is a global numerical technique used to solve partial differential equations (PDEs). Unlike the Finite Element Method (FEM) which relies on localized piecewise interpolation, DQM approximates the derivative of a function at a specific grid point as a weighted linear sum of the function values at all discrete points in the domain.
 

@@ -11,7 +11,7 @@ title: DOCX Export
 :::{include} ../content/StaticAnalysis.md
 :::
 
-:::{include} ../content/BucklingPlate.md
+:::{include} ../content/BucklingPlates.md
 :::
 
 :::{include} ../content/PostBuckling.md
@@ -20,11 +20,6 @@ title: DOCX Export
 :::{include} ../content/PostBuckling-be-composites-TEW.ipynb
 :::
 
-:::{include} ../content/Results.ipynb
+:::{include} ../content/PostBucklingShells.md
 :::
 
-:::{include} ../content/Conclusion.md
-:::
-
-:::{include} ../content/Cheatsheet.md
-:::

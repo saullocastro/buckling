@@ -8,10 +8,11 @@ project:
       articles:
         - content/Index.md
         - content/Introduction.md
-        - content/StaticAnalysis.md
+        - content/Static.md
         - content/BucklingPlates.md
         - content/BucklingShells.md
         - content/PostBuckling.md
+        - content/PostBucklingShells.md
     
     - format: typst
       template: https://github.com/TUD-JB-OS/typst_template.git
