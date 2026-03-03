@@ -1,6 +1,10 @@
 # Post-buckling of perfect shells
 
+For shells, the coupling between the normal deflection and membrane strains create more intricate kinematic relations and require that at least two field variables are solved simultaneously. In cylindrical shells it is possible to resolve the buckling or geometrically non-linear displacement by using only the hoop and normal displacements, which are coupled in the hoop strain term. Another approach consists of the hybrid Airy' stress-based formulation in which the normal displacement and the Airy stress function are approximated. From the Airy stress function the membrane stresses can be readily derived, and thus the total potential of the system can be constructed and solved.
+
 ## Galerkin method using Airy's stress function
+
+The method herein presented is based on the recent work of Lu et al. [@Lu2025ShellPostBuckling], developed for isotropic shells.
 
 ### Core formulation
 This part provides comprehensive theoretical overview of the buckling and post-buckling behavior of thin-walled cylindrical shells under single and combined loading conditions, based on the recent work of Lu et al. [@Lu2025ShellPostBuckling]. The formulation follows the Donnell shell theory solved via the Galerkin method. The theoretical framework is established using Donnell shell theory, which is widely adopted for thin shells due to its practical accuracy and relative simplicity. It assumes that in-plane displacements are negligible compared to transverse displacements.
@@ -66,6 +70,3 @@ In force-control scenarios, the compressive force $P$ is frequently normalized a
 This example is also available [through this documentation](PostBucklingShells-Galerkin-Airy.ipynb).
 +++
 
-# Post-buckling of imperfect cylindrical shells
-
-TODO
