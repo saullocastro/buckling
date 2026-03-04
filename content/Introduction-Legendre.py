@@ -24,15 +24,15 @@ def s_high_order(i, chi):
     """Calculates the shape function for i > 4 based on the summation formula."""
     total = np.zeros_like(chi)
     limit = int((i - 1) // 2)
-    
+
     for p in range(limit + 1):
         # Calculate terms based on the user's provided equation
         term_num = ((-1)**p) * double_factorial(2*i - 2*p - 7)
         term_den = (2**p) * factorial(p) * factorial(i - 2*p - 1)
         term_pow = chi**(i - 2*p - 1)
-        
+
         total += (term_num / term_den) * term_pow
-        
+
     return total
 
 # --- 4. Plot Figure 1: Standard Hermitian (i=1 to 4) ---
@@ -60,8 +60,8 @@ plt.axvline(0, color='black', linewidth=0.5)
 plt.xlim([-1, 1])
 
 # Save or Show
-plt.savefig('BucklingPlates-Legendre-BC.svg', bbox_inches='tight')
-plt.savefig('BucklingPlates-Legendre-BC.pdf', bbox_inches='tight')
+plt.savefig('Introduction-Legendre-BC.svg', bbox_inches='tight')
+plt.savefig('Introduction-Legendre-BC.pdf', bbox_inches='tight')
 #plt.show()
 
 
@@ -96,6 +96,7 @@ plt.axvline(0, color='black', linewidth=0.5)
 plt.xlim([-1, 1])
 
 # Save or Show
-plt.savefig('BucklingPlates-Legendre-inner.svg', bbox_inches='tight')
-plt.savefig('BucklingPlates-Legendre-inner.pdf', bbox_inches='tight')
+plt.savefig('Introduction-Legendre-inner.svg', bbox_inches='tight')
+plt.savefig('Introduction-Legendre-inner.pdf', bbox_inches='tight')
+plt.savefig('Introduction-Legendre-inner.jpg', bbox_inches='tight')
 #plt.show()
