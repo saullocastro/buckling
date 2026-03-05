@@ -23,6 +23,18 @@ project:
       article: templates/template_docx.md
       output: exports/report.docx
       id: report_docx
+    
+    - format: tex
+      output: exports/report.tex
+      id: report_pandoc
+      articles:
+        - content/Index.md
+        - content/Introduction.md
+        - content/Static.md
+        - content/BucklingPlates.md
+        - content/PostBuckling.md
+        - content/PostBuckling-be-composites-TEW.ipynb
+        - content/PostBucklingShells.md
 
   downloads:
     - id: report_tex
@@ -31,3 +43,5 @@ project:
       title: PDF (Typst)
     - id: report_docx
       title: DOCX (Microsoft Word)
+    - id: report_pandoc
+      title: DOCX (Pandoc)

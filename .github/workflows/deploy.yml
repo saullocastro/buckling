@@ -60,6 +60,14 @@ jobs:
       - name: Build DOCX
         run: |
           myst build --docx
+      
+      - name: Build DOCX (Pandoc)
+        run: |
+          myst build --tex
+          cd exports && pandoc -f latex -t docx \
+            --resource-path=.:../content \
+            -o report_pandoc.docx \
+            report.tex
 
       - name: Upload Output Files as Artifacts
         uses: actions/upload-artifact@v4
