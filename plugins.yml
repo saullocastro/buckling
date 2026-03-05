@@ -3,3 +3,4 @@ project:
   plugins:
     - https://github.com/jupyter-book/myst-plugins/releases/download/iframe-to-qr-pdf/iframe-to-qr-pdf.mjs
     - resolve-wildcard-images.mjs
+    - fix-math-docx.mjs
