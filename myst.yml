@@ -44,5 +44,7 @@ site:
       url: ./exports/report_tex.pdf
     - title: Typst PDF
       url: ./exports/report_typst.pdf
+    - title: DOCX pandoc
+      url: ./exports/report_pandoc.docx
     - title: DOCX
       url: ./exports/report.docx
