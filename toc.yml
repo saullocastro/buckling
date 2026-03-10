@@ -10,6 +10,9 @@ project:
         - file: content/Static-deflection-plate-FSDT.ipynb
         - file: content/Static-deflection-plate-TSDT.ipynb
     - file: content/BucklingPlates.md
+      children:
+        - file: content/BucklingPlates-3D-elasticity.ipynb
+        - file: content/BucklingPlates-FSDT.ipynb
     - file: content/BucklingShells.md
 #      children:
 #        - file: 

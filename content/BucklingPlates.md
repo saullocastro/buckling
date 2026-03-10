@@ -15,7 +15,7 @@ In terms of nodal displacements (or Ritz coefficients) $\boldsymbol{\bar{u}}$:
 $$\delta \varepsilon_{xx} = \boldsymbol{\bar{B}} \delta \boldsymbol{\bar{u}} = (\boldsymbol{B}_L + \boldsymbol{B}_{NL}) \delta \boldsymbol{\bar{u}}$$
 with:
 
-$$\boldsymbol{B}_L = \frac{\partial \boldsymbol{S}^u}{\partial x} \qquad \boldsymbol{B}_{NL} = \frac{\partial u}{\partial x}\frac{\partial \boldsymbol{S}^u}{\partial x} + \frac{\partial v}{\partial x}\frac{\partial \boldsymbol{S}^v}{\partial x} + \frac{\partial w}{\partial x}\frac{\partial \boldsymbol{S}^w}{\partial x}$$
+$$\boldsymbol{B}_L = \frac{\partial \boldsymbol{S}^u}{\partial x} \boldsymbol{B}_{NL} = \frac{\partial u}{\partial x}\frac{\partial \boldsymbol{S}^u}{\partial x} + \frac{\partial v}{\partial x}\frac{\partial \boldsymbol{S}^v}{\partial x} + \frac{\partial w}{\partial x}\frac{\partial \boldsymbol{S}^w}{\partial x}$$
 
 The second variation becomes:
 
@@ -36,13 +36,13 @@ $$\delta^2 \varepsilon_{xx} = \delta \boldsymbol{\bar{u}}^\top \left[ \left(\fra
 Then:
 
 \begin{equation*}
-\begin{aligned}
-\delta \boldsymbol{\bar{u}}^\top \boldsymbol{K}_G \delta \boldsymbol{\bar{u}} &= \int_{\Omega} \hat{\sigma}_{xx}\delta^2 \varepsilon_{xx} \, d\Omega
+\begin{split}
+\delta \boldsymbol{\bar{u}}^\top \boldsymbol{K}_G \delta \boldsymbol{\bar{u}} = \int_{\Omega} \hat{\sigma}_{xx}\delta^2 \varepsilon_{xx} \, d\Omega
 \\
-&= \delta \boldsymbol{\bar{u}}^\top \int_{\Omega} \hat{\sigma}_{xx} \left(\frac{\partial \boldsymbol{S}^u}{\partial x}\right)^\top \left(\frac{\partial \boldsymbol{S}^u}{\partial x}\right) 
+= \delta \boldsymbol{\bar{u}}^\top \int_{\Omega} \hat{\sigma}_{xx} \left(\frac{\partial \boldsymbol{S}^u}{\partial x}\right)^\top \left(\frac{\partial \boldsymbol{S}^u}{\partial x}\right) 
 + \hat{\sigma}_{xx} \left(\frac{\partial \boldsymbol{S}^v}{\partial x}\right)^\top \left(\frac{\partial \boldsymbol{S}^v}{\partial x}\right) 
 + \hat{\sigma}_{xx} \left(\frac{\partial \boldsymbol{S}^w}{\partial x}\right)^\top \left(\frac{\partial \boldsymbol{S}^w}{\partial x}\right) d\Omega \, \delta \boldsymbol{\bar{u}}
-\end{aligned}
+\end{split}
 \end{equation*}
 
 $\hat{\sigma}_{xx}$ can be given or calculated from an initial nodal displacement state $\boldsymbol{\hat{u}}$ (pre-buckling of fundamental state):
@@ -156,5 +156,40 @@ $\hat{\sigma}_{xx}, \hat{\sigma}_{yy}, \hat{\tau}_{xy}$ can be calculated for pl
 $$\begin{Bmatrix} \hat{\sigma}_{xx} \\ \hat{\sigma}_{yy} \\ \hat{\tau}_{xy} \end{Bmatrix} = \frac{1}{h} \begin{bmatrix} \boldsymbol{A} & \boldsymbol{B} \\ \boldsymbol{B} & \boldsymbol{D} \end{bmatrix} \left( \boldsymbol{B}_L + \frac{1}{2}\boldsymbol{B}_{NL} \right) \boldsymbol{\hat{u}} \nonumber$$
  
 
- 
+ ## Buckling of a plate using full 3D elasticity
 
+ For the 3D elasticity case, the following expression can be used to calculate the geometric stiffness matrix for plates, using van Kármán kinematics:
+ 
+\begin{equation*}
+\begin{split}
+\mathbf{K}_G = \iiint_{x,y,z} \biggl[ 
+\hat{\sigma}_{xx} \left( \frac{\partial \boldsymbol{S}^w}{\partial x} \right)^\top \left( \frac{\partial \boldsymbol{S}^w}{\partial x} \right) \\
++ \hat{\sigma}_{yy} \left( \frac{\partial \boldsymbol{S}^w}{\partial y} \right)^\top \left( \frac{\partial \boldsymbol{S}^w}{\partial y} \right) \\
++ \hat{\sigma}_{xy} \left( \frac{\partial \boldsymbol{S}^w}{\partial x} \right)^\top \left( \frac{\partial \boldsymbol{S}^w}{\partial y} \right) \\
++ \hat{\sigma}_{xy} \left( \frac{\partial \boldsymbol{S}^w}{\partial y} \right)^\top \left( \frac{\partial \boldsymbol{S}^w}{\partial x} \right) 
+\biggr] dxdydz
+\end{split}
+\end{equation*}
+
+An example on how to implement buckling of aplate using full 3D elasticity and the Ritz Method can be found in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/BucklingPlates-3D-elasticity.ipynb).
++++{"no-pdf":true}
+This is also available in this web version of the documentation, see: [this page](BucklingPlates-3D-elasticity.ipynb).
++++
+
+## Buckling of a plate using the CLPT, FSDT or TSDT
+
+For all 3 equivalent single-layer (ESL) theories previously discussed, the following expression can be used to calculate the geometric stiffness matrix for plates, using van Kármán kinematics:
+
+\begin{equation*}
+\begin{split}
+\boldsymbol{K}_G = \iint\limits_{x,y}^{\square} \widehat{N}_{xx} \left(\frac{\partial \boldsymbol{S}^w}{\partial x}\right)^{\mathsf{T}} \left(\frac{\partial \boldsymbol{S}^w}{\partial x}\right) \\
++ \widehat{N}_{yy} \left(\frac{\partial \boldsymbol{S}^w}{\partial y}\right)^{\mathsf{T}} \left(\frac{\partial \boldsymbol{S}^w}{\partial y}\right) \\
++ \widehat{N}_{xy} \left(\frac{\partial \boldsymbol{S}^w}{\partial x}\right)^{\mathsf{T}} \left(\frac{\partial \boldsymbol{S}^w}{\partial y}\right) \\
++ \widehat{N}_{xy} \left(\frac{\partial \boldsymbol{S}^w}{\partial y}\right)^{\mathsf{T}} \left(\frac{\partial \boldsymbol{S}^w}{\partial x}\right) dxdy
+\end{split}
+\end{equation*}
+
+An example on how to implement buckling of aplate using the FSDT and the Ritz Method can be found in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/BucklingPlates-FSDT.ipynb).
++++{"no-pdf":true}
+This is also available in this web version of the documentation, see: [this page](BucklingPlates-FSDT.ipynb).
++++
