@@ -3,6 +3,7 @@ project:
   toc:
     - file: content/Index.md
     - file: content/Introduction.md
+    - file: content/KinematicEquations.md
     - file: content/Static.md
       children:
         - file: content/Static-deflection-plate-3D-elasticity.ipynb
@@ -26,8 +27,4 @@ project:
     - file: content/PostBucklingShells.md    
       children:        
         - file: content/PostBucklingShells-Galerkin-Airy.ipynb
-    - file: content/Results.ipynb
-    - file: content/Conclusion.md
-    - title: Appendix
-      children:
-        - file: content/Cheatsheet.md
+    - file: content/PostBucklingShells-Imperfect.md    
