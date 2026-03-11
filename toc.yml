@@ -3,7 +3,6 @@ project:
   toc:
     - file: content/Index.md
     - file: content/Introduction.md
-    - file: content/KinematicEquations.md
     - file: content/Static.md
       children:
         - file: content/Static-deflection-plate-3D-elasticity.ipynb
@@ -28,3 +27,17 @@ project:
       children:        
         - file: content/PostBucklingShells-Galerkin-Airy.ipynb
     - file: content/PostBucklingShells-Imperfect.md    
+    - title: Appendix
+      children:
+        - file: content/KinematicEquations.md
+          children:
+            - file: content/KinematicEquations-plate-3D.ipynb
+            - file: content/KinematicEquations-plate-CLPT.ipynb
+            - file: content/KinematicEquations-plate-FSDT.ipynb
+            - file: content/KinematicEquations-plate-TSDT.ipynb
+            - file: content/KinematicEquations-cylinder-3D.ipynb
+            - file: content/KinematicEquations-cylinder-CLPT.ipynb
+            - file: content/KinematicEquations-cylinder-FSDT.ipynb
+            - file: content/KinematicEquations-cylinder-TSDT.ipynb
+            - file: content/KinematicEquations-cone-3D.ipynb
+            - file: content/KinematicEquations-sphere-3D.ipynb
