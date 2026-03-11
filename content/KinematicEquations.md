@@ -241,7 +241,7 @@ Consequently, for thin-walled structures, utilizing strictly 3D approaches is in
 
 ## Typical Kinematic Theories Applied for Composite Plates
 
-Most of the analyses performed on composite plates are based on one of the following approaches [@Reddy2004]:
+Most of the analyses performed on composite plates are based on one of the following approaches [@Reddy2003]:
 
 * **Equivalent single-layer (ESL) theories (2-D)**
 * Classical laminated plate theory
@@ -269,7 +269,7 @@ Shallow shell assumption $r>>h$ [@CastroPhD].
 
 Given a function $f(x, \theta, z)$, its integral over the 3-D domain $\mathcal{V}$ can be expressed as [@CastroPhD]:
 
-$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{r_{int}}^{r_{ext}} \int_{\Omega} f(x, \theta, z) R(x, z) d\Omega dr$$
+$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{r_{int}}^{r_{ext}} \int_{\Omega} f(x, \theta, z) R(x, z) d\Omega dr \nonumber$$
 
 Using substitutions based on cylindrical shell geometry:
 
@@ -292,7 +292,7 @@ $$(r + z) \approx r \nonumber$$
 
 This simplification reduces the previous integral to:
 
-$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{-\frac{h}{2}}^{\frac{h}{2}} \int_{\mathcal{A}} f(x, \theta, z) d\mathcal{A} dz = \int_{z=-\frac{h}{2}}^{\frac{h}{2}} \int_{s=0}^{s=2\pi r} \int_{x=0}^{x=L} f(x, \theta, z) dx ds dz$$
+$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{-\frac{h}{2}}^{\frac{h}{2}} \int_{\mathcal{A}} f(x, \theta, z) d\mathcal{A} dz = \int_{z=-\frac{h}{2}}^{\frac{h}{2}} \int_{s=0}^{s=2\pi r} \int_{x=0}^{x=L} f(x, \theta, z) dx ds dz \nonumber$$
 
 This final equation forms the basis for reducing the 3-D domain to a 2-D domain, paving the way to integrate ESL kinematics efficiently.
 
@@ -304,11 +304,13 @@ The main ESL theories make specific assumptions regarding the displacement field
 
 An extension of the Classical Plate Theory to composite laminates (Kirchhoff-Love theory).
 
-$$\begin{aligned}
-u(x, y, z) &= u_0(x, y) - z\, w_{,x}(x, y) \\
-v(x, y, z) &= v_0(x, y) - z\, w_{,y}(x, y) \\
-w(x, y, z) &= w_0(x, y)
-\end{aligned}$$
+\begin{equation*}
+\begin{split}
+u(x, y, z) = u_0(x, y) - z\, w_{,x}(x, y) \\
+v(x, y, z) = v_0(x, y) - z\, w_{,y}(x, y) \\
+w(x, y, z) = w_0(x, y)
+\end{split}
+\end{equation*}
 
 * **Assumptions:** Transverse normals remain straight after deformation (rigid cross-section). They do not experience elongation ($\varepsilon_{zz} = 0$) and remain perpendicular to the mid-surface after deformation, meaning no transverse shear strains ($\gamma_{xz} = \gamma_{yz} = 0$).
 
@@ -316,21 +318,42 @@ w(x, y, z) &= w_0(x, y)
 
 Also known as Reissner-Mindlin theory.
 
-$$\begin{aligned}
-u(x, y, z) &= u_0(x, y) + z\, \phi_x(x, y) \\
-v(x, y, z) &= v_0(x, y) + z\, \phi_y(x, y) \\
-w(x, y, z) &= w_0(x, y)
-\end{aligned}$$
+\begin{equation*}
+\begin{split}
+u(x, y, z) = u_0(x, y) + z\, \phi_x(x, y) \\
+v(x, y, z) = v_0(x, y) + z\, \phi_y(x, y) \\
+w(x, y, z) = w_0(x, y)
+\end{split}
+\end{equation*}
 
-* **Assumptions:** Rotations are disconnected from normal displacements ($\phi_x(x, y) \neq -w_{,x}(x, y)$). Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant through $z$. Therefore, **shear correction factors are needed**.
+* **Assumptions:** Rotations are disconnected from normal displacements ($\phi_x(x, y) \neq -w_{,x}(x, y)$). Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant through $z$. Therefore, **shear correction factors are needed**. Figure [](#fig:CLPT-FSDT) [@CastroPhD] visually shows the kinematic differences between the CLPT and FSDT.
+
+```{figure} KinematicEquations-CLPT-FSDT.*
+:label:fig:CLPT-FSDT
+:width: 60%
+
+Kinematic comparison between CLPT and FSDT [@CastroPhD].
+```
+
 
 ### Third-order Shear Deformation Theory (TSDT)
 
-$$\begin{aligned}
-u(x, y, z) &= u_0(x, y) + z \phi_x(x, y) + z^2 \psi_x(x, y) + z^3 \lambda_x(x, y) \\
-v(x, y, z) &= v_0(x, y) + z \phi_y(x, y) + z^2 \psi_y(x, y) + z^3 \lambda_y(x, y) \\
-w(x, y, z) &= w_0(x, y)
-\end{aligned}$$
+\begin{equation*}
+\begin{split}
+u(x, y, z) = u_0(x, y) + z \phi_x(x, y) + z^2 \psi_x(x, y) + z^3 \lambda_x(x, y) \\
+v(x, y, z) = v_0(x, y) + z \phi_y(x, y) + z^2 \psi_y(x, y) + z^3 \lambda_y(x, y) \\
+w(x, y, z) = w_0(x, y)
+\end{split}
+\end{equation*}
 
-* **Assumptions:** Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). This kinematics allows for a parabolic distribution of transverse shear strains $\gamma_{xz}(x, y, z)$ and $\gamma_{yz}(x, y, z)$. Consequently, **shear correction factors are NOT needed**.
+* **Assumptions:** Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). This kinematics allows for a parabolic distribution of transverse shear strains $\gamma_{xz}(x, y, z)$ and $\gamma_{yz}(x, y, z)$. Consequently, **shear correction factors are NOT needed**. Figure [](#fig:TSDT) shows the kinematic differences between the CLPT, FSDT and TSDT.
+
+```{figure} KinematicEquations-TSDT.*
+:label:fig:TSDT
+:width: 60%
+
+Kinematic comparison between CLPT, FSDT and TSDT.
+```
+
+
 
