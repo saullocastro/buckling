@@ -1,5 +1,7 @@
 # Strain-displacement (kinematic) equations for plates, cylindrical and spherical shells
 
+Castro [@CastroEMstability2025] compiled the kinematic equations for plates, cylindrical, conical and spherical shells. A general overview from the full elasticity theory to the main equivalent single-layer theories is given. Note that $\gamma_{ij}$ is used here, meaning the engineering shear strains.
+
 ## General strain-displacement relations
 
 According to the three-dimensional (3D) elasticity theory, the strain components referred to an arbitrary orthogonal coordinate system $x_1$,$x_2$, $x_3$, illustrated in [](#fig:kestress-3D)
@@ -11,7 +13,7 @@ According to the three-dimensional (3D) elasticity theory, the strain components
 Complete stress state of a material point.
 ```
 
-can be written as (@CastroPhD): 
+can be written as [@CastroPhD]: 
 
 \begin{equation*}
 \begin{split}
@@ -50,7 +52,7 @@ Figure [](#fig:keplate-domain) shows the local and global coordinates of a plate
 :label:fig:keplate-domain
 :width: 40%
 
-Three-dimensional plate domain.
+Plate domain.
 ```
 
 from where the following coordinate relations can be obtained:
@@ -95,10 +97,10 @@ Figure [](#fig:cylinder-domain) shows the local and global coordinates of a cyli
 :label:fig:cylinder-domain
 :width: 40%
 
-Three-dimensional cylindrical shell domain.
+Cylindrical shell domain.
 ```
 
-from where the following geometric relations can be derived:
+from where the following geometric relations can be derived [@CastroPhD]:
 
 \begin{equation*}
 \begin{split}
@@ -125,13 +127,210 @@ we have that, **considering only the linear terms**:
 \varepsilon_{xx} = u_{,x} \\
 \varepsilon_{\theta\theta} = \frac{v_{,\theta}}{R(z)} + \frac{w}{R(z)} \\
 \varepsilon_{zz} = w_{,z} \\
-\tau_{x\theta} = \frac{u_{,\theta}}{R(z)} + v_{,x} \\
-\tau_{xz} = u_{,z} + w_{,x} \\
-\tau_{\theta z} = v_{,z} + \frac{w_{,\theta}}{R(z)} - \frac{v}{R(z)}
+\gamma_{x\theta} = \frac{u_{,\theta}}{R(z)} + v_{,x} \\
+\gamma_{xz} = u_{,z} + w_{,x} \\
+\gamma_{\theta z} = v_{,z} + \frac{w_{,\theta}}{R(z)} - \frac{v}{R(z)}
 \end{split}
 \end{equation*}
 
+These equations represent the linear part of the strain-displacement relations (small strain/small displacement). The terms containing $R(z)$ in the denominators account for the curvature of the coordinate system. Specifically, the $\frac{w}{R(z)}$ term in $\varepsilon_{\theta\theta}$ represents the "hoop strain" contribution from radial displacement. 
 
 ## 3D kinematic equations for conical shells
 
+Figure [](#fig:cone-domain) shows the local and global coordinates of a conical shell, adapted from Castro et al. [@Castro2014; @Castro2015; @Castro2015imperfect; @CastroPhD].
+
+```{figure} KinematicEquations-cone.*
+:label:fig:cone-domain
+:width: 40%
+
+Conical shell domain.
+```
+
+from where the following geometric relations can be derived [@CastroPhD]:
+\begin{equation*}
+\begin{split}
+x_{1} = x \quad X_{1} = R(x, z) \cos \theta \\
+x_{2} = \theta \quad X_{2} = R(x, z) \sin \theta \\
+x_{3} = z \quad X_{3} = z \sin \alpha - x \cos \alpha \\
+R(x,z) = R_2 + x \sin \alpha + z \cos \alpha
+\end{split}
+\end{equation*}
+
+Defining:
+
+\begin{equation*}
+\begin{split}
+\varepsilon_{xx} = \epsilon_{11} \quad \gamma_{x\theta} = 2\varepsilon_{x\theta} = \epsilon_{12} \\
+\varepsilon_{\theta\theta} = \epsilon_{22} \quad \gamma_{xz} = 2\varepsilon_{xz} = \epsilon_{13} \\
+\varepsilon_{zz} = \epsilon_{33} \quad \gamma_{\theta z} = 2\varepsilon_{\theta z} = \epsilon_{23}
+\end{split}
+\end{equation*}
+
+we have that, **considering only the linear terms**:
+
+
+\begin{equation*}
+\begin{split}
+\varepsilon_{xx} = u_{,x} \\
+\varepsilon_{\theta\theta} = \frac{v_{,\theta}}{R(x, z)} + \frac{u \sin \alpha}{R(x, z)} + \frac{w \cos \alpha}{R(x, z)} \\
+\varepsilon_{zz} = w_{,z} \\
+\gamma_{x\theta} = \frac{u_{,\theta}}{R(x, z)} + v_{,x} - \frac{v \sin \alpha}{R(x, z)} \\
+\gamma_{xz} = w_{,x} + u_{,z} \\
+\gamma_{\theta z} = \frac{w_{,\theta}}{R(x, z)} + v_{,z} - \frac{v \cos \alpha}{R(x, z)}
+\end{split}
+\end{equation*}
+
+The $\sin \alpha$ and $\cos \alpha$ terms represent the coupling between in-plane and out-of-plane displacements caused by the surface curvature and its slope.
+
+
 ## 3D kinematic equations for spherical shells
+
+Figure [](#fig:sphere-domain) shows the local and global coordinates of a spherical shell.
+
+```{figure} KinematicEquations-sphere.*
+:label:fig:sphere-domain
+:width: 40%
+
+Spherical shell domain.
+```
+
+from where the following geometric relations can be derived:
+
+\begin{equation*}
+\begin{split}
+x_{1} = \phi \quad X_{1} = R(z) \cos \phi \cos \theta \\
+x_{2} = \theta \quad X_{2} = R(z) \sin \phi \cos \theta \\
+x_{3} = z \quad X_{3} = R(z) \sin \theta \\
+R(z) = r + z
+\end{split}
+\end{equation*}
+
+where $\phi$ is the longitude, $\theta$ the latitude, and the radius $R$ is a function of the third coordinate $z$. Defining:
+\begin{equation*}
+\begin{split}
+\varepsilon_{\phi\phi} = \epsilon_{11} \quad \gamma_{\phi\theta} = 2\varepsilon_{\phi\theta} = \epsilon_{12} \\
+\varepsilon_{\theta\theta} = \epsilon_{22} \quad \gamma_{\phi z} = 2\varepsilon_{\phi z} = \epsilon_{13} \\
+\varepsilon_{zz} = \epsilon_{33} \quad \gamma_{\theta z} = 2\varepsilon_{\theta z} = \epsilon_{23}
+\end{split}
+\end{equation*}
+
+we have that, **considering only the linear terms**:
+\begin{equation*}
+\begin{split}
+\varepsilon_{\phi\phi} = \frac{1}{R(z)} \left( \frac{u_{,\phi}}{\cos \theta} + w - v \tan \theta \right) \\
+\varepsilon_{\theta\theta} = \frac{1}{R(z)} (v_{,\theta} + w) \\
+\varepsilon_{zz} = w_{,z} \\
+\gamma_{\phi\theta} = \frac{1}{R(z)} \left( u_{,\theta} + \frac{v_{,\phi}}{\cos \theta} + u \tan \theta \right) \\
+\gamma_{\phi z} = \frac{1}{R(z)} \left( \frac{w_{,\phi}}{\cos \theta} - u \right) + u_{,z} \\
+\gamma_{\theta z} = \frac{1}{R(z)} (w_{,\theta} - v) + v_{,z}
+\end{split}
+\end{equation*}
+
+The $1/\cos \theta$ and $\tan \theta$ terms arise from the curvature of the spherical surface, representing how the differential arc length changes with latitude. The presence of $w$ (radial displacement) in both $\varepsilon_{\phi\phi}$ and $\varepsilon_{\theta\theta}$ is characteristic of shell theories where normal expansion or contraction directly contributes to the in-plane strains.
+
+## Equivalent single-layer theories
+
+When analyzing structures, full discretization over the thickness using 3D kinematics presents several significant challenges:
+
+* **Mesh aspect-ratio issues:** 3 to 5 first-order elements are typically needed through the thickness to capture correct bending behavior, leading to heavily distorted elements in thin structures.
+* **Poor conditioning of stiffness matrix:** The conditioning scales with $E h^2$ for bending and $E t$ for membrane actions, leading to numerical instabilities.
+* **Computational expense:** There is a remarkably high computational cost for laminated composite materials that feature multiple layers.
+* **Boundary conditions:** Application of simply supported boundary conditions in analytical or semi-analytical models becomes highly complex.
+
+Consequently, for thin-walled structures, utilizing strictly 3D approaches is inefficient because no prior knowledge about the deformation kinematics is embedded into the strain-displacement relations.
+
+## Typical Kinematic Theories Applied for Composite Plates
+
+Most of the analyses performed on composite plates are based on one of the following approaches [@Reddy2004]:
+
+* **Equivalent single-layer (ESL) theories (2-D)**
+* Classical laminated plate theory
+* Shear deformation laminated plate theories
+
+
+* **Three-dimensional elasticity theory (3-D)**
+* Traditional 3-D elasticity formulations
+
+
+* **Layer-wise theories**
+
+Among the ESL theories, the **First-order Shear Deformation Theory (FSDT)**, especially when including transverse extensibility ($\varepsilon_{zz} \neq 0$), provides the best compromise solution between accuracy, economy, and simplicity.
+
+## Equivalent Single-Layer for Shells: Mathematical Illustration
+
+To enable ESL kinematics, the 3D domain integration must be reduced to a 2D domain integration, as illustrated in Figure [](#fig:ESL) [@CastroPhD].
+
+```{figure} KinematicEquations-ESL.*
+:label:fig:ESL
+:width: 40%
+
+Shallow shell assumption $r>>h$ [@CastroPhD].
+```
+
+Given a function $f(x, \theta, z)$, its integral over the 3-D domain $\mathcal{V}$ can be expressed as [@CastroPhD]:
+
+$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{r_{int}}^{r_{ext}} \int_{\Omega} f(x, \theta, z) R(x, z) d\Omega dr$$
+
+Using substitutions based on cylindrical shell geometry:
+
+* $d\Omega = d\theta dz$
+* $R(x, z) = r + z$
+* $dA = r d\Omega$
+* $dr = dz$
+
+The integral becomes:
+
+$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{-\frac{h}{2}}^{\frac{h}{2}} \int_{\mathcal{A}} f(x, \theta, z) (r + z) \frac{dA}{R(x, z)} dz = \int_{-\frac{h}{2}}^{\frac{h}{2}} \int_{\mathcal{A}} f(x, \theta, z) \left(1 + \frac{z}{r}\right) dA dz \nonumber$$
+
+### Applying the Shallow Shell Assumption
+
+Applying the shallow shell theory assumption, where the radius is much larger than the thickness ($r \gg z$), results in:
+
+$$\left(1 + \frac{z}{r}\right) \approx 1 \nonumber$$
+
+$$(r + z) \approx r \nonumber$$
+
+This simplification reduces the previous integral to:
+
+$$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{-\frac{h}{2}}^{\frac{h}{2}} \int_{\mathcal{A}} f(x, \theta, z) d\mathcal{A} dz = \int_{z=-\frac{h}{2}}^{\frac{h}{2}} \int_{s=0}^{s=2\pi r} \int_{x=0}^{x=L} f(x, \theta, z) dx ds dz$$
+
+This final equation forms the basis for reducing the 3-D domain to a 2-D domain, paving the way to integrate ESL kinematics efficiently.
+
+## Main Equivalent Single-Layer (ESL) Theories
+
+The main ESL theories make specific assumptions regarding the displacement field $(u, v, w)$ through the thickness coordinate $z$.
+
+### Classical Laminated Plate Theory (CLPT)
+
+An extension of the Classical Plate Theory to composite laminates (Kirchhoff-Love theory).
+
+$$\begin{aligned}
+u(x, y, z) &= u_0(x, y) - z\, w_{,x}(x, y) \\
+v(x, y, z) &= v_0(x, y) - z\, w_{,y}(x, y) \\
+w(x, y, z) &= w_0(x, y)
+\end{aligned}$$
+
+* **Assumptions:** Transverse normals remain straight after deformation (rigid cross-section). They do not experience elongation ($\varepsilon_{zz} = 0$) and remain perpendicular to the mid-surface after deformation, meaning no transverse shear strains ($\gamma_{xz} = \gamma_{yz} = 0$).
+
+### First-order Shear Deformation Theory (FSDT)
+
+Also known as Reissner-Mindlin theory.
+
+$$\begin{aligned}
+u(x, y, z) &= u_0(x, y) + z\, \phi_x(x, y) \\
+v(x, y, z) &= v_0(x, y) + z\, \phi_y(x, y) \\
+w(x, y, z) &= w_0(x, y)
+\end{aligned}$$
+
+* **Assumptions:** Rotations are disconnected from normal displacements ($\phi_x(x, y) \neq -w_{,x}(x, y)$). Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant through $z$. Therefore, **shear correction factors are needed**.
+
+### Third-order Shear Deformation Theory (TSDT)
+
+$$\begin{aligned}
+u(x, y, z) &= u_0(x, y) + z \phi_x(x, y) + z^2 \psi_x(x, y) + z^3 \lambda_x(x, y) \\
+v(x, y, z) &= v_0(x, y) + z \phi_y(x, y) + z^2 \psi_y(x, y) + z^3 \lambda_y(x, y) \\
+w(x, y, z) &= w_0(x, y)
+\end{aligned}$$
+
+* **Assumptions:** Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). This kinematics allows for a parabolic distribution of transverse shear strains $\gamma_{xz}(x, y, z)$ and $\gamma_{yz}(x, y, z)$. Consequently, **shear correction factors are NOT needed**.
+
