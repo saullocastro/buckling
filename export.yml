@@ -2,7 +2,7 @@ version: 1
 project:
   exports:
     - format: pdf
-      template: templates/latex_template
+      template: https://github.com/saullocastro/latex_template.git
       output: exports/report_tex.pdf
       id: report_tex
       articles:
@@ -17,7 +17,7 @@ project:
         - content/KinematicEquations.md
         
     - format: typst
-      template: templates/latex_template
+      template: https://github.com/saullocastro/typst_template.git
       output: exports/report_typst.pdf
       id: report_typst
     
