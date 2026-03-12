@@ -11,5 +11,9 @@ tmp.txt
 # LaTeX auxiliary files
 *.aux
 *.fdb_latexmk
+*.synctex.gz
 *.fls
 *.log
+*.bbl
+*.blg
+*.pdf
