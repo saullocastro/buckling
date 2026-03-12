@@ -3,6 +3,7 @@ project:
   toc:
     - file: content/Index.md
     - file: content/Introduction.md
+    - file: content/KinematicEquations.md
     - file: content/Static.md
       children:
         - file: content/Static-deflection-plate-3D-elasticity.ipynb
@@ -29,7 +30,7 @@ project:
     - file: content/PostBucklingShells-Imperfect.md    
     - title: Appendix
       children:
-        - file: content/KinematicEquations.md
+        - file: content/KinematicEquationsAppendix.md
           children:
             - file: content/KinematicEquations-plate-3D.ipynb
             - file: content/KinematicEquations-plate-CLPT.ipynb
