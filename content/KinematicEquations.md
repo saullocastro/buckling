@@ -1,6 +1,6 @@
 # Strain-displacement (kinematic) equations for plates, cylindrical and spherical shells
 
-Castro [@CastroEMstability2025] compiled the kinematic equations for plates, cylindrical, conical and spherical shells. A general overview from the full elasticity theory to the main equivalent single-layer theories is given. Note that $\gamma_{ij}$ is used here, meaning the engineering shear strains.
+The discussion presented by Castro [@CastroPhD; @CastroEMstability2025] is herein expanded and detailed. A general overview from the full elasticity theory to the main equivalent single-layer (ESL) theories is given, for plates and shells, including cylindrical, conical and spherical. The ESL theories discussed are Classical Laminated Plate Theory (CLPT), First- and Third-order Shear Deformation Theories (FSDT and TSDT). Engineering shear strains are used throughout the discussion ($\gamma_{ij}=2\varepsilon_{ij}$).
 
 ## General strain-displacement relations
 
@@ -8,7 +8,7 @@ According to the three-dimensional (3D) elasticity theory, the strain components
 
 ```{figure} Introduction-stress-3D.*
 :label: fig:kestress-3D
-:width: 50%
+:width: 40%
 
 Complete stress state of a material point.
 ```
@@ -50,7 +50,7 @@ H_{3} = \sqrt{(X_{1,x_{3}})^{2} + (X_{2,x_{3}})^{2} + (X_{3,x_{3}})^{2}}
 Figure [](#fig:keplate-domain) shows the local and global coordinates of a plate.
 ```{figure} Introduction-plate-domain.*
 :label:fig:keplate-domain
-:width: 40%
+:width: 30%
 
 Plate domain.
 ```
@@ -78,7 +78,8 @@ Defining:
 
 We have that:
 
-\begin{equation*}
+\begin{equation}
+\label{eq:3D-plate}
 \begin{split}
 \varepsilon_{xx} = u_{,x} + \frac{1}{2}(u_{,x}^{2} + v_{,x}^{2} + w_{,x}^{2}) \\
 \varepsilon_{yy} = v_{,y} + \frac{1}{2}(u_{,y}^{2} + v_{,y}^{2} + w_{,y}^{2}) \\
@@ -87,7 +88,7 @@ We have that:
 \gamma_{xz} = u_{,z} + w_{,x} + (u_{,x}u_{,z} + v_{,x}v_{,z} + w_{,x}w_{,z}) \\
 \gamma_{yz} = v_{,z} + w_{,y} + (u_{,y}u_{,z} + v_{,y}v_{,z} + w_{,y}w_{,z})
 \end{split}
-\end{equation*}
+\end{equation}
 
 ## 3D kinematic equations for cylindrical shells
 
@@ -122,7 +123,8 @@ Defining:
 
 we have that, **considering only the linear terms**:
 
-\begin{equation*}
+\begin{equation}
+\label{eq:3D-cylinder-linear}
 \begin{split}
 \varepsilon_{xx} = u_{,x} \\
 \varepsilon_{\theta\theta} = \frac{v_{,\theta}}{R(z)} + \frac{w}{R(z)} \\
@@ -131,7 +133,7 @@ we have that, **considering only the linear terms**:
 \gamma_{xz} = u_{,z} + w_{,x} \\
 \gamma_{\theta z} = v_{,z} + \frac{w_{,\theta}}{R(z)} - \frac{v}{R(z)}
 \end{split}
-\end{equation*}
+\end{equation}
 
 These equations represent the linear part of the strain-displacement relations (small strain/small displacement). The terms containing $R(z)$ in the denominators account for the curvature of the coordinate system. Specifically, the $\frac{w}{R(z)}$ term in $\varepsilon_{\theta\theta}$ represents the "hoop strain" contribution from radial displacement. 
 
@@ -141,7 +143,7 @@ Figure [](#fig:cone-domain) shows the local and global coordinates of a conical 
 
 ```{figure} KinematicEquations-cone.*
 :label:fig:cone-domain
-:width: 40%
+:width: 50%
 
 Conical shell domain.
 ```
@@ -169,7 +171,8 @@ Defining:
 we have that, **considering only the linear terms**:
 
 
-\begin{equation*}
+\begin{equation}
+\label{eq:3D-cone-linear}
 \begin{split}
 \varepsilon_{xx} = u_{,x} \\
 \varepsilon_{\theta\theta} = \frac{v_{,\theta}}{R(x, z)} + \frac{u \sin \alpha}{R(x, z)} + \frac{w \cos \alpha}{R(x, z)} \\
@@ -178,7 +181,7 @@ we have that, **considering only the linear terms**:
 \gamma_{xz} = w_{,x} + u_{,z} \\
 \gamma_{\theta z} = \frac{w_{,\theta}}{R(x, z)} + v_{,z} - \frac{v \cos \alpha}{R(x, z)}
 \end{split}
-\end{equation*}
+\end{equation}
 
 The $\sin \alpha$ and $\cos \alpha$ terms represent the coupling between in-plane and out-of-plane displacements caused by the surface curvature and its slope.
 
@@ -189,7 +192,7 @@ Figure [](#fig:sphere-domain) shows the local and global coordinates of a spheri
 
 ```{figure} KinematicEquations-sphere.*
 :label:fig:sphere-domain
-:width: 40%
+:width: 60%
 
 Spherical shell domain.
 ```
@@ -215,7 +218,8 @@ where $\phi$ is the longitude, $\theta$ the latitude, and the radius $R$ is a fu
 \end{equation*}
 
 we have that, **considering only the linear terms**:
-\begin{equation*}
+\begin{equation}
+\label{eq:3D-sphere-linear}
 \begin{split}
 \varepsilon_{\phi\phi} = \frac{1}{R(z)} \left( \frac{u_{,\phi}}{\cos \theta} + w - v \tan \theta \right) \\
 \varepsilon_{\theta\theta} = \frac{1}{R(z)} (v_{,\theta} + w) \\
@@ -224,7 +228,7 @@ we have that, **considering only the linear terms**:
 \gamma_{\phi z} = \frac{1}{R(z)} \left( \frac{w_{,\phi}}{\cos \theta} - u \right) + u_{,z} \\
 \gamma_{\theta z} = \frac{1}{R(z)} (w_{,\theta} - v) + v_{,z}
 \end{split}
-\end{equation*}
+\end{equation}
 
 The $1/\cos \theta$ and $\tan \theta$ terms arise from the curvature of the spherical surface, representing how the differential arc length changes with latitude. The presence of $w$ (radial displacement) in both $\varepsilon_{\phi\phi}$ and $\varepsilon_{\theta\theta}$ is characteristic of shell theories where normal expansion or contraction directly contributes to the in-plane strains.
 
@@ -239,7 +243,7 @@ When analyzing structures, full discretization over the thickness using 3D kinem
 
 Consequently, for thin-walled structures, utilizing strictly 3D approaches is inefficient because no prior knowledge about the deformation kinematics is embedded into the strain-displacement relations.
 
-## Typical Kinematic Theories Applied for Composite Plates
+### Typical Kinematic Theories Applied for Composite Plates
 
 Most of the analyses performed on composite plates are based on one of the following approaches [@Reddy2003]:
 
@@ -256,13 +260,13 @@ Most of the analyses performed on composite plates are based on one of the follo
 
 Among the ESL theories, the **First-order Shear Deformation Theory (FSDT)**, especially when including transverse extensibility ($\varepsilon_{zz} \neq 0$), provides the best compromise solution between accuracy, economy, and simplicity.
 
-## Equivalent Single-Layer for Shells: Mathematical Illustration
+### Equivalent Single-Layer for Shells: Mathematical Illustration
 
 To enable ESL kinematics, the 3D domain integration must be reduced to a 2D domain integration, as illustrated in Figure [](#fig:ESL) [@CastroPhD].
 
 ```{figure} KinematicEquations-ESL.*
 :label:fig:ESL
-:width: 40%
+:width: 60%
 
 Shallow shell assumption $r>>h$ [@CastroPhD].
 ```
@@ -296,11 +300,11 @@ $$\int_{\mathcal{V}} f(x, \theta, z) dV = \int_{-\frac{h}{2}}^{\frac{h}{2}} \int
 
 This final equation forms the basis for reducing the 3-D domain to a 2-D domain, paving the way to integrate ESL kinematics efficiently.
 
-## Main Equivalent Single-Layer (ESL) Theories
+### Comparing the Main Equivalent Single-Layer (ESL) Theories
 
 The main ESL theories make specific assumptions regarding the displacement field $(u, v, w)$ through the thickness coordinate $z$.
 
-### Classical Laminated Plate Theory (CLPT)
+#### Classical Laminated Plate Theory (CLPT)
 
 An extension of the Classical Plate Theory to composite laminates (Kirchhoff-Love theory).
 
@@ -314,7 +318,7 @@ w(x, y, z) = w_0(x, y)
 
 * **Assumptions:** Transverse normals remain straight after deformation (rigid cross-section). They do not experience elongation ($\varepsilon_{zz} = 0$) and remain perpendicular to the mid-surface after deformation, meaning no transverse shear strains ($\gamma_{xz} = \gamma_{yz} = 0$).
 
-### First-order Shear Deformation Theory (FSDT)
+#### First-order Shear Deformation Theory (FSDT)
 
 Also known as Reissner-Mindlin theory.
 
@@ -330,13 +334,13 @@ w(x, y, z) = w_0(x, y)
 
 ```{figure} KinematicEquations-CLPT-FSDT.*
 :label:fig:CLPT-FSDT
-:width: 60%
+:width: 80%
 
 Kinematic comparison between CLPT and FSDT [@CastroPhD].
 ```
 
 
-### Third-order Shear Deformation Theory (TSDT)
+#### Third-order Shear Deformation Theory (TSDT)
 
 \begin{equation*}
 \begin{split}
@@ -350,10 +354,144 @@ w(x, y, z) = w_0(x, y)
 
 ```{figure} KinematicEquations-TSDT.*
 :label:fig:TSDT
-:width: 60%
+:width: 50%
 
-Kinematic comparison between CLPT, FSDT and TSDT.
+Kinematic comparison between CLPT, FSDT and TSDT (modified from Reddy [@Reddy2003]).
 ```
 
+## ESL equations for plates
+
+### CLPT for plates
+
+The simplest of the ESL theories is the Classical Laminated Plate Theory (CLPT) which is an extension of the Classical Plate Theory to composite laminates [@Reddy2003], where the Kirchhoff hypotheses hold [@Reddy2003]:
+
+* Transverse normals remain straight after deformation;
+* Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$);
+* The transverse normals rotate so that they remain perpendicular to the mid-surface after deformation (no transverse shear takes place, i.e. $\gamma_{yz} = \gamma_{xz} = 0$), leading to $\phi_x = -\frac{\partial w}{\partial x}$, illustrated in Figure [](#fig:CLPT).
+
+```{figure} KinematicEquations-CLPT.*
+:label:fig:CLPT
+:width: 60%
+
+Kinematics of a plate using the CLPT (modified from Castro [@CastroPhD]).
+```
+For a plate, the displacement field can be approximated using the CLPT as (modified from Castro [@CastroPhD]):
+
+\begin{equation*}
+\begin{split}
+u(x, y, z) = u_0(x, y) - z w_{,x}(x, y) \\
+v(x, y, z) = v_0(x, y) - z w_{,y}(x, y) \\
+w(x, y, z) = w_0(x, y)
+\end{split}
+\end{equation*}
+
+For convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context.
+
+\begin{equation}
+\label{eq:CLPT-plate}
+\begin{split}
+\varepsilon_{xx} = u_{,x} - z w_{,xx} + \frac{1}{2}\left((z w_{,xx} - u_{,x})^2 + (z w_{,xy} - v_{,x})^2 + w_{,x}^2\right) \\
+\varepsilon_{yy} = v_{,y} - z w_{,yy} + \frac{1}{2}\left((z w_{,xy} - u_{,y})^2 + (z w_{,yy} - v_{,y})^2 + w_{,y}^2\right) \\
+\varepsilon_{zz} = 0 \text{ (thickness remains constant during bending)} \\
+\gamma_{xy} = u_{,y} + v_{,x} - 2z w_{,xy} + (z w_{,xx} - u_{,x})(z w_{,xy} - u_{,y}) + (z w_{,xy} - v_{,x})(z w_{,yy} - v_{,y}) + w_{,x}w_{,y} \\
+\gamma_{xz} = 0 \\
+\gamma_{yz} = 0
+\end{split}
+\end{equation}
+
+Using van Kármán kinematics, many of the nonlinear terms are simplified [@CastroPhD]:
+
+\begin{equation}
+\label{eq:CLPT-plate-vanKarman}
+\begin{split}
+\varepsilon_{xx} = u_{,x} - z w_{,xx} + \frac{1}{2}w_{,x}^2 \\
+\varepsilon_{yy} = v_{,y} - z w_{,yy} + \frac{1}{2}w_{,y}^2 \\
+\varepsilon_{zz} = 0 \text{ (thickness remains constant during bending)} \\
+\gamma_{xy} = u_{,y} + v_{,x} - 2z w_{,xy} + w_{,x}w_{,y} \\
+\gamma_{xz} = 0 \\
+\gamma_{yz} = 0
+\end{split}
+\end{equation}
+
+### FSDT for plates
+
+## First-order Shear Deformation Theory (FSDT)
+
+The FSDT is the vastly most used ESL theory within finite element codes. This comes from the rotations being decoupled from the deflections, enabling straightforward and compatible linear interpolation of displacements and rotations within different finite element formulations. The main kinematic features of the FSDT are:
+
+* Rotations disconnected from normal displacements $\phi_x(x, y) \neq -w_{,x} (x, y)$.
+* Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$).
+* Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant in $z$. Therefore, shear correction factors are needed.
+
+The displacement field of plate can be represented using the FSDT as [@CastroPhD] per Eq. [](#eq:FSDT):
+
+\begin{equation}
+\label{eq:FSDT}
+\begin{split}
+u(x, y, z) = u_0(x, y) + z \phi_x(x, y) \\
+v(x, y, z) = v_0(x, y) + z \phi_y(x, y) \\
+w(x, y, z) = w(x, y)
+\end{split}
+\end{equation}
+
+Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Replacing Eq. [](#eq:FSDT) in [](#eq:3D-plate) leads to:
+
+\begin{equation}
+\label{eq:FSDT-plate}
+\begin{split}
+\varepsilon_{xx} = u_{,x} + z \phi_{x,x} + \frac{1}{2}\left((z\phi_{x,x} + u_{,x})^2 + (z\phi_{y,x} + v_{,x})^2 + w_{,x}^2\right) \\
+\varepsilon_{yy} = v_{,y} + z \phi_{y,y} + \frac{1}{2}\left((z\phi_{x,y} + u_{,y})^2 + (z\phi_{y,y} + v_{,y})^2 + w_{,y}^2\right) \\
+\varepsilon_{zz} = 0 \text{ (thickness remains constant during bending)} \\
+\gamma_{xy} = u_{,y} + v_{,x} + z\phi_{x,y} + z\phi_{y,x} + (z\phi_{x,x} + u_{,x})(z\phi_{x,y} + u_{,y}) + (z\phi_{y,x} + v_{,x})(z\phi_{y,y} + v_{,y}) + w_{,x}w_{,y} \\
+\gamma_{xz} = \phi_x + w_{,x} + (z\phi_{x,x} + u_{,x})\phi_x + (z\phi_{y,x} + v_{,x})\phi_y \\
+\gamma_{yz} = \phi_y + w_{,y} + (z\phi_{x,y} + u_{,y})\phi_x + (z\phi_{y,y} + v_{,y})\phi_y
+\end{split}
+\end{equation}
 
 
+
+Using van Kármán Kinematics:
+
+\begin{equation}
+\label{eq:FSDT-plate-vanKarman}
+\begin{split}
+\varepsilon_{xx} = u_{,x} + z \phi_{x,x} + \frac{1}{2}w_{,x}^2 \\
+\varepsilon_{yy} = v_{,y} + z \phi_{y,y} + \frac{1}{2}w_{,y}^2 \\
+\varepsilon_{zz} = 0 \text{ (thickness remains constant during bending)} \\
+\gamma_{xy} = u_{,y} + v_{,x} + z\phi_{x,y} + z\phi_{y,x} + w_{,x}w_{,y} \\
+\gamma_{xz} = \phi_x + w_{,x} \\
+\gamma_{yz} = \phi_y + w_{,y}
+\end{split}
+\end{equation}
+
+
+It is usual to separate the terms multiplying "z" in the form of Eq. [](#eq:FSDT-plate-linear):
+
+\begin{equation}
+\label{eq:FSDT-plate-linear}
+\begin{split}
+\boldsymbol{\varepsilon} = \left\{ \begin{matrix} \varepsilon_{xx} \\ \varepsilon_{yy} \\ 2\varepsilon_{xy} \end{matrix} \right\} = \left\{ \begin{matrix} u_{0,x} \\ v_{0,y} \\ u_{0,y} + v_{0,x} \end{matrix} \right\} + z \left\{ \begin{matrix} \phi_{x,x} \\ \phi_{y,y} \\ \phi_{x,y} + \phi_{y,x} \end{matrix} \right\} \\
+\boldsymbol{\gamma} = \left\{ \begin{matrix} 2\varepsilon_{yz} \\ 2\varepsilon_{xz} \end{matrix} \right\} = \left\{ \begin{matrix} \gamma_{yz} \\ \gamma_{xz} \end{matrix} \right\} = \left\{ \begin{matrix} w_{,y} + \phi_y \\ w_{,x} + \phi_x \end{matrix} \right\}
+\end{split}
+\end{equation}
+
+or:
+
+\begin{equation*}
+\begin{split}
+\boldsymbol{\varepsilon} = \boldsymbol{\varepsilon}^{(0)} + z\boldsymbol{\varepsilon}^{(1)} \\
+\boldsymbol{\gamma} = \boldsymbol{\gamma}^{(0)}
+\end{split}
+\end{equation*}
+
+
+Note that all relations presented for the FSDT represent a more general case than the CLPT, and can be directly converted to the latter by doing:
+
+\begin{equation*}
+\begin{split}
+\phi_x = -w_{,x} \\
+\phi_y = -w_{,y} \\
+\gamma_{xz} = 0 \\
+\gamma_{yz} = 0
+\end{split}
+\end{equation*}
