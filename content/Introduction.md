@@ -13,7 +13,7 @@ D_{11}\frac{\partial^4 w}{\partial x^4} + 4D_{16}\frac{\partial^4 w}{\partial x^
 \end{aligned}
 \end{equation}
 
-# Principle of minimum potential energy
+## Principle of minimum potential energy
 
 The total potential energy $V$ can be decomposed into elastic energy $U$, and the work due to external forces $W_{ext}$:
 
@@ -22,7 +22,7 @@ $$V = U - W_{ext} \nonumber$$
 This potential becomes stationary when:
 $$\delta V = \delta U - \delta W_{ext} = 0 \nonumber$$
 
-## Strain Energy 
+### Strain Energy 
 
 The general expression for the strain energy when $\boldsymbol{\sigma}$ increases linearly with $\boldsymbol{epsilon}$ is:
 
@@ -88,7 +88,7 @@ $$\boldsymbol{\varepsilon} = \boldsymbol{B}\boldsymbol{u} \nonumber$$
 
 where $\boldsymbol{B} \equiv$ differentiation operator matrix, $\boldsymbol{u}(x,y,z) \equiv$ continuous displacement field.
 
-### Finite elements
+#### Finite elements
 In finite elemets, interpolation functions are used to approximate the displacement field within each finite element, which can be generally written as:
 
 $$\boldsymbol{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \boldsymbol{S}(x,y,z) \, \boldsymbol{\bar{u}} \nonumber$$
@@ -128,7 +128,7 @@ $$\boldsymbol{K}_e = \int_{\Omega_e} \boldsymbol{B}^\top \boldsymbol{C}_e \, \bo
 
 The integration of $\boldsymbol{K}_e$ can be efficiently done numerically due to the local support of the integration points (only affect the stiffness of the corresponding element).
 
-### Energy-based semi-analytical methods
+#### Energy-based semi-analytical methods
 
 In energy-based methods, such as the well-known Ritz method, the shape functions are expressed in terms of continuous functions instead of nodal degrees-of-freedom:
 
@@ -168,7 +168,7 @@ In the Ritz Method, the rows and columns of $\boldsymbol{K}$ correspond to the d
 Therefore, one must be careful while implementing semi-analytical methods for cases of variable stiffness or non-linear analyses. The use of hierarchical polynomials as approximation functions enable such efficient implementations, because they allow the use of Gauss quadrature rules to efficiently perform the numerical integration. When trigonometric approximation functions are used the stiffness matrix can be integrated using the trapezoidal (piece-wise linear) or Simpson's rule (piece-wise quadratic) [@Castro2015]
  
 
-## Work due to external forces
+### Work due to external forces
 
 When considering tranction stresses $\boldsymbol{\bar{\sigma}}$ acting on the boundaries of the domain $\delta\Omega$, and body forces $\boldsymbol{b}$ acting on the entire volume of the domain $\Omega$, the following general expression for the work of external forces can be used:
 
@@ -181,7 +181,7 @@ $$\delta W_{ext} = \int_{\Omega} \boldsymbol{b}^\top \delta \boldsymbol{u} \, d\
 where $\boldsymbol{F} \equiv$ external force vector, including body ($\boldsymbol{b}$) and boundary forces ($\boldsymbol{\bar{\sigma}}$).
 
 
-## Semi-analytical static solution
+### Semi-analytical static solution
 
 Back to the stationary total potential energy functional:
 
@@ -261,7 +261,7 @@ Three-dimensional plate domain.
 ```
 
 
-# Neutral Equilibrium Criterion
+## Neutral Equilibrium Criterion
 
 The neutral equilibrium of a vertical slender beam is illustrated in [](#fig:neutral-equilibrium)
 

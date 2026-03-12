@@ -345,7 +345,7 @@ Also known as Reissner-Mindlin theory, the FSDT is the vastly most used ESL theo
 
 ```{figure} KinematicEquations-FSDT.*
 :label:fig:FSDT
-:width: 50%
+:width: 60%
 
 FSDT kinematics [@CastroPhD].
 ```
@@ -365,7 +365,7 @@ Again, for convenience, it is customary to omit the subscript "0" from the mid-s
 
 ```{figure} KinematicEquations-CLPT-FSDT.*
 :label:fig:CLPT-FSDT
-:width: 80%
+:width: 100%
 
 Kinematic comparison between CLPT and FSDT [@CastroPhD].
 ```
@@ -404,7 +404,7 @@ u(x, y, z) = u_0(x, y) + z \phi_x(x, y) - \frac{4}{3h^2} z^3 \big(\phi_x(x, y) +
 v(x, y, z) = v_0(x, y) + z \phi_y(x, y) - \frac{4}{3h^2} z^3 \big(\phi_y(x, y) + w_{,y}(x, y)\big) \\
 w(x, y, z) = w(x, y)
 \end{split}
-\end{equation*}$$
+\end{equation}
 
 Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Figure [](#fig:TSDT) [@Reddy2003] visually compares the CLPT, FSDT and TSDT kinematics.
 
@@ -510,7 +510,7 @@ Note that all relations presented for the FSDT represent a more general case tha
 
 ### TSDT for plates
 
-For a plate, the displacement field can be approximated using the TSDT using the definitions of Eq. [](#eq:TSDT) in [](#eq:3D-plate) [@CastroEMstability2025]. In Eq. [](#eq:TSDT-plate-linear) only the linear terms are shown:
+For a plate, the displacement field can be approximated using the TSDT using the definitions of Eq. [](#eq:TSDT) in [](#eq:3D-plate) [@CastroEMstability2025]. In Eq. [](#eq:TSDT-plate-linear), only the linear terms are shown:
 
 \begin{equation}
 \label{eq:TSDT-plate-linear}
