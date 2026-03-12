@@ -8,10 +8,16 @@ title: DOCX Export
 :::{include} ../content/Introduction.md
 :::
 
+:::{include} ../content/KinematicEquations.md
+:::
+
 :::{include} ../content/Static.md
 :::
 
 :::{include} ../content/BucklingPlates.md
+:::
+
+:::{include} ../content/BucklingShells.md
 :::
 
 :::{include} ../content/PostBuckling.md
@@ -22,4 +28,8 @@ title: DOCX Export
 
 :::{include} ../content/PostBucklingShells.md
 :::
+
+:::{include} ../content/PostBucklingShellsImperfect.md
+:::
+
 

@@ -27,7 +27,7 @@ project:
     - file: content/PostBucklingShells.md    
       children:        
         - file: content/PostBucklingShells-Galerkin-Airy.ipynb
-    - file: content/PostBucklingShells-Imperfect.md    
+    - file: content/PostBucklingShellsImperfect.md    
     - title: Appendix
       children:
         - file: content/KinematicEquationsAppendix.md
