@@ -1,0 +1,175 @@
+jtex: v1
+# attribution: "This template has been adapted from Curvenote: https://github.com/myst-templates/curvenote"
+title: TUD LaTeX thesis template
+description: >-
+  A basic, latex based, paper styled template for TUD Bachelor and Master thesis
+authors:
+  - name: Freek Pols
+    affiliations:
+      - Delft University of Technology
+  - name: Luuk Fröling
+    affiliations:
+      - Delft University of Technology
+
+version: 0.0.1
+license: CC-BY-4.0
+
+tags:
+  - paper
+github: https://github.com/TUD-JB-OS/latex_template
+doc:
+  - id: title
+    required: true
+  - id: description
+  - id: tags
+  - id: date
+    required: true
+  - id: authors
+    required: true
+  - id: keywords
+  - id: bibliography
+options:
+  - id: link
+    type: string
+    description: |
+      Link to the article online as a footnote on the first page
+  
+  # TOC settings
+  - id: showTOC
+    type: boolean
+    default: true
+    description: |
+      Whether to show the table of contents after the title page
+  - id: tocDepth
+    type: number
+    default: 2
+    description: |
+      The depth of the table of contents (e.g. 2 for sections and subsections) 
+
+  # Cover image settings
+  - id: cover
+    type: file
+    description: |
+      Path to an optional image for the title page (e.g. "images/front.png")
+  - id: cover_width
+    type: string
+    default: "0.9\\linewidth"
+    description: |
+      Width of the cover image (e.g. "8cm" for 8 centimeters, "0.9\linewidth" for 90% of the line width)
+  - id: cover_margin
+    type: string
+    default: "2em"
+    description: |
+      Vertical space between the title and the cover image (e.g. "2em" for 2em)
+
+  # Logo settings
+  - id: logo
+    type: file
+    description: |
+      Path to an optional logo image to be placed at the top of each page
+  - id: logo_width
+    type: string
+    default: "1cm"
+    description: |
+      Width of the logo image in cm (e.g. "10" for 10cm)
+
+  # Page settings
+  - id: margin_top
+    type: string
+    default: "2.5cm"
+    description: |
+      Top margin of the page (e.g. "2.5cm" for 2.5 centimeters)
+  - id: margin_bottom
+    type: string
+    default: "2.5cm"
+    description: |
+      Bottom margin of the page (e.g. "2.5cm" for 2.5 centimeters)
+  - id: margin_left
+    type: string
+    default: "2.5cm"
+    description: |
+      Left margin of the page (e.g. "2.5cm" for 2.5 centimeters)
+  - id: margin_right
+    type: string
+    default: "2.5cm"
+    description: |
+      Right margin of the page (e.g. "2.5cm" for 2.5 centimeters)
+
+  - id: papersize
+    type: string
+    default: "a4paper"
+    description: |
+      Paper size to be used (e.g. "a4" for A4 paper)
+  
+  - id: show_pagenumbers
+    type: string
+    default: arabic
+    description: |
+      Whether to show page numbers in the footer
+  
+  - id: fontsize
+    type: number
+    default: 20
+    description: |
+      Font size to be used throughout the document (e.g. 12 for 12pt)
+
+  # Extra information
+  - id: extra_information
+    type: string
+    default: "\u00A0" # space character
+    description: |
+      Extra information to be placed on the title page (e.g. "Version 2.0,
+      Draft, university, course")
+
+
+parts:
+  - id: abstract
+    description: >
+      An abstract is a short summary of your research paper or report. A good
+      abstract will prepare readers for
+
+      the detailed information to follow, communicate the essence of the article
+      and help readers take away and
+
+      remember key points.
+    max_words: 500
+  - id: acknowledgments
+    description: >
+      You can this section to highlight support such as; collaborations, data
+      sources, funding sources, broader
+
+      projects. This section will be places towards the end of the article with
+      a subtitle - Acknowledgments.
+files:
+  - template.tex
+  - TUD-thesis-template.def
+  - TUD-thesis-template.sty
+packages:
+  - adjustbox
+  - amsfonts
+  - amsmath
+  - amssymb
+  - babel
+  - booktabs
+  - datetime
+  - doi
+  - enumitem
+  - fancyhdr
+  - fancyvrb
+  - float
+  - framed
+  - geometry
+  - graphbox
+  - graphicx
+  - hyperref
+  - inputenc
+  - lmodern
+  - mdframed
+  - microtype
+  - natbib
+  - nicefrac
+  - ulem
+  - url
+  - xcolor
+  - xkeyval
+  - xstring

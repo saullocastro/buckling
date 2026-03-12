@@ -1,0 +1,179 @@
+\documentclass{article}
+\PassOptionsToPackage{short, nodayofweek}{datetime}
+
+\input{TUD-thesis-template.def}
+
+[-IMPORTS-]
+
+% colors for hyperlinks
+\hypersetup{
+  colorlinks=true,
+  allcolors=blue,
+  pdftitle={\@title},
+  pdfsubject={[-doc.description-]},
+  pdfauthor={\@author},
+  pdfkeywords={[-doc.tags-]},
+  addtopdfcreator={written using the TU Delft Thesis Template}
+}
+\pagenumbering{gobble}
+
+% Use \replaceBS to replace backslashes in file paths with forward slashes. 
+% solution from https://tex.stackexchange.com/questions/213779/replace-every-backslash-in-a-string-with-a-forwardslash 
+
+\makeatletter
+\newcommand{\replaceBS}[2]{{\escapechar=`/ 
+  \xdef#2{\expandafter\zap@space\detokenize\expandafter{#1} \@empty}}}
+\makeatother
+
+% Cover image width
+\newcommand{\CoverWidth}{[- options.cover_width -]} % Set default
+
+% Default cover margin (vertical space between title and cover image)
+\newcommand{\CoverMargin}{[- options.cover_margin -]} % Set default
+
+% ---- Logo settings (from template options) ----
+\newif\ifThesisLogo
+\ThesisLogofalse          % default: no logo
+
+\newcommand{\marginTop}{[- options.margin_top -]} % margin top for document
+\newcommand{\marginBottom}{[- options.margin_bottom -]} % margin bottom for document
+\newcommand{\marginLeft}{[- options.margin_left -]} % margin left for document
+\newcommand{\marginRight}{[- options.margin_right -]} % margin right for document
+
+\newcommand{\paperSize}{[- options.papersize -]} % paper size, e.g. letterpaper, a4paper
+\newcommand{\showPageNumbers}{[- options.show_pagenumbers -]} % show page numbers: true/false
+
+\newcommand{\ThesisLogo}{}      % path after normalization
+\newcommand{\ThesisLogoWidth}{[- options.logo_width -]} % logo width, default is 1 cm
+
+
+% If a logo is provided in options, normalize its path and enable the flag
+[# if options.logo is defined #]
+  \ThesisLogotrue
+  \newcommand{\newLogoname}{}%
+  \replaceBS{[-options.logo-]}{\newLogoname}
+  \renewcommand{\ThesisLogo}{\newLogoname}
+[# endif #]
+
+
+% Extra information on title page
+\newcommand{\ThesisExtraInfo}{ [- options.extra_information -]}
+
+
+\usepackage{TUD-thesis-template}
+
+
+\usepackage{etoolbox}
+% Flag to skip the first \section (before abstract)
+\newtoggle{skipclearpage}
+\toggletrue{skipclearpage}
+
+\pretocmd{\section}{%
+  \iftoggle{skipclearpage}{%
+    \global\togglefalse{skipclearpage}%
+  }{%
+    \clearpage%
+  }%
+}{}{}
+
+% Chapter-prefixed equation numbering (e.g., 1.1, 1.2, 2.1, ...)
+\numberwithin{equation}{section}
+
+% Force figures to be placed exactly where they are in the source
+\usepackage{float}
+\restylefloat{figure}
+\let\oldfigure\figure
+\let\endoldfigure\endfigure
+\renewenvironment{figure}[1][]{%
+  \oldfigure[H]%
+}{%
+  \endoldfigure%
+}
+
+\replaceBS{[-options.cover-]}{\newCovername}
+
+\title{[-doc.title-]}
+
+\newdate{articleDate}{[-doc.date.day-]}{[-doc.date.month-]}{[-doc.date.year-]}
+\date{%
+  \ThesisExtraInfo\\[1.5em]
+  \displaydate{articleDate}\\[1.5em]
+}
+
+\author{
+\textsc{
+author: [-doc.authors[0].name-]%
+[# if doc.authors|length > 1 #]
+\\ supervisor: [-doc.authors[1].name-]%
+[# endif #]
+}}
+
+\begin{document}
+
+
+\maketitle
+\vfill
+
+[# if options.cover #]
+  \vspace*{\CoverMargin} % margin from the title
+  \begin{center}
+    \includegraphics[width=\CoverWidth]{\newCovername}
+  \end{center}
+[# endif #]
+
+\vfill
+
+\newpage
+
+[# if parts.abstract -#]
+\begin{abstract}
+[-parts.abstract-]
+\end{abstract}
+\vspace{1.5em}
+[#- endif -#]
+[#- if doc.keywords -#]
+\keywords{[-doc.keywords|join(", ")-]}
+[# endif #]
+\clearpage
+
+% Default TOC depth
+\setcounter{tocdepth}{2}
+
+% Override via template variable
+[# if options.tocDepth is defined #]
+  \setcounter{tocdepth}{[- options.tocDepth -]}
+[# endif #]
+
+[# if options.showTOC #]
+\clearpage
+\tableofcontents
+\clearpage
+[# endif #]
+
+\pagenumbering{\showPageNumbers}
+
+
+[-CONTENT-]
+
+[#- if parts.acknowledgments -#]
+\section*{Acknowledgments}
+[-parts.acknowledgments-]
+[#- endif -#]
+
+[#- if options.link -#]
+% Optional footnote with a link back to the online version of your article
+\newcommand{\documentnote}[1]{{%
+  \let\thempfn\relax% Remove footnote number printing mechanism
+  \footnotetext[0]{\emph{#1}}% Print footnote text
+}}
+\documentnote{Available online at:\\ \href{[-options.link-]}{[-options.link-]}}
+[#- endif -#]
+
+[# if doc.bibliography #]
+
+
+\clearpage
+\bibliography{[- doc.bibliography | join(", ") -]}
+[# endif #]
+
+\end{document}
