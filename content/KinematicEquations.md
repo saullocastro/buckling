@@ -304,64 +304,8 @@ This final equation forms the basis for reducing the 3-D domain to a 2-D domain,
 
 The main ESL theories make specific assumptions regarding the displacement field $(u, v, w)$ through the thickness coordinate $z$.
 
-#### Classical Laminated Plate Theory (CLPT)
+### Classical Laminated Plate Theory (CLPT)
 
-An extension of the Classical Plate Theory to composite laminates (Kirchhoff-Love theory).
-
-\begin{equation*}
-\begin{split}
-u(x, y, z) = u_0(x, y) - z\, w_{,x}(x, y) \\
-v(x, y, z) = v_0(x, y) - z\, w_{,y}(x, y) \\
-w(x, y, z) = w_0(x, y)
-\end{split}
-\end{equation*}
-
-* **Assumptions:** Transverse normals remain straight after deformation (rigid cross-section). They do not experience elongation ($\varepsilon_{zz} = 0$) and remain perpendicular to the mid-surface after deformation, meaning no transverse shear strains ($\gamma_{xz} = \gamma_{yz} = 0$).
-
-#### First-order Shear Deformation Theory (FSDT)
-
-Also known as Reissner-Mindlin theory.
-
-\begin{equation*}
-\begin{split}
-u(x, y, z) = u_0(x, y) + z\, \phi_x(x, y) \\
-v(x, y, z) = v_0(x, y) + z\, \phi_y(x, y) \\
-w(x, y, z) = w_0(x, y)
-\end{split}
-\end{equation*}
-
-* **Assumptions:** Rotations are disconnected from normal displacements ($\phi_x(x, y) \neq -w_{,x}(x, y)$). Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant through $z$. Therefore, **shear correction factors are needed**. Figure [](#fig:CLPT-FSDT) [@CastroPhD] visually shows the kinematic differences between the CLPT and FSDT.
-
-```{figure} KinematicEquations-CLPT-FSDT.*
-:label:fig:CLPT-FSDT
-:width: 80%
-
-Kinematic comparison between CLPT and FSDT [@CastroPhD].
-```
-
-
-#### Third-order Shear Deformation Theory (TSDT)
-
-\begin{equation*}
-\begin{split}
-u(x, y, z) = u_0(x, y) + z \phi_x(x, y) + z^2 \psi_x(x, y) + z^3 \lambda_x(x, y) \\
-v(x, y, z) = v_0(x, y) + z \phi_y(x, y) + z^2 \psi_y(x, y) + z^3 \lambda_y(x, y) \\
-w(x, y, z) = w_0(x, y)
-\end{split}
-\end{equation*}
-
-* **Assumptions:** Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$). This kinematics allows for a parabolic distribution of transverse shear strains $\gamma_{xz}(x, y, z)$ and $\gamma_{yz}(x, y, z)$. Consequently, **shear correction factors are NOT needed**. Figure [](#fig:TSDT) shows the kinematic differences between the CLPT, FSDT and TSDT.
-
-```{figure} KinematicEquations-TSDT.*
-:label:fig:TSDT
-:width: 50%
-
-Kinematic comparison between CLPT, FSDT and TSDT (modified from Reddy [@Reddy2003]).
-```
-
-## ESL equations for plates
-
-### CLPT for plates
 
 The simplest of the ESL theories is the Classical Laminated Plate Theory (CLPT) which is an extension of the Classical Plate Theory to composite laminates [@Reddy2003], where the Kirchhoff hypotheses hold [@Reddy2003]:
 
@@ -373,19 +317,109 @@ The simplest of the ESL theories is the Classical Laminated Plate Theory (CLPT) 
 :label:fig:CLPT
 :width: 60%
 
-Kinematics of a plate using the CLPT (modified from Castro [@CastroPhD]).
+CLPT kinematics [@CastroPhD].
 ```
-For a plate, the displacement field can be approximated using the CLPT as (modified from Castro [@CastroPhD]):
 
-\begin{equation*}
+The displacement field using the CLPT [@CastroPhD] can be described by Eq. [](#eq:CLPT):
+
+\begin{equation}
+\label{eq:CLPT}
 \begin{split}
 u(x, y, z) = u_0(x, y) - z w_{,x}(x, y) \\
 v(x, y, z) = v_0(x, y) - z w_{,y}(x, y) \\
 w(x, y, z) = w_0(x, y)
 \end{split}
-\end{equation*}
+\end{equation}
 
 For convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context.
+
+
+
+### First-order Shear Deformation Theory (FSDT)
+
+Also known as Reissner-Mindlin theory, the FSDT is the vastly most used ESL theory within finite element codes. Its popularity comes from fact that the rotations being decoupled from the deflections, enabling straightforward and compatible linear interpolation of displacements and rotations within different finite element formulations. The main kinematic features of the FSDT are:
+
+* Rotations disconnected from normal displacements $\phi_x(x, y) \neq -w_{,x} (x, y)$.
+* Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$).
+* Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant in $z$. Therefore,  **shear correction factors are needed**.
+
+```{figure} KinematicEquations-FSDT.*
+:label:fig:FSDT
+:width: 50%
+
+FSDT kinematics [@CastroPhD].
+```
+
+The displacement field using the FSDT [@CastroPhD] can be described by Eq. [](#eq:FSDT):
+
+\begin{equation}
+\label{eq:FSDT}
+\begin{split}
+u(x, y, z) = u_0(x, y) + z \phi_x(x, y) \\
+v(x, y, z) = v_0(x, y) + z \phi_y(x, y) \\
+w(x, y, z) = w(x, y)
+\end{split}
+\end{equation}
+
+Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Figure [](#fig:CLPT-FSDT) [@CastroPhD] visually compares the CLPT and FSDT kinematics.
+
+```{figure} KinematicEquations-CLPT-FSDT.*
+:label:fig:CLPT-FSDT
+:width: 80%
+
+Kinematic comparison between CLPT and FSDT [@CastroPhD].
+```
+
+
+### Third-order Shear Deformation Theory (TSDT)
+
+Reddy proposed a third-order shear deformation theory that results in a second-order interpolation of the transverse shear strains [@Reddy2003, Chap. 11], which has the following kinematic features:
+
+* Rotations disconnected from normal displacements $\phi_x(x, y) \neq -w_{,x} (x, y)$.
+* Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$).
+* Consistent transverse shear strains $\gamma_{xz}(x, y, z)$ and $\gamma_{yz}(x, y, z)$, such that **shear correction factors are not needed**.
+
+A general third-order shear deformation theory would have 9 unknown field variables, as shown below:
+
+\begin{equation*}
+\begin{split}
+u(x, y, z) = u_0(x, y) + z \phi_x(x, y) + z^2 \theta_x(x, y) + z^3 \lambda_x(x, y) \\
+v(x, y, z) = v_0(x, y) + z \phi_y(x, y) + z^2 \theta_y(x, y) + z^3 \lambda_y(x, y) \\
+w(x, y, z) = w_0(x, y)
+\end{split}
+\end{equation*}
+
+Reddy proposed, already in 1984, to impose 4 traction-free boundary conditions, on the bottom and top faces of the laminate:
+
+\begin{equation*}
+\tau_{xz}\left(x, y, \pm \frac{h}{2}\right) = 0 \qquad \tau_{yz}\left(x, y, \pm \frac{h}{2}\right) = 0
+\end{equation*}
+
+which then result in the following kinematic relation with 5 unknown field variables:
+
+\begin{equation}
+\label{eq:TSDT}
+\begin{split}
+u(x, y, z) = u_0(x, y) + z \phi_x(x, y) - \frac{4}{3h^2} z^3 \big(\phi_x(x, y) + w_{,x}(x, y)\big) \\
+v(x, y, z) = v_0(x, y) + z \phi_y(x, y) - \frac{4}{3h^2} z^3 \big(\phi_y(x, y) + w_{,y}(x, y)\big) \\
+w(x, y, z) = w(x, y)
+\end{split}
+\end{equation*}$$
+
+Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Figure [](#fig:TSDT) [@Reddy2003] visually compares the CLPT, FSDT and TSDT kinematics.
+
+```{figure} KinematicEquations-TSDT.*
+:label:fig:TSDT
+:width: 50%
+
+Kinematic comparison between CLPT, FSDT and TSDT [@Reddy2003].
+```
+
+## ESL equations for plates
+
+### CLPT for plates
+
+For a plate, the displacement field can be approximated using the CLPT using the definitions of Eq. [](#eq:CLPT) into Eq. [](#eq:3D-plate) [@CastroPhD]):
 
 \begin{equation}
 \label{eq:CLPT-plate}
@@ -415,26 +449,7 @@ Using van Kármán kinematics, many of the nonlinear terms are simplified [@Cast
 
 ### FSDT for plates
 
-## First-order Shear Deformation Theory (FSDT)
-
-The FSDT is the vastly most used ESL theory within finite element codes. This comes from the rotations being decoupled from the deflections, enabling straightforward and compatible linear interpolation of displacements and rotations within different finite element formulations. The main kinematic features of the FSDT are:
-
-* Rotations disconnected from normal displacements $\phi_x(x, y) \neq -w_{,x} (x, y)$.
-* Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$).
-* Transverse shear strains $\gamma_{xz}$ and $\gamma_{yz}$ are constant in $z$. Therefore, shear correction factors are needed.
-
-The displacement field of plate can be represented using the FSDT as [@CastroPhD] per Eq. [](#eq:FSDT):
-
-\begin{equation}
-\label{eq:FSDT}
-\begin{split}
-u(x, y, z) = u_0(x, y) + z \phi_x(x, y) \\
-v(x, y, z) = v_0(x, y) + z \phi_y(x, y) \\
-w(x, y, z) = w(x, y)
-\end{split}
-\end{equation}
-
-Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Replacing Eq. [](#eq:FSDT) in [](#eq:3D-plate) leads to:
+For a plate, the displacement field can be approximated using the FSDT using the definitions of Eq. [](#eq:FSDT) in [](#eq:3D-plate) [@CastroPhD]):
 
 \begin{equation}
 \label{eq:FSDT-plate}
@@ -447,8 +462,6 @@ Again, for convenience, it is customary to omit the subscript "0" from the mid-s
 \gamma_{yz} = \phi_y + w_{,y} + (z\phi_{x,y} + u_{,y})\phi_x + (z\phi_{y,y} + v_{,y})\phi_y
 \end{split}
 \end{equation}
-
-
 
 Using van Kármán Kinematics:
 
@@ -464,7 +477,6 @@ Using van Kármán Kinematics:
 \end{split}
 \end{equation}
 
-
 It is usual to separate the terms multiplying "z" in the form of Eq. [](#eq:FSDT-plate-linear):
 
 \begin{equation}
@@ -475,7 +487,7 @@ It is usual to separate the terms multiplying "z" in the form of Eq. [](#eq:FSDT
 \end{split}
 \end{equation}
 
-or:
+or, using Voigt's notation:
 
 \begin{equation*}
 \begin{split}
@@ -495,3 +507,39 @@ Note that all relations presented for the FSDT represent a more general case tha
 \gamma_{yz} = 0
 \end{split}
 \end{equation*}
+
+### TSDT for plates
+
+For a plate, the displacement field can be approximated using the TSDT using the definitions of Eq. [](#eq:TSDT) in [](#eq:3D-plate) [@CastroEMstability2025]. In Eq. [](#eq:TSDT-plate-linear) only the linear terms are shown:
+
+\begin{equation}
+\label{eq:TSDT-plate-linear}
+\begin{split}
+\varepsilon_{xx} = u_{,x} + \frac{1}{2} w_{,x}^2 + z\phi_{x,x} + z^3 \left(-\frac{4}{3h^2}\right) (\phi_{x,x} + w_{,xx}) \\
+\varepsilon_{yy} = v_{,y} + \frac{1}{2} w_{,y}^2 + z\phi_{y,y} + z^3 \left(-\frac{4}{3h^2}\right) (\phi_{y,y} + w_{,yy}) \\
+\gamma_{xy} = u_{,y} + v_{,x} + w_{,x}w_{,y} + z\phi_{x,y} + z\phi_{y,x} + z^3 \left(-\frac{4}{3h^2}\right) (\phi_{x,y} + \phi_{y,x} + 2w_{,xy}) \\
+\gamma_{xz} = \phi_x + w_{,x} + z^2 \left(-\frac{4}{h^2}\right) (\phi_x + w_{,x}) \\
+\gamma_{yz} = \phi_y + w_{,y} + z^2 \left(-\frac{4}{h^2}\right) (\phi_y + w_{,y})
+\end{split}
+\end{equation}
+
+or, using Voigt's notation:
+
+\begin{equation*}
+\begin{split}
+\boldsymbol{\varepsilon} = \left\{ \begin{matrix} \varepsilon_{xx} \\ \varepsilon_{yy} \\ 2\varepsilon_{xy} \end{matrix} \right\} = \left\{ \begin{matrix} u_{0,x} \\ v_{0,y} \\ u_{0,y} + v_{0,x} \end{matrix} \right\} + z \left\{ \begin{matrix} \phi_{x,x} \\ \phi_{y,y} \\ \phi_{x,y} + \phi_{y,x} \end{matrix} \right\} + z^3 \left(-\frac{4}{3h^2}\right) \left\{ \begin{matrix} \phi_{x,x} + w_{,xx} \\ \phi_{y,y} + w_{,yy} \\ \phi_{x,y} + \phi_{y,x} + 2w_{,xy} \end{matrix} \right\} \\
+\boldsymbol{\gamma} = \left\{ \begin{matrix} 2\varepsilon_{yz} \\ 2\varepsilon_{xz} \end{matrix} \right\} = \left\{ \begin{matrix} \gamma_{yz} \\ \gamma_{xz} \end{matrix} \right\} = \left\{ \begin{matrix} w_{,y} + \phi_y \\ w_{,x} + \phi_x \end{matrix} \right\} + z^2 \left(-\frac{4}{h^2}\right) \left\{ \begin{matrix} w_{,y} + \phi_y \\ w_{,x} + \phi_x \end{matrix} \right\}
+\end{split}
+\end{equation*}
+
+which becomes:
+
+\begin{equation*}
+\begin{split}
+\boldsymbol{\varepsilon} = \boldsymbol{\varepsilon}^{(0)} + z\boldsymbol{\varepsilon}^{(1)} + z^3\boldsymbol{\varepsilon}^{(3)} \\
+\boldsymbol{\gamma} = \boldsymbol{\gamma}^{(0)} + z^2\boldsymbol{\gamma}^{(2)}
+\end{split}
+\end{equation*}
+
+Again, the subscript "0" for the mid-surface expressions is usually omitted.
+
