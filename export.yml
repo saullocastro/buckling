@@ -14,7 +14,7 @@ project:
         - content/BucklingShells.md
         - content/PostBuckling.md
         - content/PostBucklingShells.md
-        - content/PostBucklingShells-Imperfect.md
+        - content/PostBucklingShellsImperfect.md
         
     - format: typst
       template: https://github.com/saullocastro/typst_template.git
@@ -38,7 +38,7 @@ project:
         - content/PostBuckling.md
         - content/PostBuckling-be-composites-TEW.ipynb
         - content/PostBucklingShells.md
-        - content/PostBucklingShells-Imperfect.md
+        - content/PostBucklingShellsImperfect.md
 
   downloads:
     - id: report_tex
