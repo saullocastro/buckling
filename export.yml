@@ -7,6 +7,7 @@ project:
       id: report_tex
       articles:
         - content/Index.md
+        - content/Preface.md
         - content/Introduction.md
         - content/KinematicEquations.md
         - content/Static.md
@@ -31,6 +32,7 @@ project:
       id: report_pandoc
       articles:
         - content/Index.md
+        - content/Preface.md
         - content/Introduction.md
         - content/KinematicEquations.md
         - content/Static.md

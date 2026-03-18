@@ -2,6 +2,7 @@ version: 1
 project:
   toc:
     - file: content/Index.md
+    - file: content/Preface.md
     - file: content/Introduction.md
     - file: content/KinematicEquations.md
     - file: content/Static.md

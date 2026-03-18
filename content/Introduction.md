@@ -1,17 +1,6 @@
-# Introduction to semi-analytical modelling
+# Basic principles
 
-The simplest buckling case consists of the classical solution for the deflection $w$ of a plate with length $a$, width $b$ and thickness $h$, under in-plane distributed loads ($N_x$, $N_y$, $N_{xy}$). Even for this simple case, the presence of the bending-twisting coupling terms ($D_{16}$ and $D_{26}$); or the laminate being not symmetric $\boldsymbol{B} \neq 0$; or boundary conditions combining, clamped, simply-supported and free edges; or if the distributed in-plane loads $N_x$, $N_y$ or $N_{xy}$ are non-constant; the buckled mode shape will skew such that the exact closed-form solutions, for instance using orthogonal Fourier series, will become intractable, requiring semi-analytical methods or finite element discretizations. The governing equation for this problem is given below
-[@Kassapoglou2013]:
-
-\begin{equation}
-\label{eq:diffeqplate}
-\begin{aligned}
-D_{11}\frac{\partial^4 w}{\partial x^4} + 4D_{16}\frac{\partial^4 w}{\partial x^3 \partial y} \\
-+ 2(D_{12} + 2D_{66})\frac{\partial^4 w}{\partial x^2 \partial y^2} \\
-+ 4D_{26}\frac{\partial^4 w}{\partial x \partial y^3} + D_{22}\frac{\partial^4 w}{\partial y^4} \\
-= N_x\frac{\partial^2 w}{\partial x^2} + N_y\frac{\partial^2 w}{\partial y^2} + 2N_{xy}\frac{\partial^2 w}{\partial x \partial y}
-\end{aligned}
-\end{equation}
+This first chapter presents the basic principles used to produce the system of equations to be solved.
 
 ## Principle of minimum potential energy
 
