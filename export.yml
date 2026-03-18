@@ -8,7 +8,7 @@ project:
       articles:
         - content/Index.md
         - content/Preface.md
-        - content/Introduction.md
+        - content/BasicPrinciples.md
         - content/KinematicEquations.md
         - content/Static.md
         - content/BucklingPlates.md
@@ -33,7 +33,7 @@ project:
       articles:
         - content/Index.md
         - content/Preface.md
-        - content/Introduction.md
+        - content/BasicPrinciples.md
         - content/KinematicEquations.md
         - content/Static.md
         - content/BucklingPlates.md

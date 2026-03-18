@@ -60,8 +60,8 @@ plt.axvline(0, color='black', linewidth=0.5)
 plt.xlim([-1, 1])
 
 # Save or Show
-plt.savefig('Introduction-Legendre-BC.svg', bbox_inches='tight')
-plt.savefig('Introduction-Legendre-BC.pdf', bbox_inches='tight')
+plt.savefig('BasicPrinciples-Legendre-BC.svg', bbox_inches='tight')
+plt.savefig('BasicPrinciples-Legendre-BC.pdf', bbox_inches='tight')
 #plt.show()
 
 
@@ -96,7 +96,7 @@ plt.axvline(0, color='black', linewidth=0.5)
 plt.xlim([-1, 1])
 
 # Save or Show
-plt.savefig('Introduction-Legendre-inner.svg', bbox_inches='tight')
-plt.savefig('Introduction-Legendre-inner.pdf', bbox_inches='tight')
-plt.savefig('Introduction-Legendre-inner.jpg', bbox_inches='tight')
+plt.savefig('BasicPrinciples-Legendre-inner.svg', bbox_inches='tight')
+plt.savefig('BasicPrinciples-Legendre-inner.pdf', bbox_inches='tight')
+plt.savefig('BasicPrinciples-Legendre-inner.jpg', bbox_inches='tight')
 #plt.show()

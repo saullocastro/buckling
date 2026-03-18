@@ -6,7 +6,7 @@ The discussion presented by Castro [@CastroPhD; @CastroEMstability2025] is herei
 
 According to the three-dimensional (3D) elasticity theory, the strain components referred to an arbitrary orthogonal coordinate system $x_1$,$x_2$, $x_3$, illustrated in [](#fig:kestress-3D)
 
-```{figure} Introduction-stress-3D.*
+```{figure} BasicPrinciples-stress-3D.*
 :label: fig:kestress-3D
 :width: 40%
 
@@ -48,7 +48,7 @@ H_{3} = \sqrt{(X_{1,x_{3}})^{2} + (X_{2,x_{3}})^{2} + (X_{3,x_{3}})^{2}}
 ## 3D kinematic equations for plates
 
 Figure [](#fig:keplate-domain) shows the local and global coordinates of a plate.
-```{figure} Introduction-plate-domain.*
+```{figure} BasicPrinciples-plate-domain.*
 :label:fig:keplate-domain
 :width: 30%
 
