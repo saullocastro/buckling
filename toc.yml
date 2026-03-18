@@ -31,6 +31,7 @@ project:
     - file: content/PostBucklingShellsImperfect.md    
     - title: Appendix
       children:
+        - file: content/ShearCorrectionFactors.md
         - file: content/KinematicEquationsAppendix.md
           children:
             - file: content/KinematicEquations-plate-3D.ipynb
@@ -43,3 +44,4 @@ project:
             - file: content/KinematicEquations-cylinder-shallow.ipynb
             - file: content/KinematicEquations-cone-3D.ipynb
             - file: content/KinematicEquations-sphere-3D.ipynb
+          

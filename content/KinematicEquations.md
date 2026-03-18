@@ -335,6 +335,7 @@ For convenience, it is customary to omit the subscript "0" from the mid-surface 
 
 
 
+(sec:FSDT)=
 ### First-order Shear Deformation Theory (FSDT)
 
 Also known as Reissner-Mindlin theory, the FSDT is the vastly most used ESL theory within finite element codes. Its popularity comes from fact that the rotations being decoupled from the deflections, enabling straightforward and compatible linear interpolation of displacements and rotations within different finite element formulations. The main kinematic features of the FSDT are:

@@ -1,0 +1,3 @@
+# Shear Correction Factors
+
+When the FSDT is used, constant transverse shear strains $\gamma_{yz}$ and $\gamma_{xz}$ are assumed, as detailed in [](#sec:FSDT), creating an inconsistent transverse shear energy in the system, and therefore requiring a so called and widely used shear correction factor (SCF). The wide application comes from FSDT-based plate elements being the most popular in commercial finite element software.
