@@ -16,6 +16,9 @@ project:
         - content/PostBuckling.md
         - content/PostBucklingShells.md
         - content/PostBucklingShellsImperfect.md
+        - content/AppendixDivider.md
+        - content/ShearCorrectionFactors.md
+        - content/KinematicEquationsAppendix.md
         
     - format: typst
       template: https://github.com/saullocastro/typst_template.git
@@ -41,6 +44,9 @@ project:
         - content/PostBuckling-be-composites-TEW.ipynb
         - content/PostBucklingShells.md
         - content/PostBucklingShellsImperfect.md
+        - content/AppendixDivider.md
+        - content/ShearCorrectionFactors.md
+        - content/KinematicEquationsAppendix.md
 
   downloads:
     - id: report_tex
