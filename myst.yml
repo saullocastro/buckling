@@ -35,6 +35,7 @@ extends:
 site:
   template: book-theme
   options:
+    style: custom.css
     favicon: figures/favicon.ico
     logo: figures/tudelft.png
     logo_dark: figures/tudelft-dark.png

@@ -1,0 +1,18 @@
+/* custom.css */
+
+/* 1. Load the webfont (make sure the path points to your actual font files) */
+@font-face {
+  font-family: 'Latin Modern Typewriter Proportional';
+  src: url('/public/fonts/lmvtt.woff2') format('woff2'); /* Adjust path as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 2. Create a variable for the active font and apply it to the body */
+:root {
+  --myst-user-font: 'Latin Modern Typewriter Proportional', monospace;
+}
+
+body, .myst-container {
+  font-family: var(--myst-user-font) !important;
+}
