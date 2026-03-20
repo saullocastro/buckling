@@ -18,3 +18,5 @@ tmp.txt
 *.blg
 *.pdf
 node_modules
+package-lock.json
+package.json
