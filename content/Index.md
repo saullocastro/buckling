@@ -15,7 +15,7 @@ Date: March 23, 2026
 
 Theory and practice on semi-analytical models for buckling and post-buckling.
 
-![](index.jpg)
+![](Index.jpg)
 
 {button}`Start reading the book </abstract>`
 
