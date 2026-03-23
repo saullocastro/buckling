@@ -35,6 +35,7 @@ extends:
 site:
   template: book-theme
   options:
+    analytics_google: G-RFTJ1MWS5P
     style: custom.css
     favicon: figures/favicon.ico
     logo: figures/tudelft.png
