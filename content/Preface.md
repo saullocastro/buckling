@@ -30,3 +30,10 @@ D_{11}\frac{\partial^4 w}{\partial x^4} + 4D_{16}\frac{\partial^4 w}{\partial x^
 
 Even for this simple case, the presence of the bending-twisting coupling terms ($D_{16}$ and $D_{26}$); or the laminate being not symmetric $\boldsymbol{B} \neq 0$; or boundary conditions combining, clamped, simply-supported and free edges; or if the distributed in-plane loads $N_x$, $N_y$ or $N_{xy}$ are non-constant; the buckled mode shape will skew such that the exact closed-form solutions, for instance using orthogonal Fourier series, will become intractable, requiring semi-analytical methods or finite element discretizations. 
 
+## PDF and web version
+
+The web version of the Buckling Handbook is available online at:
+[https://saullocastro.github.io/buckling/](https://saullocastro.github.io/buckling/).
+
+The GitHub repository is available online at:
+[https://github.com/saullocastro/buckling/](https://github.com/saullocastro/buckling/).

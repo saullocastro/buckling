@@ -2,12 +2,12 @@ version: 1
 project:
   title: Buckling handbook
   # description:
-  keywords: [Buckling, Post-Buckling, Jupyter Book, Open Science, TU Delft]
+  keywords: [Buckling, Post-Buckling, Semi-Analytical, Jupyter Book, Open Science, TU Delft]
   authors: 
     - name: Saullo G. P. Castro
       affiliation: Delft University of Technology
   github: https://github.com/saullocastro/buckling
-  date: 2026-02-17
+  date: 2026-03-23
 
   numbering:
     code: false

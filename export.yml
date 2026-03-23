@@ -6,7 +6,6 @@ project:
       output: exports/report_tex.pdf
       id: report_tex
       articles:
-        - content/Index.md
         - content/Preface.md
         - content/BasicPrinciples.md
         - content/KinematicEquations.md
@@ -33,7 +32,6 @@ project:
       output: exports/report.tex
       id: report_pandoc
       articles:
-        - content/Index.md
         - content/Preface.md
         - content/BasicPrinciples.md
         - content/KinematicEquations.md
