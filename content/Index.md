@@ -17,7 +17,7 @@ Theory and practice on semi-analytical models for buckling and post-buckling.
 
 ![](Index.jpg)
 
-{button}`Start reading the book </abstract>`
+{button}`Start reading the book </about>`
 
 +++ { "kind": "justified"}
 
