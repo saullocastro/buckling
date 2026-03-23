@@ -1,7 +1,7 @@
 version: 1
 project:
   toc:
-    - file: content/index.md
+    - file: content/Index.md
     - file: content/Abstract.md
     - file: content/Preface.md
     - file: content/BasicPrinciples.md
