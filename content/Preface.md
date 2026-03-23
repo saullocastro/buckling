@@ -1,3 +1,12 @@
+---
+numbering:
+  headings: false
+---
+
+```{raw} latex
+\setcounter{secnumdepth}{0}
+```
+
 # Preface
 
 This book is a successful attempt to organise all material I have concerning semi-analytical modelling, consisting of a self-contained theoretical and practical reference for young and experienced engineers and scienties. It covers topics from linear static analysis using classical formulation to deep post-buckling analysis using third-order shear deformation theory.
@@ -37,3 +46,7 @@ The web version of the Buckling Handbook is available online at:
 
 The GitHub repository is available online at:
 [https://github.com/saullocastro/buckling/](https://github.com/saullocastro/buckling/).
+
+```{raw} latex
+\setcounter{secnumdepth}{3}
+```

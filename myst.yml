@@ -1,7 +1,6 @@
 version: 1
 project:
   title: Buckling handbook
-  # description:
   keywords: [Buckling, Post-Buckling, Semi-Analytical, Jupyter Book, Open Science, TU Delft]
   authors: 
     - name: Saullo G. P. Castro
@@ -44,9 +43,9 @@ site:
   actions:
     - title: PDF
       url: ./exports/report_tex.pdf
-    - title: Typst PDF
-      url: ./exports/report_typst.pdf
     - title: DOCX pandoc
       url: ./exports/report_pandoc.docx
+#    - title: Typst PDF
+#      url: ./exports/report_typst.pdf
 #    - title: DOCX
 #      url: ./exports/report.docx
