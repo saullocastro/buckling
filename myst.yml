@@ -29,16 +29,13 @@ extends:
   - toc.yml     # includes table of contents
   - export.yml  # includes export configurations
   - plugins.yml
-  
-  
+
 site:
   template: book-theme
   options:
     analytics_google: G-RFTJ1MWS5P
     style: custom.css
     favicon: figures/favicon.ico
-    logo: figures/tudelft.png
-    logo_dark: figures/tudelft-dark.png
     hide_authors: true
   actions:
     - title: PDF

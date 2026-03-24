@@ -3,6 +3,8 @@ project:
   exports:
     - format: pdf
       template: https://github.com/saullocastro/latex_template.git
+      options:
+        pdfcover: content/pdfcover.pdf
       output: exports/report_tex.pdf
       id: report_tex
       articles:
