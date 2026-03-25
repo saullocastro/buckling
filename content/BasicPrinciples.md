@@ -230,13 +230,13 @@ Take the plate-like domain shown in [](#fig:plate-domain). A general expression 
 
 $$\boldsymbol{u} = \begin{Bmatrix} u(x,y,z) \\ v(x,y,z) \\ w(x,y,z) \end{Bmatrix} = \boldsymbol{S}(x,y,z)\bar{\boldsymbol{c}} = \begin{Bmatrix} \boldsymbol{S}^u(x,y,z) \\ \boldsymbol{S}^v(x,y,z) \\ \boldsymbol{S}^w(x,y,z) \end{Bmatrix} \bar{\boldsymbol{c}} \nonumber$$
 
-using Legendre polynomials (summation convention for repeated indices):
+using Legendre polynomials and a summation convention for repeated indices:
 
 $$u(x,y,z) = c_{ijk}^u P_i(\xi) P_j(\eta) P_k(\zeta) \nonumber$$
 $$v(x,y,z) = c_{ijk}^v P_i(\xi) P_j(\eta) P_k(\zeta) \nonumber$$
 $$w(x,y,z) = c_{ijk}^w P_i(\xi) P_j(\eta) P_k(\zeta) \nonumber$$
 
-which, for a plate:
+with $1 \le [i,j,k] \le n_{[x,y,z]}$ where $n_[x,y,z]$ represents the number of terms in each global coordinate direction. The natural coordinates $\xi$, $\eta$ and $\zeta$ are defined as follows for a plate:
 
 $$\xi = \frac{2x}{a} - 1 \nonumber$$
 $$\eta = \frac{2y}{b} - 1 \nonumber$$
@@ -248,6 +248,29 @@ $$\zeta = \frac{2z}{h} - 1 \nonumber$$
 
 Three-dimensional plate domain.
 ```
+
+For the sake of completeness, let's also write the expressions for the displacement field using explicit summation:
+
+$$u(x,y,z) = \sum_{i=1}^{n_x} \sum_{ij=1}^{n_y} \sum_{k=1}^{n_z} c_{ijk}^u P_i(\xi) P_j(\eta) P_k(\zeta) \nonumber$$
+$$v(x,y,z) = \sum_{i=1}^{n_x} \sum_{ij=1}^{n_y} \sum_{k=1}^{n_z} c_{ijk}^v P_i(\xi) P_j(\eta) P_k(\zeta) \nonumber$$
+$$w(x,y,z) = \sum_{i=1}^{n_x} \sum_{ij=1}^{n_y} \sum_{k=1}^{n_z} c_{ijk}^w P_i(\xi) P_j(\eta) P_k(\zeta) \nonumber$$
+
+and using vector notation:
+
+$$u(x,y,z) = \boldsymbol{S}^u \boldsymbol{c} \nonumber$$
+$$v(x,y,z) = \boldsymbol{S}^u \boldsymbol{c}  \nonumber$$
+$$w(x,y,z) = \boldsymbol{S}^u \boldsymbol{c}  \nonumber$$
+
+where $\boldsymbol{c}$ contains all coefficients $c_{ijk}$ for $1 \le [i,j,k] \le n_{[x,y,z]}$. The sequence in which the coefficients are placed is arbritrary and does not affect the level of sparsity of the stiffness matrix or other structural matrices, but it does affect the bandwidth of these matrices, which significantly affects the overall efficiency and numerically stability of the implementation. To illustrate the differences in defree-of-freedom (DOF) ordering, a practical example of the buckling of a plate using 3D elasticity is investigated in depth in [this notebook](https://colab.research.google.com/github/saullocastro/buckling/blob/main/content/BasicPrinciples-DOF-ordering.ipynb). There, the DOF are stored in a block- and alternated-based approach. The results are compared in detail, and the sparsity of the stiffness matrix \boldsymbol{K} is illustrated in [](#fig:DOF-ordering). A detailed formulation of this problem is provided in details in [](#sec:buckling-plates-3d).
+
+
+```{figure} BasicPrinciples-DOF-ordering-sparsity.*
+:label:fig:DOF-ordering
+:width: 100%
+
+Degrees-of-freedom of the stiffness matrix for block and alternated approaches.
+```
+
 
 
 ## Neutral Equilibrium Criterion

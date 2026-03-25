@@ -157,6 +157,8 @@ $$\begin{Bmatrix} \hat{\sigma}_{xx} \\ \hat{\sigma}_{yy} \\ \hat{\tau}_{xy} \end
  
 
  ## Buckling of a plate using full 3D elasticity
+(sec:buckling-plates-3d)=
+## Buckling of a plate using full 3D elasticity
 
  For the 3D elasticity case, the following expression can be used to calculate the geometric stiffness matrix for plates, using van Kármán kinematics:
  
