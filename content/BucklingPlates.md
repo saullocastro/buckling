@@ -156,7 +156,6 @@ $\hat{\sigma}_{xx}, \hat{\sigma}_{yy}, \hat{\tau}_{xy}$ can be calculated for pl
 $$\begin{Bmatrix} \hat{\sigma}_{xx} \\ \hat{\sigma}_{yy} \\ \hat{\tau}_{xy} \end{Bmatrix} = \frac{1}{h} \begin{bmatrix} \boldsymbol{A} & \boldsymbol{B} \\ \boldsymbol{B} & \boldsymbol{D} \end{bmatrix} \left( \boldsymbol{B}_L + \frac{1}{2}\boldsymbol{B}_{NL} \right) \boldsymbol{\hat{u}} \nonumber$$
  
 
- ## Buckling of a plate using full 3D elasticity
 (sec:buckling-plates-3d)=
 ## Buckling of a plate using full 3D elasticity
 

@@ -5,6 +5,8 @@ project:
     - file: content/About.md
     - file: content/Preface.md
     - file: content/BasicPrinciples.md
+      children:
+        - file: content/BasicPrinciples-DOF-ordering.ipynb
     - file: content/KinematicEquations.md
     - file: content/Static.md
       children:
