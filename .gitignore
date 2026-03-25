@@ -16,7 +16,6 @@ tmp.txt
 *.log
 *.bbl
 *.blg
-*.pdf
 node_modules
 package-lock.json
 package.json

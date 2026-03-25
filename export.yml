@@ -4,7 +4,7 @@ project:
     - format: pdf
       template: https://github.com/saullocastro/latex_template.git
       options:
-        pdfcover: content/pdfcover.pdf
+        pdfcover: figures/pdfcover.pdf
       output: exports/report_tex.pdf
       id: report_tex
       articles:
