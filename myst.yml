@@ -8,6 +8,16 @@ project:
   github: https://github.com/saullocastro/buckling
   date: 2026-03-25
 
+  plugins:
+    - https://github.com/jupyter-book/myst-plugins/releases/download/iframe-to-qr-pdf/iframe-to-qr-pdf.mjs
+    - resolve-wildcard-images.mjs
+    - fix-math-docx.mjs
+    - https://github.com/choldgraf/myst-substitutions/releases/download/v0.2/index.mjs
+
+  substitutions:
+    colab: "https://colab.research.google.com/github/saullocastro/buckling/blob/main/content"
+    colab_tag: "https://colab.research.google.com/github/saullocastro/buckling/blob/2026.1/content"
+
   numbering:
     code: false
     equations: false
@@ -28,7 +38,6 @@ project:
 extends:
   - toc.yml     # includes table of contents
   - export.yml  # includes export configurations
-  - plugins.yml
 
 site:
   template: book-theme
