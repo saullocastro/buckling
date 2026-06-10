@@ -47,7 +47,7 @@ H_{3} = \sqrt{(X_{1,x_{3}})^{2} + (X_{2,x_{3}})^{2} + (X_{3,x_{3}})^{2}}
 
 ## 3D kinematic equations for plates
 
-Figure [](#fig:keplate-domain) shows the local and global coordinates of a plate.
+[](#fig:keplate-domain) shows the local and global coordinates of a plate.
 ```{figure} BasicPrinciples-plate-domain.*
 :label:fig:keplate-domain
 :width: 30%
@@ -92,7 +92,7 @@ We have that:
 
 ## 3D kinematic equations for cylindrical shells
 
-Figure [](#fig:cylinder-domain) shows the local and global coordinates of a cylindrical shell.
+[](#fig:cylinder-domain) shows the local and global coordinates of a cylindrical shell.
 
 ```{figure} KinematicEquations-cylinder.*
 :label:fig:cylinder-domain
@@ -139,7 +139,7 @@ These equations represent the linear part of the strain-displacement relations (
 
 ## 3D kinematic equations for conical shells
 
-Figure [](#fig:cone-domain) shows the local and global coordinates of a conical shell, adapted from Castro et al. [@Castro2014; @Castro2015; @Castro2015imperfect; @CastroPhD].
+[](#fig:cone-domain) shows the local and global coordinates of a conical shell, adapted from Castro et al. [@Castro2014; @Castro2015; @Castro2015imperfect; @CastroPhD].
 
 ```{figure} KinematicEquations-cone.*
 :label:fig:cone-domain
@@ -188,7 +188,7 @@ The $\sin \alpha$ and $\cos \alpha$ terms represent the coupling between in-plan
 
 ## 3D kinematic equations for spherical shells
 
-Figure [](#fig:sphere-domain) shows the local and global coordinates of a spherical shell.
+[](#fig:sphere-domain) shows the local and global coordinates of a spherical shell.
 
 ```{figure} KinematicEquations-sphere.*
 :label:fig:sphere-domain
@@ -262,7 +262,7 @@ Among the ESL theories, the **First-order Shear Deformation Theory (FSDT)**, esp
 
 ### Equivalent Single-Layer for Shells: Mathematical Illustration
 
-To enable ESL kinematics, the 3D domain integration must be reduced to a 2D domain integration, as illustrated in Figure [](#fig:ESL) [@CastroPhD].
+To enable ESL kinematics, the 3D domain integration must be reduced to a 2D domain integration, as illustrated in [](#fig:ESL) [@CastroPhD].
 
 ```{figure} KinematicEquations-ESL.*
 :label:fig:ESL
@@ -311,7 +311,7 @@ The simplest of the ESL theories is the Classical Laminated Plate Theory (CLPT) 
 
 * Transverse normals remain straight after deformation;
 * Transverse normals do not experience elongation ($\varepsilon_{zz} = 0$);
-* The transverse normals rotate so that they remain perpendicular to the mid-surface after deformation (no transverse shear takes place, i.e. $\gamma_{yz} = \gamma_{xz} = 0$), leading to $\phi_x = -\frac{\partial w}{\partial x}$, illustrated in Figure [](#fig:CLPT).
+* The transverse normals rotate so that they remain perpendicular to the mid-surface after deformation (no transverse shear takes place, i.e. $\gamma_{yz} = \gamma_{xz} = 0$), leading to $\phi_x = -\frac{\partial w}{\partial x}$, illustrated in [](#fig:CLPT).
 
 ```{figure} KinematicEquations-CLPT.*
 :label:fig:CLPT
@@ -362,7 +362,7 @@ w(x, y, z) = w(x, y)
 \end{split}
 \end{equation}
 
-Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Figure [](#fig:CLPT-FSDT) [@CastroPhD] visually compares the CLPT and FSDT kinematics.
+Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. [](#fig:CLPT-FSDT) [@CastroPhD] visually compares the CLPT and FSDT kinematics.
 
 ```{figure} KinematicEquations-CLPT-FSDT.*
 :label:fig:CLPT-FSDT
@@ -407,7 +407,7 @@ w(x, y, z) = w(x, y)
 \end{split}
 \end{equation}
 
-Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. Figure [](#fig:TSDT) [@Reddy2003] visually compares the CLPT, FSDT and TSDT kinematics.
+Again, for convenience, it is customary to omit the subscript "0" from the mid-surface displacements, which should be clear from the context. [](#fig:TSDT) [@Reddy2003] visually compares the CLPT, FSDT and TSDT kinematics.
 
 ```{figure} KinematicEquations-TSDT.*
 :label:fig:TSDT
