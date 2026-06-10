@@ -20,11 +20,6 @@ project:
         - content/AppendixDivider.md
         - content/ShearCorrectionFactors.md
         
-    - format: typst
-      template: https://github.com/saullocastro/typst_template.git
-      output: exports/report_typst.pdf
-      id: report_typst
-    
     - format: docx
       article: templates/template_docx.md
       output: exports/report.docx
@@ -49,9 +44,5 @@ project:
   downloads:
     - id: report_tex
       title: PDF (LaTeX)
-    - id: report_typst
-      title: PDF (Typst)
-    - id: report_docx
-      title: DOCX (Microsoft Word)
     - id: report_pandoc
       title: DOCX (Pandoc)

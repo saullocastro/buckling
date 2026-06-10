@@ -3,21 +3,21 @@ import { join, dirname, relative } from 'path';
 
 function getPreferredExtension() {
   const args = process.argv;
-  const hasTypst = args.includes('--typst');
   const hasPdf = args.includes('--pdf');
   const hasDocx = args.includes('--docx');
   const hasHtml = args.includes('--html');
   const hasJats = args.includes('--jats') || args.includes('--xml');
   const hasTex = args.includes('--tex');
+  const hasPandoc = process.env.PANDOC === '1';
 
   if (hasDocx) return '.jpg';
   if (hasJats) return '.jpg';
+  if (hasTex && hasPandoc) return '.jpg';
   if (hasTex) return '.pdf';
-  if (hasTypst) return '.pdf';
   if (hasPdf) return '.pdf';
   if (hasHtml) return '.svg'; 
   // Default fallback
-  throw new Error('No valid build target specified. Please use --typst, --pdf, --tex, --docx, --jats, or --html.');    
+  throw new Error('No valid build target specified. Please use --pdf, --tex, --docx, --jats, or --html.');    
 }
 
 const resolveWildcardTransform = {

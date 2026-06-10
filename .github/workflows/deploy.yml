@@ -38,10 +38,6 @@ jobs:
       - name: Install MyST
         run: npm install -g mystmd
 
-        # to build the typst and latex pdf
-      - name: Setup Typst
-        uses: typst-community/setup-typst@v4
-
       - name: Install LaTeX tooling and Pandoc
         run: |
           sudo apt-get update
@@ -53,17 +49,13 @@ jobs:
             fonts-lmodern \
             pandoc
 
-      - name: Build PDF
+      - name: Build LaTeX PDF
         run: |
-          myst build --typst --pdf
+          myst build --pdf
 
-      - name: Build DOCX
-        run: |
-          myst build --docx
-      
       - name: Build DOCX (Pandoc)
         run: |
-          myst build --tex
+          PANDOC=1 myst build --tex
           cd exports && pandoc -f latex -t docx \
             --resource-path=.:../content \
             -o report_pandoc.docx \
